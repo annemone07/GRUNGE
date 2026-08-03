@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://dywe5y84fa23q"]
 
 [ext_resource type="PackedScene" uid="uid://c15qr6ssgce11" path="res://scenes/PlayerTrack.tscn" id="1_kqs1s"]
+[ext_resource type="PackedScene" uid="uid://buy04pl4cn8mc" path="res://scenes/guitar.tscn" id="2_32lhk"]
+[ext_resource type="PackedScene" uid="uid://c8mddhecy1pvk" path="res://scenes/killzone.tscn" id="3_7g83o"]
 
 [node name="World" type="Node3D" unique_id=109743837]
 
 [node name="PlayerTrack" parent="." unique_id=1360706888 instance=ExtResource("1_kqs1s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
+[node name="guitar" parent="PlayerTrack" unique_id=1306504546 instance=ExtResource("2_32lhk")]
+
 [node name="PlayerTrack2" parent="." unique_id=154709634 instance=ExtResource("1_kqs1s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="killzone" parent="." unique_id=757899847 instance=ExtResource("3_7g83o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 20.434)
