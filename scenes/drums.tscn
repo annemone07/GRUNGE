@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bhmtgvp45w4qg"]
+
+[ext_resource type="PackedScene" uid="uid://bdgbqfwp7pco2" path="res://scenes/note_track.tscn" id="1_wnfv1"]
+
+[node name="drums" type="Node3D" unique_id=1829957149]
+
+[node name="noteTrack3" parent="." unique_id=1272245449 instance=ExtResource("1_wnfv1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="noteTrack4" parent="." unique_id=344548849 instance=ExtResource("1_wnfv1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+
+[node name="noteTrack5" parent="." unique_id=1473860395 instance=ExtResource("1_wnfv1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="noteTrack6" parent="." unique_id=1484328927 instance=ExtResource("1_wnfv1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+
+[node name="noteTrack1" parent="." unique_id=627209346 instance=ExtResource("1_wnfv1")]
+transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, -3.5, 2, 1.0507387)
+
+[node name="noteTrack2" parent="." unique_id=203690889 instance=ExtResource("1_wnfv1")]
+transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, -2.634, 1.5, 1.0507387)
+
+[node name="noteTrack8" parent="." unique_id=1816674981 instance=ExtResource("1_wnfv1")]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 3.5, 2, 1.0507387)
+
+[node name="noteTrack7" parent="." unique_id=879036401 instance=ExtResource("1_wnfv1")]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 2.634, 1.5, 1.0507387)

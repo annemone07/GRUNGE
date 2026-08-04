@@ -1,5 +1,8 @@
 extends Node
 
+var instrumento_1 = ""
+var instrumento_2 = ""
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

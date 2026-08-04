@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://coc7vgoaclfui"]
+
+[ext_resource type="PackedScene" uid="uid://bdgbqfwp7pco2" path="res://scenes/note_track.tscn" id="1_qhpin"]
+
+[node name="bass" type="Node3D" unique_id=630460287]
+
+[node name="noteTrack1" parent="." unique_id=1272245449 instance=ExtResource("1_qhpin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="noteTrack2" parent="." unique_id=1460280726 instance=ExtResource("1_qhpin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+
+[node name="noteTrack3" parent="." unique_id=1785538458 instance=ExtResource("1_qhpin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="noteTrack4" parent="." unique_id=441849950 instance=ExtResource("1_qhpin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
