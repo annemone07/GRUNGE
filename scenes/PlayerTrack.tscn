@@ -1,39 +1,16 @@
 [gd_scene format=3 uid="uid://c15qr6ssgce11"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27jdi"]
-albedo_color = Color(1, 0.14901961, 1, 1)
-distance_fade_mode = 1
-distance_fade_min_distance = 50.0
-distance_fade_max_distance = 0.0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
-material = SubResource("StandardMaterial3D_27jdi")
-size = Vector2(5, 100)
+[ext_resource type="PackedScene" uid="uid://bhmtgvp45w4qg" path="res://scenes/drums.tscn" id="1_mchc3"]
 
 [node name="PlayerTrack" type="Node3D" unique_id=1360706888]
 
-[node name="TrackMesh" type="MeshInstance3D" parent="." unique_id=165221596]
-mesh = SubResource("PlaneMesh_g4v7s")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=367849478]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=180781956]
 transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 8, 12)
 fov = 60.0
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=104038639]
 
-[node name="notesSpawns" type="Node" parent="." unique_id=456332625]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=20901634]
+transform = Transform3D(1, 0, 0, 0, 0.7680431, 0.64039814, 0, -0.64039814, 0.7680431, 0, 9.463108, 13.627919)
 
-[node name="spawn1" type="Node3D" parent="notesSpawns" unique_id=1518474662]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -40)
-
-[node name="spawn2" type="Node3D" parent="notesSpawns" unique_id=1115650848]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -40)
-
-[node name="spawn3" type="Node3D" parent="notesSpawns" unique_id=1545690538]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
-
-[node name="spawn4" type="Node3D" parent="notesSpawns" unique_id=1146937110]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -40)
-
-[node name="spawn5" type="Node3D" parent="notesSpawns" unique_id=335860953]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -40)
+[node name="drums" parent="." unique_id=1829957149 instance=ExtResource("1_mchc3")]

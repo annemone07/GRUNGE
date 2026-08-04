@@ -2,9 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://dywe5y84fa23q" path="res://scenes/World.tscn" id="1_00lnd"]
 [ext_resource type="Script" uid="uid://tobn1u6ylpeo" path="res://scripts/play_map.gd" id="1_dliau"]
+[ext_resource type="Texture2D" uid="uid://x3yd4i35af73" path="res://icon.svg" id="3_qwvua"]
 
 [node name="playMap" type="Node3D" unique_id=1877076580]
 script = ExtResource("1_dliau")
+
+[node name="fundoPlaceholder" type="Sprite2D" parent="." unique_id=560256277]
+position = Vector2(737.5, 417)
+scale = Vector2(4.8828125, 3.8125)
+texture = ExtResource("3_qwvua")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=427530221]
 

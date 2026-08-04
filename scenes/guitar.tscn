@@ -1,50 +1,17 @@
 [gd_scene format=3 uid="uid://buy04pl4cn8mc"]
 
-[ext_resource type="PackedScene" uid="uid://bvnqrw2jldu2v" path="res://scenes/detect.tscn" id="1_mq804"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mnnu"]
-albedo_color = Color(1, 0.12156863, 0.14901961, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_otrat"]
-material = SubResource("StandardMaterial3D_4mnnu")
-size = Vector3(1, 0.1, 1)
+[ext_resource type="PackedScene" uid="uid://bdgbqfwp7pco2" path="res://scenes/note_track.tscn" id="1_mq804"]
 
 [node name="guitar" type="Node3D" unique_id=1306504546]
 
-[node name="detect1" parent="." unique_id=1919772785 instance=ExtResource("1_mq804")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+[node name="noteTrack1" parent="." unique_id=1272245449 instance=ExtResource("1_mq804")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
 
-[node name="detect2" parent="." unique_id=1067927108 instance=ExtResource("1_mq804")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+[node name="noteTrack2" parent="." unique_id=621944407 instance=ExtResource("1_mq804")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 
-[node name="detect3" parent="." unique_id=1852654566 instance=ExtResource("1_mq804")]
+[node name="noteTrack3" parent="." unique_id=726745342 instance=ExtResource("1_mq804")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 
-[node name="detect4" parent="." unique_id=1568928155 instance=ExtResource("1_mq804")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-
-[node name="detect5" parent="." unique_id=128107347 instance=ExtResource("1_mq804")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1866522261]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-visible = false
-mesh = SubResource("BoxMesh_otrat")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2029968588]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-visible = false
-mesh = SubResource("BoxMesh_otrat")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=705278288]
-visible = false
-mesh = SubResource("BoxMesh_otrat")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1049893465]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-visible = false
-mesh = SubResource("BoxMesh_otrat")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=285429666]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-visible = false
-mesh = SubResource("BoxMesh_otrat")
+[node name="noteTrack4" parent="." unique_id=189061834 instance=ExtResource("1_mq804")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)

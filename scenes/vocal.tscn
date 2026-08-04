@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ceje6vtnxeqw7"]
+
+[ext_resource type="PackedScene" uid="uid://bdgbqfwp7pco2" path="res://scenes/note_track.tscn" id="1_anvkw"]
+
+[node name="vocal" type="Node3D" unique_id=1404543057]
+
+[node name="noteTrack1" parent="." unique_id=1272245449 instance=ExtResource("1_anvkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="noteTrack2" parent="." unique_id=1494682570 instance=ExtResource("1_anvkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+
+[node name="noteTrack3" parent="." unique_id=1459988151 instance=ExtResource("1_anvkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="noteTrack4" parent="." unique_id=69346802 instance=ExtResource("1_anvkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
