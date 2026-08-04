@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://daq0jpb65sxbf"]
+
+[ext_resource type="Script" uid="uid://cknuoljgsgslr" path="res://scripts/select_music.gd" id="1_mik2o"]
+
+[node name="SelectMusic" type="Node3D" unique_id=1735619810]
+script = ExtResource("1_mik2o")
+
+[node name="selectMusicScreen" type="Control" parent="." unique_id=910842356]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1368.0
+offset_bottom = 768.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="selectMusicScreen" unique_id=240368815]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 335.0
+offset_right = 819.0
+offset_bottom = 471.0
+
+[node name="musicButton" type="Button" parent="selectMusicScreen/HBoxContainer" unique_id=1993193523]
+layout_mode = 2
+text = "Música 01"
+
+[node name="musicButton2" type="Button" parent="selectMusicScreen/HBoxContainer" unique_id=706218767]
+layout_mode = 2
+text = "Música 02"
+
+[node name="musicButton3" type="Button" parent="selectMusicScreen/HBoxContainer" unique_id=1800823537]
+layout_mode = 2
+text = "Música 03"
+
+[node name="Label" type="Label" parent="selectMusicScreen" unique_id=270535556]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 268.0
+offset_right = 869.0
+offset_bottom = 388.0
+text = "Escolha a música"
+
+[connection signal="pressed" from="selectMusicScreen/HBoxContainer/musicButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="selectMusicScreen/HBoxContainer/musicButton2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="selectMusicScreen/HBoxContainer/musicButton3" to="." method="_on_button_3_pressed"]

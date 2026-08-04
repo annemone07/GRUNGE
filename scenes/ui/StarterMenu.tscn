@@ -9,11 +9,76 @@ script = ExtResource("1_yjol5")
 
 [node name="starterMenu" type="Node" parent="." unique_id=1529470060]
 
-[node name="startButton" type="Button" parent="." unique_id=1294860641]
-offset_left = -639.0
-offset_top = -342.0
-offset_right = -510.74194
-offset_bottom = -271.0
-text = "iniciar"
+[node name="menuContainer" type="VBoxContainer" parent="." unique_id=790205851]
+offset_left = -128.0
+offset_top = -82.0
+offset_right = 128.0
+offset_bottom = 89.0
 
-[connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]
+[node name="startButton" type="Button" parent="menuContainer" unique_id=1294860641]
+layout_mode = 2
+text = "Play Game"
+
+[node name="settingsButton" type="Button" parent="menuContainer" unique_id=883793600]
+layout_mode = 2
+text = "Settings"
+
+[node name="highscoresButton" type="Button" parent="menuContainer" unique_id=485300018]
+layout_mode = 2
+text = "Highscores"
+
+[node name="creditsButton" type="Button" parent="menuContainer" unique_id=1137695686]
+layout_mode = 2
+text = "Credits"
+
+[node name="exitButton" type="Button" parent="menuContainer" unique_id=65413102]
+layout_mode = 2
+text = "Exit"
+
+[node name="settingsContainer" type="Panel" parent="." unique_id=611908290]
+visible = false
+offset_left = -167.0
+offset_top = -163.0
+offset_right = 156.0
+offset_bottom = 169.0
+
+[node name="backButton" type="Button" parent="settingsContainer" unique_id=1853049416]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Back"
+
+[node name="highscoresContainer" type="Panel" parent="." unique_id=835169170]
+visible = false
+offset_left = -157.0
+offset_top = -188.0
+offset_right = 172.0
+offset_bottom = 150.0
+
+[node name="backButton" type="Button" parent="highscoresContainer" unique_id=1821185473]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Back"
+
+[node name="creditsContainer" type="Panel" parent="." unique_id=1805443349]
+visible = false
+offset_left = -163.0
+offset_top = -169.0
+offset_right = 169.0
+offset_bottom = 172.0
+
+[node name="backButton" type="Button" parent="creditsContainer" unique_id=560922651]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Back"
+
+[connection signal="pressed" from="menuContainer/startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="menuContainer/settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="menuContainer/highscoresButton" to="." method="_on_highscores_button_pressed"]
+[connection signal="pressed" from="menuContainer/creditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="menuContainer/exitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="settingsContainer/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="highscoresContainer/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="creditsContainer/backButton" to="." method="_on_back_button_pressed"]

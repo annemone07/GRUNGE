@@ -12,6 +12,38 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	var stage = load("res://scenes/play_map.tscn")
-	get_tree().root.add_child(stage)
-	get_tree().current_scene.queue_free()
+	var stage_scene = load("res://scenes/selectMusic.tscn")
+	if stage_scene:
+		var stage = stage_scene.instantiate()
+		get_tree().root.add_child(stage)
+		get_tree().current_scene.queue_free()
+	else:
+		print("Erro: Não conseguimos encontrar a cena.")
+
+
+@onready var menu_container: VBoxContainer = $menuContainer
+@onready var settings_container: Panel = $settingsContainer
+@onready var highscores_container: Panel = $highscoresContainer
+@onready var credits_container: Panel = $creditsContainer
+
+func _on_settings_button_pressed() -> void:
+	menu_container.visible = false
+	settings_container.visible = true
+
+func _on_highscores_button_pressed() -> void:
+	menu_container.visible = false
+	highscores_container.visible = true
+
+func _on_credits_button_pressed() -> void:
+	menu_container.visible = false
+	credits_container.visible = true
+
+func _on_exit_button_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_back_button_pressed() -> void:
+	settings_container.visible = false
+	highscores_container.visible = false
+	credits_container.visible = false
+	menu_container.visible = true
