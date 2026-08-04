@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://iyby3kxwrbyw"]
+
+[ext_resource type="Script" uid="uid://bp8wyleaaqnys" path="res://scripts/starter_menu.gd" id="1_yjol5"]
+
+[node name="starterMenu" type="Node2D" unique_id=1300079585]
+script = ExtResource("1_yjol5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1704505233]
+
+[node name="starterMenu" type="Node" parent="." unique_id=1529470060]
+
+[node name="startButton" type="Button" parent="." unique_id=1294860641]
+offset_left = -639.0
+offset_top = -342.0
+offset_right = -510.74194
+offset_bottom = -271.0
+text = "iniciar"
+
+[connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]

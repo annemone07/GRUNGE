@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d3ttklm8iefo3"]
+
+[ext_resource type="Script" uid="uid://c8bbl7eqty4gt" path="res://scripts/note_test.gd" id="1_f201f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f201f"]
+albedo_color = Color(1, 1, 0.2, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_otrat"]
+material = SubResource("StandardMaterial3D_f201f")
+height = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_otrat"]
+height = 0.2
+
+[node name="Node3D" type="Area3D" unique_id=225065510]
+script = ExtResource("1_f201f")
+
+[node name="note_test" type="MeshInstance3D" parent="." unique_id=1301665053]
+mesh = SubResource("CylinderMesh_otrat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1366621006]
+shape = SubResource("CylinderShape3D_otrat")
