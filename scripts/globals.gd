@@ -1,7 +1,7 @@
 extends Node
 
 @export var instrumento_1 = "guitar"
-@export var instrumento_2 = ""
+@export var instrumento_2 = "drums"
 @export var selectedMusic = 1
 @export var note_delay = 4
 

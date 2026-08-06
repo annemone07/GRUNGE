@@ -16,6 +16,14 @@ func _ready() -> void:
 		var drumsLoad = load("res://scenes/drums.tscn")
 		var drums = drumsLoad.instantiate()
 		get_tree().root.get_node("Main/playMap/World/PlayerTrack").add_child(drums)
+	if Globals.instrumento_2 == "guitar":
+		var guitarLoad = load("res://scenes/guitar.tscn")
+		var guitar = guitarLoad.instantiate()
+		get_tree().root.get_node("Main/playMap/World/PlayerTrack2").add_child(guitar)
+	elif Globals.instrumento_2 == "drums":
+		var drumsLoad = load("res://scenes/drums.tscn")
+		var drums = drumsLoad.instantiate()
+		get_tree().root.get_node("Main/playMap/World/PlayerTrack2").add_child(drums)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
