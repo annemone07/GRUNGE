@@ -1,6 +1,5 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,10 +12,11 @@ func _process(delta: float) -> void:
 
 func _on_start_button_pressed() -> void:
 	var stage_scene = load("res://scenes/selectMusic.tscn")
+	var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
 	if stage_scene:
 		var stage = stage_scene.instantiate()
-		get_tree().root.add_child(stage)
-		get_tree().current_scene.queue_free()
+		get_tree().root.get_node("Main").add_child(stage)
+		get_tree().root.get_node("Main").get_child(old_stage_id).queue_free()
 	else:
 		print("Erro: Não conseguimos encontrar a cena.")
 

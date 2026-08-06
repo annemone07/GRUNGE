@@ -10,6 +10,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 20.434)
 
 [node name="PlayerTrack" parent="." unique_id=1360706888 instance=ExtResource("1_kqs1s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-
-[node name="PlayerTrack2" parent="." unique_id=1485014575 instance=ExtResource("1_kqs1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
