@@ -8,7 +8,7 @@
 script = ExtResource("1_dliau")
 
 [node name="fundoPlaceholder" type="Sprite2D" parent="." unique_id=560256277]
-position = Vector2(674.00006, 520)
+position = Vector2(737.5, 417)
 scale = Vector2(4.8828125, 3.8125)
 texture = ExtResource("3_qwvua")
 
