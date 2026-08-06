@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bufphsd1g32ng"]
+
+[ext_resource type="Script" uid="uid://cdwuuj3p4f4hn" path="res://scripts/select_instruments.gd" id="1_sehpm"]
+
+[node name="selectInstruments" type="Node3D" unique_id=1646611804]
+script = ExtResource("1_sehpm")
+
+[node name="Control" type="Control" parent="." unique_id=1648635005]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control" unique_id=836844943]
+layout_mode = 0
+offset_left = -402.0
+offset_top = -86.0
+offset_right = -394.0
+offset_bottom = -78.0
+text = "guitar"
+
+[node name="Button2" type="Button" parent="Control" unique_id=621687038]
+layout_mode = 0
+offset_left = -265.0
+offset_top = -87.0
+offset_right = -210.0
+offset_bottom = -56.0
+text = "drums"
+
+[node name="Button3" type="Button" parent="Control" unique_id=1086799489]
+layout_mode = 0
+offset_left = 262.0
+offset_top = -80.0
+offset_right = 317.0
+offset_bottom = -49.0
+text = "guitar"
+
+[node name="Button4" type="Button" parent="Control" unique_id=805611422]
+layout_mode = 0
+offset_left = 399.0
+offset_top = -81.0
+offset_right = 458.0
+offset_bottom = -50.0
+text = "drums"
+
+[node name="Label" type="Label" parent="Control" unique_id=2055502371]
+layout_mode = 0
+offset_left = -328.0
+offset_top = -214.0
+offset_right = -288.0
+offset_bottom = -191.0
+text = "player 1"
+
+[node name="Label2" type="Label" parent="Control" unique_id=136177135]
+layout_mode = 0
+offset_left = 338.0
+offset_top = -227.0
+offset_right = 400.0
+offset_bottom = -204.0
+text = "player 2
+"
+
+[node name="Button5" type="Button" parent="Control" unique_id=1603801904]
+layout_mode = 0
+offset_left = -140.0
+offset_top = 120.0
+offset_right = 141.0
+offset_bottom = 198.0
+text = "continue"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1117529689]
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Control/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Control/Button5" to="." method="_on_button_5_pressed"]

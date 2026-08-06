@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	var stage_scene = load("res://scenes/play_map.tscn")
+	var stage_scene = load("res://scenes/select_instruments.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
 	if stage_scene:
 		var stage = stage_scene.instantiate()
@@ -22,7 +22,7 @@ func _on_button_pressed() -> void:
 
 
 func _on_button_2_pressed() -> void:
-	var stage_scene = load("res://scenes/play_map.tscn")
+	var stage_scene = load("res://scenes/select_instruments.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
 	if stage_scene:
 		var stage = stage_scene.instantiate()
@@ -33,7 +33,7 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_button_3_pressed() -> void:
-	var stage_scene = load("res://scenes/play_map.tscn")
+	var stage_scene = load("res://scenes/select_instruments.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
 	if stage_scene:
 		var stage = stage_scene.instantiate()
