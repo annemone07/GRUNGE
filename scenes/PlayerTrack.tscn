@@ -14,6 +14,7 @@ fov = 60.0
 [node name="music" type="AudioStreamPlayer3D" parent="Camera3D" unique_id=742839102]
 stream = ExtResource("1_mchc3")
 max_distance = 1.0
+bus = &"Music"
 script = ExtResource("2_ikqgt")
 
 [node name="startMusic" type="Timer" parent="Camera3D/music" unique_id=1591886188]

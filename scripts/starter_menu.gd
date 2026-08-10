@@ -1,4 +1,5 @@
 extends Node2D
+@onready var placeholder_amp: Sprite2D = $PlaceholderAmp
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,8 +28,16 @@ func _on_start_button_pressed() -> void:
 @onready var credits_container: Panel = $creditsContainer
 
 func _on_settings_button_pressed() -> void:
-	menu_container.visible = false
-	settings_container.visible = true
+	var stage_scene = load("res://scenes/settings.tscn")
+	var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
+	if stage_scene:
+		var stage = stage_scene.instantiate()
+		get_tree().root.get_node("Main").add_child(stage)
+		get_tree().root.get_node("Main").get_child(old_stage_id).queue_free()
+	else:
+		print("Erro: Não conseguimos encontrar a cena.")
+	#menu_container.visible = false
+	#settings_container.visible = true
 
 func _on_highscores_button_pressed() -> void:
 	menu_container.visible = false
