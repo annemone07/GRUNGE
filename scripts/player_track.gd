@@ -19,15 +19,21 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if localBeatmaps.music_1[instrument].has(position_in_beats):
-		tracksToSpawn = localBeatmaps.music_1[instrument][position_in_beats]
-		for noteNum in tracksToSpawn:
-			var testNote = TESTNOTE.instantiate()
-			add_child(testNote)
-			testNote.global_position = player_track.get_node("{instrumento}/noteTrack{num}/spawn".format({"instrumento":instrument,"num":noteNum})).global_position
-			testNote.rotation.z = player_track.get_node("{instrumento}/noteTrack{num}".format({"instrumento":instrument,"num":noteNum})).rotation.z
-		localBeatmaps.music_1[instrument].erase(position_in_beats)
-	tracksToSpawn.clear()
+	if len(localBeatmaps.music_1[instrument].keys())>0:
+		if song_pos>=localBeatmaps.music_1[instrument].keys()[0]:
+			var firstElementKey = localBeatmaps.music_1[instrument].keys()[0]
+			tracksToSpawn = localBeatmaps.music_1[instrument][firstElementKey]
+			for noteNum in tracksToSpawn:
+				print("song pos: ",song_pos)
+				print("key: ",firstElementKey)
+				var testNote = TESTNOTE.instantiate()
+				add_child(testNote)
+				testNote.global_position = player_track.get_node("{instrumento}/noteTrack{num}/spawn".format({"instrumento":instrument,"num":noteNum})).global_position
+				testNote.rotation.z = player_track.get_node("{instrumento}/noteTrack{num}".format({"instrumento":instrument,"num":noteNum})).rotation.z
+			localBeatmaps.music_1[instrument].erase(firstElementKey)
+		tracksToSpawn.clear()
+	else:
+		pass #encerramento das notas e da musica
 
 func _on_music_make_note(pos_beats: Variant,song_position: Variant) -> void:
 	position_in_beats = pos_beats

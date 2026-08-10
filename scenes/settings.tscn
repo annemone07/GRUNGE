@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c4aqxc3wqtwh0"]
+
+[ext_resource type="Script" uid="uid://djwujccds5qx8" path="res://scripts/settings.gd" id="1_5p8wc"]
+
+[node name="settings" type="Node2D" unique_id=1190145560]
+script = ExtResource("1_5p8wc")
+
+[node name="music_slider" type="HSlider" parent="." unique_id=1982049999]
+offset_left = 171.0
+offset_top = -82.0
+offset_right = 502.0
+offset_bottom = -66.0
+max_value = 1.0
+step = 0.01
+
+[node name="Label2" type="Label" parent="music_slider" unique_id=1317237874]
+layout_mode = 0
+offset_left = 148.0
+offset_top = -23.0
+offset_right = 265.0
+text = "music"
+
+[node name="master_slider" type="HSlider" parent="." unique_id=582838131]
+offset_left = 171.0
+offset_top = -203.0
+offset_right = 502.0
+offset_bottom = -187.0
+max_value = 1.0
+step = 0.01
+
+[node name="Label" type="Label" parent="master_slider" unique_id=97645881]
+layout_mode = 0
+offset_left = 111.0
+offset_top = -34.0
+offset_right = 228.0
+offset_bottom = -11.0
+text = "master volume"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=364211600]
+
+[node name="Button" type="Button" parent="." unique_id=1524285035]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="value_changed" from="music_slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="master_slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

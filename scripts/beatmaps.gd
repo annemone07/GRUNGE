@@ -1,18 +1,17 @@
 class_name beatmaps
 
 #formato:
-#posição da nota em beat: coluna(s) da(s) nota(s)
-#posição em beat = posição em segundo * (bpm/60)
+#posição da nota em segundo da musica: coluna(s) da(s) nota(s)
 
 var music_1 = {
 	"music":preload("res://assets/musics/skulls_adventure.mp3"),
 	"guitar":{
-		0: [1,2],
-		2: [1,3],
-		9: [4],
-		10: [2],
-		15: [3],
-		20: [4],
+		0.0: [1,2],
+		0.1: [1,2],
+		0.2: [1,2],
+		0.3: [1,2],
+		0.4: [1,2],
+		0.5: [1,2],
 	},
 	"drums": {
 		1: [1,2,3,4],
