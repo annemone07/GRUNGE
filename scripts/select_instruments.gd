@@ -37,3 +37,7 @@ func _on_button_5_pressed() -> void:
 		get_tree().root.get_node("Main").get_child(old_stage_id).queue_free()
 	else:
 		print("Erro: Não conseguimos encontrar a cena.")
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	pass # Replace with function body.

@@ -2,12 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://iyby3kxwrbyw" path="res://scenes/StarterMenu.tscn" id="1_elqb8"]
 
-[sub_resource type="Environment" id="Environment_otrat"]
-background_mode = 3
-
 [node name="Main" type="Node3D" unique_id=379410565]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1846260785]
-environment = SubResource("Environment_otrat")
 
 [node name="starterMenu" parent="." unique_id=1300079585 instance=ExtResource("1_elqb8")]

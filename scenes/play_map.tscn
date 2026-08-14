@@ -2,15 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dywe5y84fa23q" path="res://scenes/World.tscn" id="1_00lnd"]
 [ext_resource type="Script" uid="uid://tobn1u6ylpeo" path="res://scripts/play_map.gd" id="1_dliau"]
-[ext_resource type="Texture2D" uid="uid://x3yd4i35af73" path="res://icon.svg" id="3_qwvua"]
 
 [node name="playMap" type="Node3D" unique_id=1877076580]
 script = ExtResource("1_dliau")
-
-[node name="fundoPlaceholder" type="Sprite2D" parent="." unique_id=560256277]
-position = Vector2(674.00006, 520)
-scale = Vector2(4.8828125, 3.8125)
-texture = ExtResource("3_qwvua")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=427530221]
 
@@ -72,5 +66,4 @@ autostart = true
 wait_time = 0.1
 one_shot = true
 
-[connection signal="timeout" from="createTestNote" to="." method="_on_create_test_note_timeout"]
 [connection signal="timeout" from="resetColor" to="." method="_on_reset_color_timeout"]
