@@ -1,15 +1,72 @@
 [gd_scene format=3 uid="uid://dywe5y84fa23q"]
 
+[ext_resource type="AudioStream" uid="uid://cursjxx3nid76" path="res://assets/musics/skulls_adventure.mp3" id="1_d1c63"]
 [ext_resource type="PackedScene" uid="uid://c15qr6ssgce11" path="res://scenes/PlayerTrack.tscn" id="1_kqs1s"]
+[ext_resource type="Script" uid="uid://bfev0cf3ntbai" path="res://scripts/music.gd" id="2_1lgw5"]
 [ext_resource type="PackedScene" uid="uid://c8mddhecy1pvk" path="res://scenes/killzone.tscn" id="3_7g83o"]
 
+[sub_resource type="Environment" id="Environment_otrat"]
+background_mode = 3
+
 [node name="World" type="Node3D" unique_id=109743837]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=603822578]
+environment = SubResource("Environment_otrat")
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1954163651]
+stream = ExtResource("1_d1c63")
+bus = &"Music"
+script = ExtResource("2_1lgw5")
+
+[node name="startMusic" type="Timer" parent="music" unique_id=2115246258]
+wait_time = 4.0
+one_shot = true
+autostart = true
 
 [node name="killzone" parent="." unique_id=757899847 instance=ExtResource("3_7g83o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 20.434)
 
-[node name="PlayerTrack" parent="." unique_id=1360706888 instance=ExtResource("1_kqs1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+[node name="killzone2" parent="." unique_id=421252265 instance=ExtResource("3_7g83o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 20.434)
 
-[node name="PlayerTrack2" parent="." unique_id=876707389 instance=ExtResource("1_kqs1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+[node name="GridContainer" type="GridContainer" parent="." unique_id=447938418]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="track_1_view" type="SubViewportContainer" parent="GridContainer" unique_id=1558747867]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/track_1_view" unique_id=436759632]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(681, 768)
+render_target_update_mode = 4
+
+[node name="PlayerTrack" parent="GridContainer/track_1_view/SubViewport" unique_id=1360706888 instance=ExtResource("1_kqs1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="track_2_view" type="SubViewportContainer" parent="GridContainer" unique_id=1118048550]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/track_2_view" unique_id=2697188]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(681, 768)
+render_target_update_mode = 4
+
+[node name="PlayerTrack2" parent="GridContainer/track_2_view/SubViewport" unique_id=876707389 instance=ExtResource("1_kqs1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[connection signal="MakeNote" from="music" to="GridContainer/track_1_view/SubViewport/PlayerTrack" method="_on_music_make_note"]
+[connection signal="MakeNote" from="music" to="GridContainer/track_2_view/SubViewport/PlayerTrack2" method="_on_music_make_note"]
+[connection signal="timeout" from="music/startMusic" to="music" method="_on_start_music_timeout"]

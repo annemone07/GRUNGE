@@ -68,6 +68,14 @@ offset_right = 141.0
 offset_bottom = 198.0
 text = "continue"
 
+[node name="CheckButton" type="CheckButton" parent="Control" unique_id=569708904]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -333.0
+offset_right = 49.0
+offset_bottom = -302.0
+text = "coop"
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1117529689]
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
@@ -75,3 +83,4 @@ text = "continue"
 [connection signal="pressed" from="Control/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="Control/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Control/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="toggled" from="Control/CheckButton" to="." method="_on_check_button_toggled"]
