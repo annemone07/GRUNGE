@@ -7,6 +7,7 @@ var position_in_ticks = 0
 var localBeatmaps = beatmaps.new()
 var tracksToSpawn = []
 const TESTNOTE = preload("res://scenes/notes/note_test.tscn")
+const SQ_TESTNOTE = preload("uid://mmkbxecgs3ho")
 @onready var player_track: Node3D = $"."
 
 var paths = {
@@ -31,9 +32,13 @@ func _process(delta: float) -> void:
 	if len(localBeatmaps.music_1[instrument].keys())>0:
 		if song_pos>=localBeatmaps.music_1[instrument].keys()[0]:
 			var firstElementKey = localBeatmaps.music_1[instrument].keys()[0]
-			tracksToSpawn = localBeatmaps.music_1[instrument][firstElementKey]
+			tracksToSpawn = localBeatmaps.music_1[instrument][firstElementKey].keys()
 			for noteNum in tracksToSpawn:
-				var testNote = TESTNOTE.instantiate()
+				var testNote = 0
+				if localBeatmaps.music_1[instrument][firstElementKey][noteNum]=="c":
+					testNote = TESTNOTE.instantiate()
+				else:
+					testNote = SQ_TESTNOTE.instantiate()
 				add_child(testNote)
 				testNote.global_position = player_track.get_node("{instrumento}/noteTrack{num}/spawn".format({"instrumento":instrument,"num":noteNum})).global_position
 				testNote.rotation.z = player_track.get_node("{instrumento}/noteTrack{num}".format({"instrumento":instrument,"num":noteNum})).rotation.z
