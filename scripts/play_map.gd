@@ -1,41 +1,90 @@
 extends Node3D
 
+@onready var score_label: Label = $UI/MarginContainer/Control/ScoreUI/Score
+@onready var combo_label: Label = $UI/MarginContainer/Control/ScoreUI/Combo
+@onready var music_name_label: Label = $UI/MarginContainer/Control/MusicUI/MusicName
+@onready var music_author_label: Label = $UI/MarginContainer/Control/MusicUI/MusicAuthor
+@onready var life_bar: TextureProgressBar = $LifeBar
+
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var world: Node3D = $World
-@onready var reset_color: Timer = $resetColo
+@onready var reset_color: Timer = $resetColor
 
-var instrumentos = ["guitar", "drums", "vocal", "bass"]
+var local_beatmaps = beatmaps.new()
 
-var paths = {
-	"player_track": "Main/playMap/World/GridContainer/track_1_view/SubViewport/PlayerTrack",
-	"player_track2": "Main/playMap/World/GridContainer/track_2_view/SubViewport/PlayerTrack2",
-	"detect_base_1": "GridContainer/track_1_view/SubViewport/PlayerTrack/{instrumento}/noteTrack{i}/detect",
-	"detect_base_2": "GridContainer/track_2_view/SubViewport/PlayerTrack2/{instrumento}/noteTrack{i}/detect",
-}
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Globals.instrumento_1 == "guitar":
-		var guitarLoad = load("res://scenes/guitar.tscn")
-		var guitar = guitarLoad.instantiate()
-		get_tree().root.get_node(paths["player_track"]).add_child(guitar)
-	elif Globals.instrumento_1 == "drums":
-		var drumsLoad = load("res://scenes/drums.tscn")
-		var drums = drumsLoad.instantiate()
-		get_tree().root.get_node(paths["player_track"]).add_child(drums)
-	if Globals.instrumento_2 == "guitar":
-		var guitarLoad = load("res://scenes/guitar.tscn")
-		var guitar = guitarLoad.instantiate()
-		get_tree().root.get_node(paths["player_track2"]).add_child(guitar)
-	elif Globals.instrumento_2 == "drums":
-		var drumsLoad = load("res://scenes/drums.tscn")
-		var drums = drumsLoad.instantiate()
-		get_tree().root.get_node(paths["player_track2"]).add_child(drums)
+	Globals.score_updated.connect(_on_score_updated)
+	Globals.combo_updated.connect(_on_combo_updated)
+	Globals.life_updated.connect(_on_life_updated)
+	
+	_on_score_updated(Globals.score)
+	_on_combo_updated(Globals.combo)
+	if life_bar:
+		life_bar.value = Globals.current_life
+
+	var music_key = Globals.selected_music
+	var current_song = local_beatmaps[music_key] if music_key in local_beatmaps else local_beatmaps.music_1
+
+	music_name_label.text = current_song["title"]
+	music_author_label.text = current_song["artist"]
+
+	music_player.stream = current_song["music"]
+	music_player.finished.connect(_on_music_finished)
+	music_player.play()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	_instantiate_instruments()
+
 func _process(delta: float) -> void:
-	pass
+	if music_player and music_player.playing:
+		var song_pos = music_player.get_playback_position()
+		get_tree().call_group("player_tracks", "_on_music_make_note", 0, song_pos)
 
+func _on_score_updated(new_score: int) -> void:
+	score_label.text = str(new_score)
 
-func _on_reset_color_timeout() -> void:
-	pass
+func _on_combo_updated(new_combo: int) -> void:
+	combo_label.text = "x" + str(new_combo)
+
+func _on_life_updated(new_life: float) -> void:
+	if life_bar:
+		var tween = create_tween()
+		tween.tween_property(life_bar, "value", new_life, 0.15)
+
+func _instantiate_instruments() -> void:
+	var track1 = $World/GridContainer/track_1_view/SubViewport/PlayerTrack
+	var track2 = $World/GridContainer/track_2_view/SubViewport/PlayerTrack2
+
+	if Globals.instrumento_1 == "guitar":
+		var guitar = load("res://scenes/guitar.tscn").instantiate()
+		track1.add_child(guitar)
+	elif Globals.instrumento_1 == "drums":
+		var drums = load("res://scenes/drums.tscn").instantiate()
+		track1.add_child(drums)
+		
+	if Globals.instrumento_2 == "guitar":
+		var guitar = load("res://scenes/guitar.tscn").instantiate()
+		track2.add_child(guitar)
+	elif Globals.instrumento_2 == "drums":
+		var drums = load("res://scenes/drums.tscn").instantiate()
+		track2.add_child(drums)
+
+func _on_music_finished() -> void:
+	print("Show finalizado! Carregando tela de vitória...")
+	
+	var victory_scene = load("res://scenes/victory_screen.tscn")
+	if victory_scene:
+		var victory_instance = victory_scene.instantiate()
+		$UI.add_child(victory_instance)
+
+# --- DEV TOOLS (ATALHOS F1 / END) ---
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_F1 or event.keycode == KEY_END:
+			skip_music_to_end()
+
+func skip_music_to_end() -> void:
+	if music_player and music_player.stream:
+		print("🛠️ [DEV TOOL] Pulando música para os últimos segundos...")
+		var song_length = music_player.stream.get_length()
+		music_player.seek(song_length - 0.5)

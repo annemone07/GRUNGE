@@ -3,121 +3,100 @@ extends Node3D
 var position_in_beats = 0
 var instrument = ""
 var song_pos = 0
-var position_in_ticks = 0
+
 var localBeatmaps = beatmaps.new()
 var tracksToSpawn = []
+
 const TESTNOTE = preload("res://scenes/notes/note_test.tscn")
 const SQ_TESTNOTE = preload("uid://mmkbxecgs3ho")
+
 @onready var player_track: Node3D = $"."
+
+var current_beatmap: Dictionary = {}
 
 var paths = {
 	"detect_base_1": "{instrumento}/noteTrack{i}/detect",
 	"detect_base_2": "{instrumento}/noteTrack{i}/detect",
 }
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("player_tracks")
+
 	if name == "PlayerTrack":
 		instrument = Globals.instrumento_1
 	elif name == "PlayerTrack2":
 		instrument = Globals.instrumento_2
 
+	if Globals.selected_music in localBeatmaps:
+		current_beatmap = localBeatmaps[Globals.selected_music]
+	else:
+		current_beatmap = localBeatmaps.music_1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if name=="PlayerTrack":
-		Inputs_1()
+	if name == "PlayerTrack":
+		check_inputs("detect_base_1")
 	elif name == "PlayerTrack2":
-		Inputs_2()
-	if len(localBeatmaps.music_1[instrument].keys())>0:
-		if song_pos>=localBeatmaps.music_1[instrument].keys()[0]:
-			var firstElementKey = localBeatmaps.music_1[instrument].keys()[0]
-			tracksToSpawn = localBeatmaps.music_1[instrument][firstElementKey].keys()
+		check_inputs("detect_base_2")
+
+	if instrument in current_beatmap and len(current_beatmap[instrument].keys()) > 0:
+		if song_pos >= current_beatmap[instrument].keys()[0]:
+			var firstElementKey = current_beatmap[instrument].keys()[0]
+			tracksToSpawn = current_beatmap[instrument][firstElementKey].keys()
 			for noteNum in tracksToSpawn:
-				var testNote = 0
-				if localBeatmaps.music_1[instrument][firstElementKey][noteNum]=="c":
+				var testNote = null
+				if current_beatmap[instrument][firstElementKey][noteNum] == "c":
 					testNote = TESTNOTE.instantiate()
 				else:
 					testNote = SQ_TESTNOTE.instantiate()
+
+				testNote.add_to_group("notes")
 				add_child(testNote)
-				testNote.global_position = player_track.get_node("{instrumento}/noteTrack{num}/spawn".format({"instrumento":instrument,"num":noteNum})).global_position
-				testNote.rotation.z = player_track.get_node("{instrumento}/noteTrack{num}".format({"instrumento":instrument,"num":noteNum})).rotation.z
-			localBeatmaps.music_1[instrument].erase(firstElementKey)
+				
+				testNote.global_position = player_track.get_node("{instrumento}/noteTrack{num}/spawn".format({"instrumento": instrument, "num": noteNum})).global_position
+				testNote.rotation.z = player_track.get_node("{instrumento}/noteTrack{num}".format({"instrumento": instrument, "num": noteNum})).rotation.z
+				
+			current_beatmap[instrument].erase(firstElementKey)
 		tracksToSpawn.clear()
-	else:
-		pass #encerramento das notas e da musica
 
-func Inputs_1():
-	if Input.is_action_pressed("bt1"):
-		var overlap = get_node(paths["detect_base_1"].format({"instrumento":instrument, "i":1})).get_overlapping_areas()
-		for note in overlap:
-			note.queue_free()
-	if Input.is_action_pressed("bt2"):
-		var overlap = get_node(paths["detect_base_1"].format({"instrumento":instrument, "i":2})).get_overlapping_areas()
-		for note in overlap:
-			note.queue_free()
-	if Input.is_action_pressed("bt3"):
-		var overlap = get_node(paths["detect_base_1"].format({"instrumento":instrument, "i":3})).get_overlapping_areas()
-		for note in overlap:
-			note.queue_free()
-	if Input.is_action_pressed("bt4"):
-		var overlap = get_node(paths["detect_base_1"].format({"instrumento":instrument, "i":4})).get_overlapping_areas()
-		for note in overlap:
-			note.queue_free()
-	if instrument!="guitar":
-		if Input.is_action_pressed("bt5"):
-			var overlap = get_node(paths["detect_base_1"].format({"instrumento":instrument, "i":5})).get_overlapping_areas()
-			for note in overlap:
-				note.queue_free()
-		if Input.is_action_pressed("bt6"):
-			var overlap = get_node(paths["detect_base_1"].format({"instrumento":instrument, "i":6})).get_overlapping_areas()
-			for note in overlap:
-				note.queue_free()
-		if Input.is_action_pressed("bt7"):
-			var overlap = get_node(paths["detect_base_1"].format({"instrumento":instrument, "i":7})).get_overlapping_areas()
-			for note in overlap:
-				note.queue_free()
-		if Input.is_action_pressed("bt8"):
-			var overlap = get_node(paths["detect_base_1"].format({"instrumento":instrument, "i":8})).get_overlapping_areas()
-			for note in overlap:
-				note.queue_free()
+func check_inputs(detect_key: String) -> void:
+	var max_buttons = 4 if instrument == "guitar" else 8
 
+	for i in range(1, max_buttons + 1):
+		if Input.is_action_just_pressed("bt" + str(i)):
+			var detector_path = paths[detect_key].format({"instrumento": instrument, "i": i})
+			var detector = get_node_or_null(detector_path)
 
-func Inputs_2():
-	if Input.is_action_pressed("bt1"):
-		var overlap = get_node(paths["detect_base_2"].format({"instrumento":instrument, "i":1})).get_overlapping_areas()
-		for note in overlap:
-			note.queue_free()
-	if Input.is_action_pressed("bt2"):
-		var overlap = get_node(paths["detect_base_2"].format({"instrumento":instrument, "i":2})).get_overlapping_areas()
-		for note in overlap:
-			note.queue_free()
-	if Input.is_action_pressed("bt3"):
-		var overlap = get_node(paths["detect_base_2"].format({"instrumento":instrument, "i":3})).get_overlapping_areas()
-		for note in overlap:
-			note.queue_free()
-	if Input.is_action_pressed("bt4"):
-		var overlap = get_node(paths["detect_base_2"].format({"instrumento":instrument, "i":4})).get_overlapping_areas()
-		for note in overlap:
-			note.queue_free()
-	if instrument!="guitar":
-		if Input.is_action_pressed("bt5"):
-			var overlap = get_node(paths["detect_base_2"].format({"instrumento":instrument, "i":5})).get_overlapping_areas()
-			for note in overlap:
-				note.queue_free()
-		if Input.is_action_pressed("bt6"):
-			var overlap = get_node(paths["detect_base_2"].format({"instrumento":instrument, "i":6})).get_overlapping_areas()
-			for note in overlap:
-				note.queue_free()
-		if Input.is_action_pressed("bt7"):
-			var overlap = get_node(paths["detect_base_2"].format({"instrumento":instrument, "i":7})).get_overlapping_areas()
-			for note in overlap:
-				note.queue_free()
-		if Input.is_action_pressed("bt8"):
-			var overlap = get_node(paths["detect_base_2"].format({"instrumento":instrument, "i":8})).get_overlapping_areas()
-			for note in overlap:
-				note.queue_free()
+			if detector:
+				var overlap = detector.get_overlapping_areas()
+				if overlap.size() > 0:
+					for note in overlap:
+						add_score(100)
+						note.queue_free()
+				else:
+					register_miss()
 
-func _on_music_make_note(pos_beats: Variant,song_position: Variant) -> void:
+func add_score(amount: int) -> void:
+	Globals.combo += 1
+	
+	if "current_life" in Globals:
+		Globals.current_life += 2.5
+
+	var multiplier = 1
+	if Globals.combo >= 30:
+		multiplier = 4
+	elif Globals.combo >= 20:
+		multiplier = 3
+	elif Globals.combo >= 10:
+		multiplier = 2
+
+	Globals.score += amount * multiplier
+
+func register_miss() -> void:
+	Globals.combo = 0
+	
+	if "current_life" in Globals:
+		Globals.current_life -= 5.0
+
+func _on_music_make_note(pos_beats: Variant, song_position: Variant) -> void:
 	position_in_beats = pos_beats
 	song_pos = song_position

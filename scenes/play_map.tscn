@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dywe5y84fa23q" path="res://scenes/World.tscn" id="1_00lnd"]
 [ext_resource type="Script" uid="uid://tobn1u6ylpeo" path="res://scripts/play_map.gd" id="1_dliau"]
+[ext_resource type="Texture2D" uid="uid://c7jpmu2x6domo" path="res://assets/progress_bar.png" id="3_qwvua"]
 
 [node name="playMap" type="Node3D" unique_id=1877076580]
 script = ExtResource("1_dliau")
@@ -65,5 +66,18 @@ autostart = true
 [node name="resetColor" type="Timer" parent="." unique_id=1796917674]
 wait_time = 0.1
 one_shot = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=880146984]
+
+[node name="LifeBar" type="TextureProgressBar" parent="." unique_id=692209806]
+offset_left = 467.0
+offset_top = 114.0
+offset_right = 865.0
+offset_bottom = 146.0
+value = 50.0
+texture_under = ExtResource("3_qwvua")
+texture_progress = ExtResource("3_qwvua")
+tint_under = Color(0.15127608, 0.15127608, 0.15127608, 1)
+tint_progress = Color(0.8283348, 0.8945491, 0.9649729, 1)
 
 [connection signal="timeout" from="resetColor" to="." method="_on_reset_color_timeout"]
