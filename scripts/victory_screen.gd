@@ -4,21 +4,33 @@ extends Node2D
 @onready var score_label: Label = $Control/VBoxContainer/ScoreLabel
 @onready var combo_label: Label = $Control/VBoxContainer/ComboLabel
 
+var _is_setup: bool = false
+
 func _ready() -> void:
-	_setup_screen()
+	if not _is_setup:
+		setup_screen(true)
 
-func _setup_screen() -> void:
-	var accuracy: float = 0.0
-	if "total_notes" in Globals and Globals.total_notes > 0:
-		accuracy = (float(Globals.notes_hit) / float(Globals.total_notes)) * 100.0
-	else:
-		accuracy = 88.0 
+func setup_screen(is_victory: bool = true) -> void:
+	_is_setup = true
 
-	if accuracy >= 85.0:
-		var epic_titles = ["PERFEITO!!!", "DAMMNN!!", "O QUE!?? PERFEITO!"]
-		title_label.text = epic_titles.pick_random()
+	if is_victory:
+		var accuracy: float = 0.0
+		if "total_notes" in Globals and Globals.total_notes > 0:
+			accuracy = (float(Globals.notes_hit) / float(Globals.total_notes)) * 100.0
+		else:
+			accuracy = 88.0 
+
+		if accuracy >= 85.0:
+			var epic_titles = ["PERFEITO!!!", "DAMMNN!!", "O QUE!?? PERFEITO!"]
+			title_label.text = epic_titles.pick_random()
+		else:
+			title_label.text = "Vocês mandaram muito!"
+			
+		title_label.modulate = Color("ffdf00")
 	else:
-		title_label.text = "Vocês mandaram muito!"
+		var fail_titles = ["GAME OVER!", "DEU RUIM!", "FALHA!!", "A PLATÉIA VAIA!"]
+		title_label.text = fail_titles.pick_random()
+		title_label.modulate = Color("ff4d4d")
 
 	var max_combo_val = Globals.max_combo if "max_combo" in Globals else Globals.combo
 	combo_label.text = "Maior Combo: x" + str(max_combo_val)
@@ -68,3 +80,4 @@ func _reset_globals() -> void:
 	if "max_combo" in Globals: Globals.max_combo = 0
 	if "notes_hit" in Globals: Globals.notes_hit = 0
 	if "total_notes" in Globals: Globals.total_notes = 0
+	if "current_life" in Globals: Globals.current_life = 100.0

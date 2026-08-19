@@ -23,6 +23,11 @@ var paths = {
 func _ready() -> void:
 	add_to_group("player_tracks")
 
+	if Globals.selected_music in localBeatmaps:
+		current_beatmap = localBeatmaps[Globals.selected_music].duplicate(true)
+	else:
+		current_beatmap = localBeatmaps.music_1.duplicate(true)
+
 	if name == "PlayerTrack":
 		instrument = Globals.instrumento_1
 	elif name == "PlayerTrack2":
@@ -111,11 +116,6 @@ func _on_music_make_note(pos_beats: Variant, song_position: Variant) -> void:
 func _adjust_camera_for_instrument() -> void:
 	if not camera:
 		return
-		
-	match instrument:
-		"drums":
-			camera.fov = 75.0
-			camera.position = Vector3(0, 9.5, 15.0)
-		"bass", "guitar", "vocal":
-			camera.fov = 60.0
-			camera.position = Vector3(0, 8.0, 12.0)
+	
+	camera.fov = 60.0
+	camera.position = Vector3(0, 8.0, 12.0)
