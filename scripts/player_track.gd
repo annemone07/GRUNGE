@@ -11,6 +11,7 @@ const TESTNOTE = preload("res://scenes/notes/note_test.tscn")
 const SQ_TESTNOTE = preload("uid://mmkbxecgs3ho")
 
 @onready var player_track: Node3D = $"."
+@onready var camera: Camera3D = $Camera3D 
 
 var current_beatmap: Dictionary = {}
 
@@ -26,6 +27,8 @@ func _ready() -> void:
 		instrument = Globals.instrumento_1
 	elif name == "PlayerTrack2":
 		instrument = Globals.instrumento_2
+
+	_adjust_camera_for_instrument()
 
 	if Globals.selected_music in localBeatmaps:
 		current_beatmap = localBeatmaps[Globals.selected_music]
@@ -59,7 +62,11 @@ func _process(delta: float) -> void:
 		tracksToSpawn.clear()
 
 func check_inputs(detect_key: String) -> void:
-	var max_buttons = 4 if instrument == "guitar" else 8
+	var max_buttons = 4
+	if instrument == "drums":
+		max_buttons = 8
+	elif instrument == "vocal" or instrument == "guitar" or instrument == "bass":
+		max_buttons = 4
 
 	for i in range(1, max_buttons + 1):
 		if Input.is_action_just_pressed("bt" + str(i)):
@@ -100,3 +107,15 @@ func register_miss() -> void:
 func _on_music_make_note(pos_beats: Variant, song_position: Variant) -> void:
 	position_in_beats = pos_beats
 	song_pos = song_position
+
+func _adjust_camera_for_instrument() -> void:
+	if not camera:
+		return
+		
+	match instrument:
+		"drums":
+			camera.fov = 75.0
+			camera.position = Vector3(0, 9.5, 15.0)
+		"bass", "guitar", "vocal":
+			camera.fov = 60.0
+			camera.position = Vector3(0, 8.0, 12.0)

@@ -7,6 +7,8 @@ extends Node
 @export var note_dist = 40
 @export var note_delay = note_dist / note_speed
 
+var is_single_player: bool = true
+
 var master_bus = AudioServer.get_bus_index("Master")
 var musica_bus = AudioServer.get_bus_index("Musica")
 @export var volume_master = 1.0

@@ -4,6 +4,7 @@ extends Node3D
 @onready var combo_label: Label = $UI/MarginContainer/Control/ScoreUI/Combo
 @onready var music_name_label: Label = $UI/MarginContainer/Control/MusicUI/MusicName
 @onready var music_author_label: Label = $UI/MarginContainer/Control/MusicUI/MusicAuthor
+
 @onready var life_bar: TextureProgressBar = $LifeBar
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
@@ -13,6 +14,8 @@ extends Node3D
 var local_beatmaps = beatmaps.new()
 
 func _ready() -> void:
+	_setup_screen_mode()
+
 	Globals.score_updated.connect(_on_score_updated)
 	Globals.combo_updated.connect(_on_combo_updated)
 	Globals.life_updated.connect(_on_life_updated)
@@ -32,13 +35,42 @@ func _ready() -> void:
 	music_player.finished.connect(_on_music_finished)
 	music_player.play()
 
-
 	_instantiate_instruments()
 
 func _process(delta: float) -> void:
 	if music_player and music_player.playing:
 		var song_pos = music_player.get_playback_position()
 		get_tree().call_group("player_tracks", "_on_music_make_note", 0, song_pos)
+
+func _setup_screen_mode() -> void:
+	var is_single = Globals.is_single_player if "is_single_player" in Globals else true
+	
+	if is_single:
+		var track2_view = $World/GridContainer/track_2_view
+		if track2_view:
+			track2_view.queue_free()
+
+func _instantiate_instruments() -> void:
+	_add_instrument_to_track(Globals.instrumento_1, $World/GridContainer/track_1_view/SubViewport/PlayerTrack)
+
+	var is_single = "is_single_player" in Globals and Globals.is_single_player
+	if not is_single:
+		_add_instrument_to_track(Globals.instrumento_2, $World/GridContainer/track_2_view/SubViewport/PlayerTrack2)
+
+
+func _add_instrument_to_track(instrument_name: String, track_node: Node) -> void:
+	if instrument_name == "" or instrument_name == null:
+		return
+		
+	var path = "res://scenes/" + instrument_name + ".tscn"
+	
+	if ResourceLoader.exists(path):
+		var instrument_scene = load(path).instantiate()
+		track_node.add_child(instrument_scene)
+		print("LOG: conseguiu carregar um ", instrument_name)
+	else:
+		print("LOG: erro, nao conseguiu carregar o instrumento", path)
+
 
 func _on_score_updated(new_score: int) -> void:
 	score_label.text = str(new_score)
@@ -51,24 +83,6 @@ func _on_life_updated(new_life: float) -> void:
 		var tween = create_tween()
 		tween.tween_property(life_bar, "value", new_life, 0.15)
 
-func _instantiate_instruments() -> void:
-	var track1 = $World/GridContainer/track_1_view/SubViewport/PlayerTrack
-	var track2 = $World/GridContainer/track_2_view/SubViewport/PlayerTrack2
-
-	if Globals.instrumento_1 == "guitar":
-		var guitar = load("res://scenes/guitar.tscn").instantiate()
-		track1.add_child(guitar)
-	elif Globals.instrumento_1 == "drums":
-		var drums = load("res://scenes/drums.tscn").instantiate()
-		track1.add_child(drums)
-		
-	if Globals.instrumento_2 == "guitar":
-		var guitar = load("res://scenes/guitar.tscn").instantiate()
-		track2.add_child(guitar)
-	elif Globals.instrumento_2 == "drums":
-		var drums = load("res://scenes/drums.tscn").instantiate()
-		track2.add_child(drums)
-
 func _on_music_finished() -> void:
 	print("Show finalizado! Carregando tela de vitória...")
 	
@@ -77,7 +91,7 @@ func _on_music_finished() -> void:
 		var victory_instance = victory_scene.instantiate()
 		$UI.add_child(victory_instance)
 
-# --- DEV TOOLS (ATALHOS F1 / END) ---
+# --- DEV TOOLS (F1 / END) ---
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_F1 or event.keycode == KEY_END:
@@ -85,6 +99,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func skip_music_to_end() -> void:
 	if music_player and music_player.stream:
-		print("🛠️ [DEV TOOL] Pulando música para os últimos segundos...")
+		print("🛠️ [DEV TOOL] Pulando música para o final...")
 		var song_length = music_player.stream.get_length()
 		music_player.seek(song_length - 0.5)
