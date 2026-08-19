@@ -4,6 +4,8 @@ var position_in_beats = 0
 var instrument = ""
 var song_pos = 0
 
+var inputs_enabled: bool = true
+
 var localBeatmaps = beatmaps.new()
 var tracksToSpawn = []
 
@@ -67,6 +69,9 @@ func _process(delta: float) -> void:
 		tracksToSpawn.clear()
 
 func check_inputs(detect_key: String) -> void:
+	if not inputs_enabled:
+		return
+
 	var max_buttons = 4
 	if instrument == "drums":
 		max_buttons = 8
@@ -119,3 +124,6 @@ func _adjust_camera_for_instrument() -> void:
 	
 	camera.fov = 60.0
 	camera.position = Vector3(0, 8.0, 12.0)
+
+func disable_inputs() -> void:
+	inputs_enabled = false

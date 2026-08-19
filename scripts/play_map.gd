@@ -97,11 +97,12 @@ func _on_music_finished() -> void:
 func _end_game(is_victory: bool) -> void:
 	is_game_over = true
 	
+	get_tree().call_group("player_tracks", "disable_inputs")
+	
 	if music_player:
 		music_player.stop()
 		
 	var status_text = "VITÓRIA!" if is_victory else "GAME OVER!"
-	print("LOG: Show Finalizado - Status: ", status_text)
 	
 	var end_scene = load("res://scenes/victory_screen.tscn")
 	if end_scene:
