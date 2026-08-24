@@ -20,6 +20,8 @@ var music_started: bool = false
 
 func _ready() -> void:
 	_setup_screen_mode()
+	if MenuMusic.playing:
+		MenuMusic.stop()
 
 	Globals.score_updated.connect(_on_score_updated)
 	Globals.combo_updated.connect(_on_combo_updated)
