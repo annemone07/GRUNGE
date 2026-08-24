@@ -25,13 +25,11 @@ func _ready() -> void:
 	_update_coop_visibility(coop_check.button_pressed)
 
 func _update_visual_selection() -> void:
-	#desativando o botao do instrumento q o jogador 1 escolher
 	p1_guitar_btn.disabled = (Globals.instrumento_1 == "guitar")
 	p1_drums_btn.disabled = (Globals.instrumento_1 == "drums")
 	p1_vocal_btn.disabled = (Globals.instrumento_1 == "vocal")
 	p1_bass_btn.disabled = (Globals.instrumento_1 == "bass")
 	
-	#desativando o botao do instrumento q o jogador 2 escolher
 	p2_guitar_btn.disabled = (Globals.instrumento_2 == "guitar")
 	p2_drums_btn.disabled = (Globals.instrumento_2 == "drums")
 	p2_vocal_btn.disabled = (Globals.instrumento_2 == "vocal")

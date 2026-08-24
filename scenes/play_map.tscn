@@ -58,6 +58,17 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="CountdownLabel" type="Label" parent="UI" unique_id=214243799]
+offset_left = 613.0
+offset_top = 308.0
+offset_right = 763.0
+offset_bottom = 473.0
+pivot_offset = Vector2(75, 82.5)
+theme_override_font_sizes/font_size = 120
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="World" parent="." unique_id=109743837 instance=ExtResource("1_00lnd")]
 
 [node name="createTestNote" type="Timer" parent="." unique_id=433223015]

@@ -36,9 +36,7 @@ func _on_settings_button_pressed() -> void:
 		get_tree().root.get_node("Main").get_child(old_stage_id).queue_free()
 	else:
 		print("Erro: Não conseguimos encontrar a cena.")
-	#menu_container.visible = false
-	#settings_container.visible = true
-
+		
 func _on_highscores_button_pressed() -> void:
 	menu_container.visible = false
 	highscores_container.visible = true

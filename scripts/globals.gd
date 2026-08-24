@@ -3,9 +3,9 @@ extends Node
 @export var instrumento_1 = "guitar"
 @export var instrumento_2 = "drums"
 
-@export var note_speed = 10
-@export var note_dist = 40
-@export var note_delay = note_dist / note_speed
+@export var note_speed: float = 15.0
+@export var start_delay: float = 3.0 
+@export var hit_offset: float = 0.1
 
 var is_single_player: bool = true
 
@@ -29,8 +29,6 @@ var combo: int = 0:
 		combo = value
 		combo_updated.emit(combo)
 
-
-#Vidinhas agora
 signal life_updated(new_life)
 
 var max_life: float = 100.0

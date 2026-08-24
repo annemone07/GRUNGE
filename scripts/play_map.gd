@@ -10,9 +10,13 @@ extends Node3D
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var world: Node3D = $World
 @onready var reset_color: Timer = $resetColor
+@onready var countdown_label: Label = $UI/CountdownLabel
 
+var last_countdown_sec: int = -1
 var is_game_over: bool = false
 var local_beatmaps = beatmaps.new()
+var time_elapsed: float = 0.0
+var music_started: bool = false
 
 func _ready() -> void:
 	_setup_screen_mode()
@@ -34,14 +38,39 @@ func _ready() -> void:
 
 	music_player.stream = current_song["music"]
 	music_player.finished.connect(_on_music_finished)
-	music_player.play()
+	
+	time_elapsed = -Globals.start_delay
 
 	_instantiate_instruments()
 
 func _process(delta: float) -> void:
-	if not is_game_over and music_player and music_player.playing:
-		var song_pos = music_player.get_playback_position()
-		get_tree().call_group("player_tracks", "_on_music_make_note", 0, song_pos)
+	if is_game_over:
+		return
+		
+	var current_song_pos = 0.0
+	
+	if not music_started:
+		var safe_delta = min(delta, 0.05)
+		time_elapsed += safe_delta
+		current_song_pos = time_elapsed
+		
+		var current_sec = int(ceil(-time_elapsed))
+		
+		if current_sec > 0 and current_sec != last_countdown_sec:
+			last_countdown_sec = current_sec
+			animate_countdown(str(current_sec))
+		elif time_elapsed >= 0.0 and last_countdown_sec != 0:
+			last_countdown_sec = 0
+			animate_countdown("")
+		
+		if time_elapsed >= 0.0:
+			music_started = true
+			music_player.play()
+	else:
+		if music_player and music_player.playing:
+			current_song_pos = music_player.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
+			
+	get_tree().call_group("player_tracks", "_on_music_make_note", 0, current_song_pos)
 
 func _setup_screen_mode() -> void:
 	var is_single = Globals.is_single_player if "is_single_player" in Globals else true
@@ -114,14 +143,20 @@ func _end_game(is_victory: bool) -> void:
 	else:
 		print("LOG: Erro ao carregar res://scenes/victory_screen.tscn")
 
-# --- DEV TOOLS (F1 / END) ---
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == KEY_F1 or event.keycode == KEY_END:
-			skip_music_to_end()
-
-func skip_music_to_end() -> void:
-	if music_player and music_player.stream:
-		print("🛠️ [DEV TOOL] Pulando música para o final...")
-		var song_length = music_player.stream.get_length()
-		music_player.seek(song_length - 0.5)
+func animate_countdown(text_value: String) -> void:
+	if not countdown_label: return
+	
+	countdown_label.text = text_value
+	
+	# Estado inicial: invisível e um pouquinho menor (escala 0.8)
+	countdown_label.modulate.a = 0.0
+	countdown_label.scale = Vector2(0.8, 0.8)
+	
+	var tween = create_tween()
+	
+	tween.set_parallel(true)
+	tween.tween_property(countdown_label, "modulate:a", 1.0, 0.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(countdown_label, "scale", Vector2(1.0, 1.0), 0.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	
+	tween.set_parallel(false)
+	tween.tween_property(countdown_label, "modulate:a", 0.0, 0.2).set_delay(0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

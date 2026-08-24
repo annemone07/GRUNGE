@@ -20,4 +20,4 @@ mesh = SubResource("PlaneMesh_mxwii")
 [node name="detect" parent="." unique_id=1583283065 instance=ExtResource("1_kmsaf")]
 
 [node name="spawn" type="Node3D" parent="." unique_id=1574365836]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
