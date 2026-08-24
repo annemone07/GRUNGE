@@ -144,10 +144,21 @@ func math_check_inputs(detect_key: String) -> void:
 					var dist = abs(target_note.global_position.z - detector.global_position.z)
 					
 					if dist <= hit_window:
-						add_score(100)
-						target_note.queue_free()
-						active_notes_queue[track_i].pop_front()
-						acertou = true
+						var detector_esta_no_quadrado = false
+						var square_node = detector.get_node_or_null("square")
+						if square_node:
+							detector_esta_no_quadrado = square_node.visible
+						
+						var nota_e_quadrado = target_note.scene_file_path.contains("sq")
+						
+						if detector_esta_no_quadrado == nota_e_quadrado:
+							add_score(100)
+							target_note.queue_free()
+							active_notes_queue[track_i].pop_front()
+							acertou = true
+						else:
+							register_miss()
+							acertou = true
 			
 			if not acertou:
 				register_miss()
