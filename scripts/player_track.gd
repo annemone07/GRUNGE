@@ -75,13 +75,15 @@ func _physics_process(delta: float) -> void:
 				spawned_notes[hit_time] = true 
 				
 				var tracksToSpawn = notes_dict[hit_time].keys()
+				
 				for noteNum in tracksToSpawn:
 					var testNote = null
 					if notes_dict[hit_time][noteNum] == "c":
 						testNote = TESTNOTE.instantiate()
 					else:
 						testNote = SQ_TESTNOTE.instantiate()
-
+					Globals.total_notes += 1
+					
 					testNote.add_to_group("notes")
 					add_child(testNote)
 					
@@ -95,22 +97,36 @@ func _physics_process(delta: float) -> void:
 
 func add_score(amount: int) -> void:
 	Globals.combo += 1
+	Globals.notes_hit += 1
+	Globals.combo_updated.emit(Globals.combo)
 	
 	if "current_life" in Globals:
 		Globals.current_life += 2.5
+		Globals.current_life = clamp(Globals.current_life, 0.0, 100.0)
+		Globals.life_updated.emit(Globals.current_life)
+		
+	if Globals.combo > Globals.max_combo:
+		Globals.max_combo = Globals.combo
 
 	var multiplier = 1
-	if Globals.combo >= 30:
-		multiplier = 4
-	elif Globals.combo >= 20:
-		multiplier = 3
+	if Globals.combo >= 40:
+		multiplier = 6
 	elif Globals.combo >= 10:
+		multiplier = 4
+	elif Globals.combo >= 5:
 		multiplier = 2
 
 	Globals.score += amount * multiplier
+	Globals.score_updated.emit(Globals.score)
 
 func register_miss() -> void:
 	Globals.combo = 0
+	Globals.combo_updated.emit(Globals.combo)
+	
+	if "current_life" in Globals:
+		Globals.current_life -= 5.0
+		Globals.current_life = clamp(Globals.current_life, 0.0, 100.0)
+		Globals.life_updated.emit(Globals.current_life)
 	
 func _on_music_make_note(pos_beats: Variant, song_position: Variant) -> void:
 	song_pos = song_position

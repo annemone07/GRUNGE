@@ -34,9 +34,46 @@ text = "title"
 layout_mode = 2
 text = "score"
 
+[node name="StarsContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1437745891]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/StarsContainer" unique_id=485781295]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Control/VBoxContainer/StarsContainer" unique_id=681053506]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Control/VBoxContainer/StarsContainer" unique_id=1642504615]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Control/VBoxContainer/StarsContainer" unique_id=78074454]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="Control/VBoxContainer/StarsContainer" unique_id=429806037]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
 [node name="ComboLabel" type="Label" parent="Control/VBoxContainer" unique_id=596632341]
 layout_mode = 2
 text = "combo"
+
+[node name="AccuracyLabel" type="Label" parent="Control/VBoxContainer" unique_id=938603678]
+layout_mode = 2
+text = "porcentagem"
 
 [node name="RestartButton" type="Button" parent="Control/VBoxContainer" unique_id=678909230]
 layout_mode = 2

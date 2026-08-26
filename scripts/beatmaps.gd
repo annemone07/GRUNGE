@@ -94,7 +94,35 @@ var music_1 = {
 	},
 }
 
-var music_2 = music_1
+var music_2 = {
+	"title": "10 segundos",
+	"artist": "Debug",
+	"music": preload("res://songs/song_02/10seg.mp3"),
+	"guitar":{
+		0.7: {1: "c",4: "c"},
+		1.2: {4: "c"},
+		1.7: {2: "c",4: "c"},
+		2.2: {4: "c"},
+		2.7: {3: "c",4: "c"},
+		3.2: {4: "c"},
+		3.7: {2: "c",4: "c"},
+		4.2: {4: "c"},
+		4.7: {1: "c"},
+		5.2: {4: "c"},
+		5.7: {2: "c"},
+		6.2: {4: "c"},
+		6.7: {3: "c"},
+		7.2: {4: "c"},
+		7.7: {2: "c"},
+		8.2: {4: "c"},
+		8.7: {1: "c"},
+		9.2: {4: "c"},
+		9.7: {2: "c"},
+	},
+	"drums":{},
+	"vocal":{},
+	"bass":{}
+}
 var music_3 = music_1 
 
 func _get(property: StringName):

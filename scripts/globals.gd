@@ -9,6 +9,10 @@ extends Node
 
 var is_single_player: bool = true
 
+var max_combo: int = 0
+var notes_hit: int = 0
+var total_notes: int = 0
+
 var master_bus = AudioServer.get_bus_index("Master")
 var musica_bus = AudioServer.get_bus_index("Musica")
 @export var volume_master = 1.0
