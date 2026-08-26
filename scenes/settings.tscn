@@ -39,9 +39,20 @@ text = "master volume"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=364211600]
 
 [node name="Button" type="Button" parent="." unique_id=1524285035]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -607.0
+offset_top = 273.0
+offset_right = -290.0
+offset_bottom = 351.0
+text = "voltar"
+
+[node name="controles" type="Button" parent="." unique_id=1922586716]
+offset_left = -628.0
+offset_top = -339.0
+offset_right = -272.0
+offset_bottom = -253.0
+text = "controles"
 
 [connection signal="value_changed" from="music_slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="master_slider" to="." method="_on_master_slider_value_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="controles" to="." method="_on_controles_pressed"]

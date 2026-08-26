@@ -33,3 +33,14 @@ func _on_button_pressed() -> void:
 		get_tree().root.get_node("Main").get_child(old_stage_id).queue_free()
 	else:
 		print("Erro: Não conseguimos encontrar a cena.")
+
+
+func _on_controles_pressed() -> void:
+	var stage_scene = load("res://scenes/controles.tscn")
+	var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
+	if stage_scene:
+		var stage = stage_scene.instantiate()
+		get_tree().root.get_node("Main").add_child(stage)
+		get_tree().root.get_node("Main").get_child(old_stage_id).queue_free()
+	else:
+		print("Erro: Não conseguimos encontrar a cena.")

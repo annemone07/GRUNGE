@@ -111,7 +111,7 @@ func add_score(amount: int) -> void:
 
 func register_miss() -> void:
 	Globals.combo = 0
-
+	
 func _on_music_make_note(pos_beats: Variant, song_position: Variant) -> void:
 	song_pos = song_position
 
