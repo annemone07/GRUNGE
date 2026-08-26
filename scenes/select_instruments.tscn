@@ -11,19 +11,52 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Button6" type="Button" parent="Control" unique_id=831063555]
+layout_mode = 0
+offset_left = -371.0
+offset_top = -86.0
+offset_right = -316.0
+offset_bottom = -55.0
+text = "vocal
+"
+
+[node name="Button7" type="Button" parent="Control" unique_id=423228418]
+layout_mode = 0
+offset_left = -223.0
+offset_top = -86.0
+offset_right = -168.0
+offset_bottom = -55.0
+text = "bass"
+
+[node name="Button8" type="Button" parent="Control" unique_id=1748680068]
+layout_mode = 0
+offset_left = 327.0
+offset_top = -82.0
+offset_right = 382.0
+offset_bottom = -51.0
+text = "vocal"
+
+[node name="Button9" type="Button" parent="Control" unique_id=783386384]
+layout_mode = 0
+offset_left = 485.0
+offset_top = -78.0
+offset_right = 540.0
+offset_bottom = -47.0
+text = "bass"
+
 [node name="Button" type="Button" parent="Control" unique_id=836844943]
 layout_mode = 0
-offset_left = -402.0
-offset_top = -86.0
-offset_right = -394.0
-offset_bottom = -78.0
+offset_left = -445.0
+offset_top = -88.0
+offset_right = -390.0
+offset_bottom = -57.0
 text = "guitar"
 
 [node name="Button2" type="Button" parent="Control" unique_id=621687038]
 layout_mode = 0
-offset_left = -265.0
+offset_left = -302.0
 offset_top = -87.0
-offset_right = -210.0
+offset_right = -243.0
 offset_bottom = -56.0
 text = "drums"
 
@@ -78,6 +111,10 @@ text = "coop"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1117529689]
 
+[connection signal="pressed" from="Control/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Control/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Control/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="Control/Button9" to="." method="_on_button_9_pressed"]
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Control/Button3" to="." method="_on_button_3_pressed"]

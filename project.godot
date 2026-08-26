@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="grunge"
-run/main_scene="uid://d2tswjbhahmdg"
+run/main_scene="uid://cgt7obn4s6ub3"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Globals="*uid://3b44jrfo7yvs"
+MenuMusic="*uid://bukafphwdd2ok"
 
 [display]
 

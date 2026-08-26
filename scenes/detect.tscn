@@ -9,9 +9,6 @@ albedo_color = Color(0.1254902, 1, 1, 1)
 material = SubResource("StandardMaterial3D_4mnnu")
 size = Vector3(1, 0.1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_otrat"]
-size = Vector3(0.8, 0.1, 3)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nokgr"]
 albedo_color = Color(0.1254902, 1, 1, 1)
 
@@ -25,9 +22,6 @@ script = ExtResource("1_gmsyu")
 [node name="square" type="MeshInstance3D" parent="." unique_id=582171146]
 visible = false
 mesh = SubResource("BoxMesh_otrat")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1450895494]
-shape = SubResource("BoxShape3D_otrat")
 
 [node name="circle" type="MeshInstance3D" parent="." unique_id=1063681936]
 mesh = SubResource("CylinderMesh_otrat")

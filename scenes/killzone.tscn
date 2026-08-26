@@ -1,12 +1,30 @@
 [gd_scene format=3 uid="uid://c8mddhecy1pvk"]
 
-[ext_resource type="Script" uid="uid://bynnfegrc6laq" path="res://scripts/killzone.gd" id="1_xlapc"]
+[sub_resource type="GDScript" id="GDScript_csqde"]
+script/source = "extends Area3D
+
+func _on_area_entered(area: Area3D) -> void:
+	var note_node: Node = area
+	if not area.is_in_group(\"notes\") and area.get_parent() and area.get_parent().is_in_group(\"notes\"):
+		note_node = area.get_parent()
+
+	if note_node.is_in_group(\"notes\"):
+		Globals.combo = 0
+		
+		if \"current_life\" in Globals:
+			Globals.current_life -= 5.0
+			
+		
+		note_node.queue_free()
+	else:
+		area.queue_free()
+"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otrat"]
 size = Vector3(6.0808716, 1, 1)
 
 [node name="killzone" type="Area3D" unique_id=757899847]
-script = ExtResource("1_xlapc")
+script = SubResource("GDScript_csqde")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1521801309]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19412231, 0, 0)
