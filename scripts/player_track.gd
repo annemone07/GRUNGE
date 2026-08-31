@@ -86,6 +86,7 @@ func _physics_process(delta: float) -> void:
 					
 					testNote.add_to_group("notes")
 					add_child(testNote)
+					testNote.definir_cor_da_trilha(noteNum)
 					
 					var spawn_pos_node = player_track.get_node_or_null("{instrumento}/noteTrack{num}/spawn".format({"instrumento": instrument, "num": noteNum}))
 					var track_node = player_track.get_node_or_null("{instrumento}/noteTrack{num}".format({"instrumento": instrument, "num": noteNum}))
