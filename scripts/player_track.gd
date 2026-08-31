@@ -161,7 +161,7 @@ func math_check_inputs(detect_key: String) -> void:
 					
 					if dist <= hit_window:
 						var detector_esta_no_quadrado = false
-						var square_node = detector.get_node_or_null("square")
+						var square_node = detector.get_node_or_null("sqr_normal") # Atualizado para checar o sqr_normal
 						if square_node:
 							detector_esta_no_quadrado = square_node.visible
 						
@@ -172,6 +172,9 @@ func math_check_inputs(detect_key: String) -> void:
 							target_note.queue_free()
 							active_notes_queue[track_i].pop_front()
 							acertou = true
+							
+							if detector.has_method("animar_hit"):
+								detector.animar_hit()
 						else:
 							register_miss()
 							acertou = true

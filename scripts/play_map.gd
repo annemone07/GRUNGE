@@ -177,7 +177,6 @@ func animate_countdown(text_value: String) -> void:
 	
 	countdown_label.text = text_value
 	
-	# Estado inicial: invisível e um pouquinho menor (escala 0.8)
 	countdown_label.modulate.a = 0.0
 	countdown_label.scale = Vector2(0.8, 0.8)
 	

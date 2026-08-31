@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvnqrw2jldu2v"]
 
 [ext_resource type="Script" uid="uid://1ekbe0fjmjb7" path="res://scripts/detect.gd" id="1_gmsyu"]
+[ext_resource type="PackedScene" uid="uid://booiru3jm5gm" path="res://assets/botoes grunge.glb" id="2_lrtb4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mnnu"]
 albedo_color = Color(0.1254902, 1, 1, 1)
@@ -24,4 +25,17 @@ visible = false
 mesh = SubResource("BoxMesh_otrat")
 
 [node name="circle" type="MeshInstance3D" parent="." unique_id=1063681936]
+visible = false
 mesh = SubResource("CylinderMesh_otrat")
+
+[node name="Circulo_normal" parent="." unique_id=109056307 instance=ExtResource("2_lrtb4")]
+visible = false
+
+[node name="Circulo_levantado" parent="." unique_id=581156094 instance=ExtResource("2_lrtb4")]
+visible = false
+
+[node name="sqr_normal" parent="." unique_id=1555965912 instance=ExtResource("2_lrtb4")]
+visible = false
+
+[node name="sqr_levantado" parent="." unique_id=461452921 instance=ExtResource("2_lrtb4")]
+visible = false
