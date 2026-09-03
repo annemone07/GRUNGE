@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cpqm6fq08b6ag"]
+
+[ext_resource type="Script" uid="uid://d4h1038u2v78x" path="res://scripts/music_sel.gd" id="1_o3o0a"]
+
+[node name="MusicItem" type="HBoxContainer" unique_id=727968114]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 45
+script = ExtResource("1_o3o0a")
+
+[node name="BtnPlay" type="Button" parent="." unique_id=939347828]
+layout_mode = 2
+text = "music name"
+
+[node name="LblScore" type="Label" parent="." unique_id=1317662050]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "0"

@@ -21,9 +21,7 @@ func _trigger_auto_miss() -> void:
 		Globals.current_life -= 5.0
 		queue_free()
 
-# NOVA FUNÇÃO: Controla a visibilidade dos nós filhos da nota
 func definir_cor_da_trilha(track_num: int) -> void:
-	# 1. Varre e esconde todos os sprites de cor (1 ao 8) para limpar a nota
 	for i in range(1, 9):
 		var cor_normal = find_child("cor" + str(i), true, false)
 		if cor_normal: 
@@ -33,10 +31,8 @@ func definir_cor_da_trilha(track_num: int) -> void:
 		if cor_quadrada: 
 			cor_quadrada.visible = false
 			
-	# 2. Descobre se esta instância é a nota quadrada (olhando o nome do arquivo)
 	var is_square = scene_file_path.contains("sq") or str(name).contains("sq")
 	
-	# 3. Liga a visibilidade APENAS do modelo correspondente à trilha atual
 	if is_square:
 		var cor_certa = find_child("sqr_cor" + str(track_num), true, false)
 		if cor_certa: 

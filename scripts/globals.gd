@@ -40,6 +40,23 @@ var current_life: float = 50.0:
 	set(value):
 		current_life = clampf(value, 0.0, max_life)
 		life_updated.emit(current_life)
+
+var music_database = {
+	"rock_and_roll": {
+		"title": "vica_lindo",
+		"high_score": 0
+	},
+	"muse_dash_theme": {
+		"title": "furry_music",
+		"high_score": 0
+	},
+	"tema_folclore": {
+		"title": "rapai",
+		"high_score": 0
+	}
+}
+
+
 func _ready() -> void:
 	pass
 
