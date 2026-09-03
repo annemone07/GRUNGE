@@ -56,6 +56,8 @@ var music_database = {
 	}
 }
 
+var personagem_1: String = ""
+var personagem_2: String = ""
 
 func _ready() -> void:
 	pass

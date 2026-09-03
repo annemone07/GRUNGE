@@ -30,7 +30,7 @@ func _on_music_item_selected(selected_id: String) -> void:
 	change_scene_to_instruments()
 
 func change_scene_to_instruments() -> void:
-	var stage_scene = load("res://scenes/select_instruments.tscn")
+	var stage_scene = load("res://scenes/selectCharacters.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count() - 1
 	if stage_scene:
 		var stage = stage_scene.instantiate()

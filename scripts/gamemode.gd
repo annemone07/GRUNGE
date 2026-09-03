@@ -3,7 +3,7 @@ extends Control
 @onready var vbox = $VBoxContainer
 
 func _ready():
-	# Pega todos os botões filhos do VBoxContainer
+	# fiz com IA pq nao sei arrumar bonitinho esses efeitos visuais, espero q n se incomode
 	var botoes = vbox.get_children()
 	
 	for botao in botoes:
@@ -71,7 +71,6 @@ func _aplicar_estilo_focado(botao: Button):
 
 func _on_solo_pressed() -> void:
 	Globals.is_single_player = true
-	print("Modo Solo Selecionado!")
 		
 	var stage_scene = load("res://scenes/selectMusic.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count() - 1
@@ -86,7 +85,6 @@ func _on_solo_pressed() -> void:
 
 func _on_multiplayer_pressed() -> void:
 	Globals.is_single_player = false
-	print("Modo Multiplayer Selecionado!")
 	
 	var stage_scene = load("res://scenes/selectMusic.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count() - 1
