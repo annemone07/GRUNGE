@@ -21,3 +21,5 @@ mesh = SubResource("PlaneMesh_mxwii")
 
 [node name="spawn" type="Node3D" parent="." unique_id=1574365836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+
+[editable path="detect"]

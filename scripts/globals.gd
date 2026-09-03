@@ -9,6 +9,10 @@ extends Node
 
 var is_single_player: bool = true
 
+var max_combo: int = 0
+var notes_hit: int = 0
+var total_notes: int = 0
+
 var master_bus = AudioServer.get_bus_index("Master")
 var musica_bus = AudioServer.get_bus_index("Musica")
 @export var volume_master = 1.0
@@ -36,6 +40,25 @@ var current_life: float = 50.0:
 	set(value):
 		current_life = clampf(value, 0.0, max_life)
 		life_updated.emit(current_life)
+
+var music_database = {
+	"rock_and_roll": {
+		"title": "vica_lindo",
+		"high_score": 0
+	},
+	"muse_dash_theme": {
+		"title": "furry_music",
+		"high_score": 0
+	},
+	"tema_folclore": {
+		"title": "rapai",
+		"high_score": 0
+	}
+}
+
+var personagem_1: String = ""
+var personagem_2: String = ""
+
 func _ready() -> void:
 	pass
 

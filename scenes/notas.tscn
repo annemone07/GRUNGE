@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c17u2hwngesr8"]
+
+[ext_resource type="PackedScene" uid="uid://booiru3jm5gm" path="res://assets/botoes grunge.glb" id="1_m30bu"]
+
+[node name="botoes grunge" unique_id=109056307 instance=ExtResource("1_m30bu")]

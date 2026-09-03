@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dywe5y84fa23q" path="res://scenes/World.tscn" id="1_00lnd"]
 [ext_resource type="Script" uid="uid://tobn1u6ylpeo" path="res://scripts/play_map.gd" id="1_dliau"]
-[ext_resource type="Texture2D" uid="uid://c7jpmu2x6domo" path="res://assets/progress_bar.png" id="3_qwvua"]
+[ext_resource type="Texture2D" uid="uid://bix62g760hry8" path="res://assets/ui/palheta_vazia.png" id="2_w7fhx"]
+[ext_resource type="Texture2D" uid="uid://ddfceed7lnk2v" path="res://assets/ui/palheta_cheia.png" id="3_ta1n7"]
 
 [node name="playMap" type="Node3D" unique_id=1877076580]
 script = ExtResource("1_dliau")
@@ -48,10 +49,6 @@ text = "676767"
 layout_mode = 2
 text = "x67"
 
-[node name="LifeBar" type="TextureProgressBar" parent="UI" unique_id=1487925583]
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="PauseMenu" type="Control" parent="UI" unique_id=593386236]
 layout_mode = 3
 anchors_preset = 0
@@ -69,6 +66,35 @@ text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LifeBar" type="TextureProgressBar" parent="UI" unique_id=692209806]
+offset_left = 998.0
+offset_top = 503.0
+offset_right = 1185.0
+offset_bottom = 724.56396
+value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("2_w7fhx")
+texture_progress = ExtResource("3_ta1n7")
+tint_under = Color(0.15127608, 0.15127608, 0.15127608, 1)
+tint_progress = Color(0.8283348, 0.8945491, 0.9649729, 1)
+
+[node name="MultiplierLabel" type="Label" parent="UI/LifeBar" unique_id=1038896048]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -5.0
+offset_right = 2.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="World" parent="." unique_id=109743837 instance=ExtResource("1_00lnd")]
 
 [node name="createTestNote" type="Timer" parent="." unique_id=433223015]
@@ -79,16 +105,5 @@ wait_time = 0.1
 one_shot = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=880146984]
-
-[node name="LifeBar" type="TextureProgressBar" parent="." unique_id=692209806]
-offset_left = 467.0
-offset_top = 114.0
-offset_right = 865.0
-offset_bottom = 146.0
-value = 50.0
-texture_under = ExtResource("3_qwvua")
-texture_progress = ExtResource("3_qwvua")
-tint_under = Color(0.15127608, 0.15127608, 0.15127608, 1)
-tint_progress = Color(0.8283348, 0.8945491, 0.9649729, 1)
 
 [connection signal="timeout" from="resetColor" to="." method="_on_reset_color_timeout"]

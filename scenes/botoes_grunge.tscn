@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://du31ufa3ymww3"]
+
+[ext_resource type="PackedScene" uid="uid://booiru3jm5gm" path="res://assets/botoes grunge.glb" id="1_q5rpj"]
+
+[node name="botoes grunge" unique_id=109056307 instance=ExtResource("1_q5rpj")]
+
+[node name="quad" parent="." index="7" unique_id=615469142]
+visible = false
+
+[node name="quad atv" parent="." index="8" unique_id=1441038315]
+visible = false
+
+[node name="cirt atv" parent="." index="9" unique_id=1638344813]
+visible = false
+
+[node name="circ " parent="." index="10" unique_id=1111897009]
+visible = false
+
+[node name="nota circ" parent="." index="11" unique_id=629181894]
+transform = Transform3D(0.9991645, -0.0006118047, 0.040865406, 0.0009532605, 0.9999648, -0.008336853, -0.040858865, 0.008368842, 0.9991299, 0.21548568, -0.043960713, -0.004588127)
+
+[node name="circ _001" parent="." index="14" unique_id=603751071]
+visible = false
+
+[node name="cirt atv_001" parent="." index="15" unique_id=1944079981]
+visible = false
+
+[node name="nota circ_001" parent="." index="16" unique_id=15078390]
+transform = Transform3D(0.9991645, -0.0006118047, 0.040865406, 0.0009532605, 0.9999648, -0.008336853, -0.040858865, 0.008368842, 0.9991299, -0.0022157305, 0.00045202585, -5.3272314)
+
+[node name="quad_002" parent="." index="18" unique_id=399858843]
+visible = false
+
+[node name="quad atv_001" parent="." index="20" unique_id=1408331303]
+visible = false
+
+[node name="circ _002" parent="." index="21" unique_id=339908258]
+visible = false
+
+[node name="cirt atv_002" parent="." index="22" unique_id=1578563211]
+visible = false
+
+[node name="nota circ_002" parent="." index="23" unique_id=2118930562]
+transform = Transform3D(0.9991645, -0.0006118047, 0.040865406, 0.0009532605, 0.9999648, -0.008336853, -0.040858865, 0.008368842, 0.9991299, -0.21326998, 0.043508697, -10.487356)
+
+[node name="quad_004" parent="." index="25" unique_id=1100558631]
+visible = false
+
+[node name="quad atv_002" parent="." index="27" unique_id=2128827558]
+visible = false
+
+[node name="circ _003" parent="." index="28" unique_id=765707057]
+visible = false
+
+[node name="cirt atv_003" parent="." index="29" unique_id=222500938]
+visible = false
+
+[node name="quad_006" parent="." index="32" unique_id=1591451567]
+visible = false
+
+[node name="quad atv_003" parent="." index="34" unique_id=3271546]
+visible = false
+
+[node name="circ _004" parent="." index="35" unique_id=617270409]
+visible = false
+
+[node name="cirt atv_004" parent="." index="36" unique_id=219684558]
+visible = false
+
+[node name="quad_008" parent="." index="39" unique_id=751357751]
+visible = false
+
+[node name="quad atv_004" parent="." index="41" unique_id=1544316522]
+visible = false
+
+[node name="circ _005" parent="." index="42" unique_id=2028633090]
+visible = false
+
+[node name="cirt atv_005" parent="." index="43" unique_id=2145849910]
+visible = false
+
+[node name="quad_010" parent="." index="46" unique_id=1177390874]
+visible = false
+
+[node name="quad atv_005" parent="." index="48" unique_id=1648772600]
+visible = false
+
+[node name="circ _006" parent="." index="49" unique_id=1504663661]
+visible = false
+
+[node name="cirt atv_006" parent="." index="50" unique_id=1787881774]
+visible = false
+
+[node name="quad_012" parent="." index="53" unique_id=1039946278]
+visible = false
+
+[node name="quad atv_006" parent="." index="55" unique_id=460805335]
+visible = false
+
+[node name="circ _007" parent="." index="56" unique_id=1277963283]
+visible = false
+
+[node name="cirt atv_007" parent="." index="57" unique_id=1769397740]
+visible = false
+
+[node name="quad_014" parent="." index="60" unique_id=360619771]
+visible = false
+
+[node name="quad atv_007" parent="." index="62" unique_id=1773125604]
+visible = false

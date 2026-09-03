@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dqk67dcqkspvq"]
+
+[ext_resource type="Script" uid="uid://b6lvw15suyr8a" path="res://scripts/character_card.gd" id="1_dn5fd"]
+
+[node name="CharacterCard" type="Control" unique_id=708334686]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_dn5fd")
+
+[node name="Button" type="Button" parent="." unique_id=1193944890]
+custom_minimum_size = Vector2(112, 156.8)
+layout_mode = 0
+offset_right = 112.0
+offset_bottom = 144.0
+
+[node name="TextureRect" type="TextureRect" parent="Button" unique_id=1933172967]
+layout_mode = 0
+offset_right = 40.0

@@ -1,11 +1,13 @@
 extends Node3D
 
+
+@onready var multiplier_label: Label = $UI/LifeBar/MultiplierLabel
 @onready var score_label: Label = $UI/MarginContainer/Control/ScoreUI/Score
 @onready var combo_label: Label = $UI/MarginContainer/Control/ScoreUI/Combo
 @onready var music_name_label: Label = $UI/MarginContainer/Control/MusicUI/MusicName
 @onready var music_author_label: Label = $UI/MarginContainer/Control/MusicUI/MusicAuthor
 
-@onready var life_bar: TextureProgressBar = $LifeBar
+@onready var life_bar: TextureProgressBar = $UI/LifeBar
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var world: Node3D = $World
@@ -19,6 +21,13 @@ var time_elapsed: float = 0.0
 var music_started: bool = false
 
 func _ready() -> void:
+	Globals.score = 0
+	Globals.combo = 0
+	Globals.max_combo = 0
+	Globals.notes_hit = 0
+	Globals.total_notes = 0
+	Globals.current_life = 50.0
+	
 	_setup_screen_mode()
 	if MenuMusic.playing:
 		MenuMusic.stop()
@@ -112,6 +121,24 @@ func _on_score_updated(new_score: int) -> void:
 
 func _on_combo_updated(new_combo: int) -> void:
 	combo_label.text = "x" + str(new_combo)
+	
+	var mult = 1
+	if new_combo >= 40:
+		mult = 6
+	elif new_combo >= 10:
+		mult = 4
+	elif new_combo >= 5:
+		mult = 2
+		
+	if multiplier_label:
+		if mult > 1:
+			multiplier_label.text = "x" + str(mult)
+			
+			var tween = create_tween()
+			multiplier_label.scale = Vector2(1.3, 1.3)
+			tween.tween_property(multiplier_label, "scale", Vector2(1.0, 1.0), 0.15)
+		else:
+			multiplier_label.text = ""
 
 func _on_life_updated(new_life: float) -> void:
 	if life_bar:
@@ -150,7 +177,6 @@ func animate_countdown(text_value: String) -> void:
 	
 	countdown_label.text = text_value
 	
-	# Estado inicial: invisível e um pouquinho menor (escala 0.8)
 	countdown_label.modulate.a = 0.0
 	countdown_label.scale = Vector2(0.8, 0.8)
 	

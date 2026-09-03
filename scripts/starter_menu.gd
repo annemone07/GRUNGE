@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	var stage_scene = load("res://scenes/selectMusic.tscn")
+	var stage_scene = load("res://scenes/gamemode.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
 	if stage_scene:
 		var stage = stage_scene.instantiate()

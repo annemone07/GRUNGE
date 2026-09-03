@@ -75,15 +75,18 @@ func _physics_process(delta: float) -> void:
 				spawned_notes[hit_time] = true 
 				
 				var tracksToSpawn = notes_dict[hit_time].keys()
+				
 				for noteNum in tracksToSpawn:
 					var testNote = null
 					if notes_dict[hit_time][noteNum] == "c":
 						testNote = TESTNOTE.instantiate()
 					else:
 						testNote = SQ_TESTNOTE.instantiate()
-
+					Globals.total_notes += 1
+					
 					testNote.add_to_group("notes")
 					add_child(testNote)
+					testNote.definir_cor_da_trilha(noteNum)
 					
 					var spawn_pos_node = player_track.get_node_or_null("{instrumento}/noteTrack{num}/spawn".format({"instrumento": instrument, "num": noteNum}))
 					var track_node = player_track.get_node_or_null("{instrumento}/noteTrack{num}".format({"instrumento": instrument, "num": noteNum}))
@@ -95,22 +98,36 @@ func _physics_process(delta: float) -> void:
 
 func add_score(amount: int) -> void:
 	Globals.combo += 1
+	Globals.notes_hit += 1
+	Globals.combo_updated.emit(Globals.combo)
 	
 	if "current_life" in Globals:
 		Globals.current_life += 2.5
+		Globals.current_life = clamp(Globals.current_life, 0.0, 100.0)
+		Globals.life_updated.emit(Globals.current_life)
+		
+	if Globals.combo > Globals.max_combo:
+		Globals.max_combo = Globals.combo
 
 	var multiplier = 1
-	if Globals.combo >= 30:
-		multiplier = 4
-	elif Globals.combo >= 20:
-		multiplier = 3
+	if Globals.combo >= 40:
+		multiplier = 6
 	elif Globals.combo >= 10:
+		multiplier = 4
+	elif Globals.combo >= 5:
 		multiplier = 2
 
 	Globals.score += amount * multiplier
+	Globals.score_updated.emit(Globals.score)
 
 func register_miss() -> void:
 	Globals.combo = 0
+	Globals.combo_updated.emit(Globals.combo)
+	
+	if "current_life" in Globals:
+		Globals.current_life -= 5.0
+		Globals.current_life = clamp(Globals.current_life, 0.0, 100.0)
+		Globals.life_updated.emit(Globals.current_life)
 	
 func _on_music_make_note(pos_beats: Variant, song_position: Variant) -> void:
 	song_pos = song_position
@@ -145,7 +162,7 @@ func math_check_inputs(detect_key: String) -> void:
 					
 					if dist <= hit_window:
 						var detector_esta_no_quadrado = false
-						var square_node = detector.get_node_or_null("square")
+						var square_node = detector.get_node_or_null("sqr_normal") # Atualizado para checar o sqr_normal
 						if square_node:
 							detector_esta_no_quadrado = square_node.visible
 						
@@ -156,6 +173,9 @@ func math_check_inputs(detect_key: String) -> void:
 							target_note.queue_free()
 							active_notes_queue[track_i].pop_front()
 							acertou = true
+							
+							if detector.has_method("animar_hit"):
+								detector.animar_hit()
 						else:
 							register_miss()
 							acertou = true
