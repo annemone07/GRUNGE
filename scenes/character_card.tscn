@@ -12,7 +12,8 @@ custom_minimum_size = Vector2(112, 156.8)
 layout_mode = 0
 offset_right = 112.0
 offset_bottom = 144.0
+button_mask = 0
 
-[node name="TextureRect" type="TextureRect" parent="Button" unique_id=1933172967]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1933172967]
 layout_mode = 0
 offset_right = 40.0

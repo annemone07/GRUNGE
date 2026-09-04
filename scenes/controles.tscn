@@ -2,89 +2,119 @@
 
 [ext_resource type="Script" uid="uid://bi5jqoedmirgn" path="res://scripts/controles.gd" id="1_egukw"]
 [ext_resource type="Script" uid="uid://fcr13veo54w2" path="res://scripts/controlesBT.gd" id="2_tq8to"]
+[ext_resource type="Script" uid="uid://m8ri3u4qekeg" path="res://scripts/v_box_container.gd" id="2_wq417"]
 
 [node name="controles" type="Node2D" unique_id=531924832]
 script = ExtResource("1_egukw")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=642506473]
 
-[node name="bt1" type="Button" parent="." unique_id=837059341]
-offset_left = -628.0
-offset_top = -339.0
-offset_right = -469.0
-offset_bottom = -267.0
-text = "Botão 1: "
-script = ExtResource("2_tq8to")
-
-[node name="bt2" type="Button" parent="." unique_id=434890422]
-offset_left = -628.0
-offset_top = -240.0
-offset_right = -469.0
-offset_bottom = -168.0
-text = "Botão 2: "
-script = ExtResource("2_tq8to")
-
-[node name="bt3" type="Button" parent="." unique_id=2014719161]
-offset_left = -628.0
-offset_top = -121.0
-offset_right = -469.0
-offset_bottom = -49.0
-text = "controles"
-script = ExtResource("2_tq8to")
-
-[node name="bt4" type="Button" parent="." unique_id=2144190056]
-offset_left = -626.0
-offset_top = 7.0
-offset_right = -467.0
-offset_bottom = 79.0
-text = "controles"
-script = ExtResource("2_tq8to")
-
-[node name="pedal" type="Button" parent="." unique_id=1223667783]
-offset_left = -624.0
-offset_top = 135.0
-offset_right = -465.0
-offset_bottom = 207.0
-text = "pedal: "
-script = ExtResource("2_tq8to")
-
-[node name="bt5" type="Button" parent="." unique_id=2002579347]
-offset_left = -374.0
-offset_top = -340.0
-offset_right = -215.0
-offset_bottom = -268.0
-text = "controles"
-script = ExtResource("2_tq8to")
-
-[node name="bt6" type="Button" parent="." unique_id=2086269683]
-offset_left = -376.0
-offset_top = -246.0
-offset_right = -217.0
-offset_bottom = -174.0
-text = "controles"
-script = ExtResource("2_tq8to")
-
-[node name="bt7" type="Button" parent="." unique_id=58057674]
-offset_left = -374.0
-offset_top = -118.0
-offset_right = -215.0
-offset_bottom = -46.0
-text = "controles"
-script = ExtResource("2_tq8to")
-
-[node name="bt8" type="Button" parent="." unique_id=1092757571]
-offset_left = -377.0
-offset_top = -1.0
-offset_right = -218.0
-offset_bottom = 71.0
-text = "controles"
-script = ExtResource("2_tq8to")
-
-[node name="Button" type="Button" parent="." unique_id=1521251327]
+[node name="Voltar" type="Button" parent="." unique_id=1521251327]
 offset_left = -607.0
 offset_top = 273.0
 offset_right = -290.0
 offset_bottom = 351.0
 text = "voltar"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Label" type="Label" parent="." unique_id=169688538]
+offset_left = -445.0
+offset_top = -30.0
+offset_right = -383.0
+offset_bottom = -7.0
+text = "player 1"
+
+[node name="Label2" type="Label" parent="." unique_id=2146964781]
+offset_left = 349.0
+offset_top = -26.0
+offset_right = 411.0
+offset_bottom = -3.0
+text = "player 2"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1311574404]
+offset_left = -603.0
+offset_top = -349.0
+offset_right = -563.0
+offset_bottom = -245.0
+alignment = 1
+script = ExtResource("2_wq417")
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1053349549]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=2047227055]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button4" type="Button" parent="VBoxContainer" unique_id=812004351]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button5" type="Button" parent="VBoxContainer" unique_id=1917778041]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button6" type="Button" parent="VBoxContainer" unique_id=966467479]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button7" type="Button" parent="VBoxContainer" unique_id=581999897]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button8" type="Button" parent="VBoxContainer" unique_id=748931001]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button9" type="Button" parent="VBoxContainer" unique_id=1719825681]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button10" type="Button" parent="VBoxContainer" unique_id=1275404995]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1480122401]
+offset_left = 230.0
+offset_top = -339.0
+offset_right = 270.0
+offset_bottom = -235.0
+script = ExtResource("2_wq417")
+
+[node name="Button2" type="Button" parent="VBoxContainer2" unique_id=1866389440]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button3" type="Button" parent="VBoxContainer2" unique_id=2078147517]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button4" type="Button" parent="VBoxContainer2" unique_id=1827174457]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button5" type="Button" parent="VBoxContainer2" unique_id=1709481727]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button6" type="Button" parent="VBoxContainer2" unique_id=307836525]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button7" type="Button" parent="VBoxContainer2" unique_id=1713980304]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button8" type="Button" parent="VBoxContainer2" unique_id=1241944224]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button9" type="Button" parent="VBoxContainer2" unique_id=2044179108]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button10" type="Button" parent="VBoxContainer2" unique_id=4340794]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[connection signal="pressed" from="Voltar" to="." method="_on_button_pressed"]

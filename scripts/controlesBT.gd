@@ -1,3 +1,5 @@
+class_name ReconfigKey
+
 extends Button
 
 var listening: bool = false
@@ -17,9 +19,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not listening:
 		return
 		
-	if event is InputEventKey or event is InputEventJoypadButton:
+	if (event is InputEventKey or event is InputEventJoypadButton) and event.keycode!=KEY_ENTER and event.keycode!=KEY_BACKSLASH:
 		ControlesAutoload.rebind_keyboard(name,event)
-		
 		listening = false
 		button_pressed = false
 		update_button_text()

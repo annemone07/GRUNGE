@@ -3,7 +3,16 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var player=1
+	var id=0
+	for child in get_children():
+		if child is VBoxContainer: 
+			child.player = player
+			for button in child.get_children():
+				button.name=ControlesAutoload.REBINDABLE[id]
+				button.update_button_text()
+				id+=1
+			player+=1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
