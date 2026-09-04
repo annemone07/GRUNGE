@@ -33,7 +33,7 @@ func _ready() -> void:
 			label_p2.text = "PLAYER 2"
 		players_container.add_child(panel_p2)
 		
-	_focar_primeiro_card(panel_p1)
+	#_focar_primeiro_card(panel_p1)
 
 func _focar_primeiro_card(panel) -> void:
 	var grid = panel.get_node_or_null("GridContainer")
@@ -41,7 +41,7 @@ func _focar_primeiro_card(panel) -> void:
 		var primeiro_card = grid.get_child(0)
 		var botao = primeiro_card.get_node_or_null("Button")
 		if botao:
-			botao.grab_focus()
+			pass
 
 func _on_start_game_pressed() -> void:
 	print("P1 Personagem: ", Globals.personagem_1)
