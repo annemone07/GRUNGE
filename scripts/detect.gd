@@ -1,5 +1,7 @@
 extends Area3D
 
+var player_id: int = 1
+
 @onready var circulo_normal: Node3D = $Circulo_normal
 @onready var circulo_levantado: Node3D = $Circulo_levantado
 @onready var sqr_normal: Node3D = $sqr_normal
@@ -10,13 +12,23 @@ func _ready() -> void:
 	sqr_normal.visible = false
 	circulo_levantado.visible = false
 	sqr_levantado.visible = false
+	
+	var root_track = get_tree().get_nodes_in_group("player_tracks")
+	for track in root_track:
+		if track.is_ancestor_of(self):
+			player_id = track.player_id
+			break
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("pedal"):
+	#concatenando o player_id para separar entre os jogadores
+	var pedal_action = "customAction_player" + str(player_id) + "_pedal"
+	
+	if Input.is_action_just_pressed(pedal_action):
 		circulo_normal.visible = !circulo_normal.visible
 		sqr_normal.visible = !sqr_normal.visible
 		circulo_levantado.visible = false
 		sqr_levantado.visible = false
+
 
 func animar_hit() -> void:
 	var sprite_alvo = null

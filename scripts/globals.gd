@@ -42,16 +42,16 @@ var current_life: float = 50.0:
 		life_updated.emit(current_life)
 
 var music_database = {
-	"rock_and_roll": {
-		"title": "vica_lindo",
+	"Música 01": {
+		"title": "Música 01",
 		"high_score": 0
 	},
-	"muse_dash_theme": {
-		"title": "furry_music",
+	"Música 02": {
+		"title": "Música 02",
 		"high_score": 0
 	},
-	"tema_folclore": {
-		"title": "rapai",
+	"Música 03": {
+		"title": "Música 03",
 		"high_score": 0
 	}
 }

@@ -36,7 +36,7 @@ func _ready() -> void:
 #			botao.pressed.connect(_on_character_pressed.bind(nome, inst))
 
 func _process(delta: float) -> void:
-	print(boxId)
+	#print(boxId) #tava spammando print no console
 	for i in range(menu_size):
 		if i == boxId:
 			menuCards[i].get_child(textureRectId).modulate.a = 0.5
