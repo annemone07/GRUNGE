@@ -1,3 +1,4 @@
+
 class_name ReconfigKey
 extends Button
 
@@ -9,7 +10,7 @@ func _ready() -> void:
 
 func _pressed() -> void:
 	listening = true
-	text = "Pressione um botão..."
+	text = "Aperte o botão..."
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not listening:
@@ -17,16 +18,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	var is_valid = false
 
-	# TECLADO
 	if event is InputEventKey and event.is_pressed():
 		if event.physical_keycode != KEY_ENTER and event.physical_keycode != KEY_BACKSLASH:
 			is_valid = true
 
-	# BOTÕES DO CONTROLE (A, B, X, Y, LB, RB, D-Pad, etc.)
 	elif event is InputEventJoypadButton and event.is_pressed():
 		is_valid = true
 
-	# LT e RT do Xbox
 	elif event is InputEventJoypadMotion and abs(event.axis_value) > 0.5:
 		is_valid = true
 
@@ -39,14 +37,24 @@ func _unhandled_input(event: InputEvent) -> void:
 		update_button_text()
 		release_focus()
 
-
-
 func update_button_text() -> void:
 	if action_name == "" or not InputMap.has_action(action_name):
 		return
 
+	var friendly_name = ControlesAutoload.ACTION_NAMES.get(action_name, action_name)
 	var events = InputMap.action_get_events(action_name)
+	
 	if events.size() > 0:
-		text = action_name + ": " + events[0].as_text()
+		var key_text = _format_event_string(events[0])
+		text = friendly_name + ": " + key_text
 	else:
-		text = action_name + ": Sem comando"
+		text = friendly_name + ": Nulo"
+
+func _format_event_string(event: InputEvent) -> String:
+	if event is InputEventKey:
+		return OS.get_keycode_string(event.physical_keycode)
+	elif event is InputEventJoypadButton:
+		return "Btn " + str(event.button_index)
+	elif event is InputEventJoypadMotion:
+		return "Eixo " + str(event.axis)
+	return event.as_text()    

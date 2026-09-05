@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgt7obn4s6ub3"]
 
 [ext_resource type="Script" uid="uid://cs04fllnmeeud" path="res://scripts/title_screen.gd" id="1_e1hrd"]
-[ext_resource type="Texture2D" uid="uid://cw1r3a6btx5y" path="res://assets/Title_Screen.png" id="2_a6qrr"]
+[ext_resource type="Texture2D" uid="uid://dwl1y6upqomeb" path="res://assets/New_Title_Screen.jpeg" id="2_a6qrr"]
 [ext_resource type="FontFile" uid="uid://xi7ojbs5i05b" path="res://assets/fonts/KiwiSoda.ttf" id="3_a6qrr"]
 
 [node name="TitleScreen" type="Node2D" unique_id=1798236848]
@@ -10,15 +10,15 @@ script = ExtResource("1_e1hrd")
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1614182387]
 offset_left = -3.0
 offset_top = 3.0
-offset_right = 1363.0
-offset_bottom = 771.0
+offset_right = 1368.0
+offset_bottom = 775.0
 texture = ExtResource("2_a6qrr")
 
 [node name="Label" type="Label" parent="." unique_id=1740497567]
-offset_left = 212.0
-offset_top = 506.0
-offset_right = 1163.0
-offset_bottom = 554.0
+offset_left = 214.0
+offset_top = 564.0
+offset_right = 1165.0
+offset_bottom = 612.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_a6qrr")

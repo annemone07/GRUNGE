@@ -74,6 +74,30 @@ script = ExtResource("2_tq8to")
 layout_mode = 2
 script = ExtResource("2_tq8to")
 
+[node name="Button11" type="Button" parent="VBoxContainer" unique_id=1905813724]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button12" type="Button" parent="VBoxContainer" unique_id=1539605395]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button13" type="Button" parent="VBoxContainer" unique_id=902007533]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button14" type="Button" parent="VBoxContainer" unique_id=1283304445]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button15" type="Button" parent="VBoxContainer" unique_id=1652875527]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button16" type="Button" parent="VBoxContainer" unique_id=632271670]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1480122401]
 offset_left = 230.0
 offset_top = -339.0
@@ -114,6 +138,30 @@ layout_mode = 2
 script = ExtResource("2_tq8to")
 
 [node name="Button10" type="Button" parent="VBoxContainer2" unique_id=4340794]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button11" type="Button" parent="VBoxContainer2" unique_id=1746417726]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button12" type="Button" parent="VBoxContainer2" unique_id=945079667]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button13" type="Button" parent="VBoxContainer2" unique_id=335369740]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button14" type="Button" parent="VBoxContainer2" unique_id=1444606476]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button15" type="Button" parent="VBoxContainer2" unique_id=1678043810]
+layout_mode = 2
+script = ExtResource("2_tq8to")
+
+[node name="Button16" type="Button" parent="VBoxContainer2" unique_id=1686293948]
 layout_mode = 2
 script = ExtResource("2_tq8to")
 
