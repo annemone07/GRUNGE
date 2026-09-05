@@ -5,7 +5,10 @@ var music_1 = {
 	"artist": "Nome Artista 01",
 	"music": preload("res://assets/songs/song_01/music_01.mp3"),
 	"guitar":{
-		
+		1: {1:"c"},
+		1.5: {2:"c"},
+		2: {1:"c"},
+		2.5: {2:"c"}
 	},
 	"drums":{
 		

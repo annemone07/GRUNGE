@@ -33,18 +33,27 @@ func _ready():
 			InputMap.action_add_event(action, event)
 
 func rebind_keyboard(action: String, new_event: InputEvent):
-	var alreadyMapped=false
+	if new_event is InputEventKey:
+		if new_event.physical_keycode == KEY_ENTER or new_event.physical_keycode == KEY_BACKSLASH:
+			return
+
+	var alreadyMapped = false
 	for mappedAction in REBINDABLE:
 		for mappedEvent in InputMap.action_get_events(mappedAction):
 			if mappedEvent is InputEventKey and new_event is InputEventKey:
-				if mappedEvent.physical_keycode==new_event.keycode:
-					alreadyMapped=true
+				if mappedEvent.physical_keycode == new_event.physical_keycode:
+					alreadyMapped = true
 			elif mappedEvent is InputEventJoypadButton and new_event is InputEventJoypadButton:
-				if mappedEvent.button_index==new_event.button_index:
-					alreadyMapped=true
-	if not alreadyMapped and (new_event is InputEventKey or new_event is InputEventJoypadButton) and new_event.keycode!=KEY_ENTER and new_event.keycode!=KEY_BACKSLASH:
+				if mappedEvent.button_index == new_event.button_index:
+					alreadyMapped = true
+			# Suporte para LT / RT no caso o JoypadMotion
+			elif mappedEvent is InputEventJoypadMotion and new_event is InputEventJoypadMotion:
+				if mappedEvent.axis == new_event.axis:
+					alreadyMapped = true
+
+	if not alreadyMapped:
 		var existing = InputMap.action_get_events(action)
 		for event in existing:
 			InputMap.action_erase_event(action, event)
 		InputMap.action_add_event(action, new_event)
-	save_bindings()
+		save_bindings()
