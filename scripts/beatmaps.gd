@@ -1,141 +1,90 @@
 class_name beatmaps
 
 var music_1 = {
-	"title": "Places To Go (That I Haven't Been Yet)",
-	"artist": "Ismael Santos",
-	"music": preload("res://assets/musics/skulls_adventure.mp3"),
-	"guitar": {
-		0.0: {1: "c"},
-		0.2: {1: "c"},
-		0.4: {1: "c"},
-		0.6: {1: "c"},
-		0.8: {1: "c"},
-		1.0: {1: "c"},
-		1.2: {1: "c"}
+	"title": "Nome Música 01",
+	"artist": "Nome Artista 01",
+	"music": preload("res://assets/songs/song_01/music_01.mp3"),
+	"guitar":{
+		
 	},
-	"drums": {
-		0.0: {1: "c"},
-		0.5: {3: "sq"},
-		1.0: {1: "c", 2: "sq"},
-		1.5: {3: "sq", 4: "sq"},
-		2.0: {1: "c"},
-		2.5: {3: "sq"},
-		3.0: {1: "c", 2: "sq"},
-		3.5: {3: "sq", 4: "sq"},
-		4.0: {1: "c"},
-		4.5: {2: "sq"},
-		5.0: {1: "c", 3: "sq"},
-		5.5: {4: "sq"},
-		6.0: {1: "c"},
-		6.5: {2: "sq"},
-		7.0: {1: "c", 3: "sq"},
-		7.5: {4: "sq"},
-		8.0: {1: "c", 2: "c"},
-		8.5: {3: "c", 4: "c"},
-		9.0: {1: "c"},
-		9.5: {2: "sq", 3: "sq"},
-		10.0: {1: "c"},
-		10.5: {4: "sq"},
-		11.0: {1: "c", 2: "sq"},
-		11.5: {3: "sq"},
-		12.0: {1: "c"},
-		12.5: {2: "sq"},
-		13.0: {1: "c", 3: "sq"},
-		13.5: {4: "sq"},
-		14.0: {1: "c", 2: "c", 3: "c", 4: "c"},
-		15.0: {1: "c"},
-		15.5: {2: "sq"},
-		16.0: {3: "sq"},
-		16.5: {4: "sq"},
-		17.0: {1: "c", 2: "c"},
-		17.5: {3: "c", 4: "c"},
-		18.0: {1: "c"},
-		18.5: {2: "sq", 3: "sq", 4: "sq"},
-		19.0: {1: "c", 2: "c", 3: "c", 4: "c"}
-	},
-	"vocal": {
-		0.0: {1: "c"},
-		2.0: {1: "sq"},
-		4.0: {1: "c"},
-		6.0: {1: "sq"},
-		8.0: {1: "c"},
-		10.0: {1: "sq"}
-	},
-	"bass": {
-		0.0: {1:"c"},
-		0.25: {2:"c"},
-		0.5: {1:"c"},
-		0.75: {2:"c"},
-		1.0: {1:"c"},
-		1.25: {2:"c"},
-		1.5: {1:"c"},
-		1.75: {2:"c"},
-		2.0: {1:"c"},
-		2.25: {2:"c"},
-		2.5: {1:"c"},
-		2.75: {2:"c"},
-		3.0: {1:"c"},
-		3.25: {2:"c"},
-		3.5: {1:"c"},
-		3.75: {2:"c"},
-		4.0: {1:"c"},
-		4.25: {2:"c"},
-		4.5: {1:"c"},
-		4.75: {2:"c"},
-		5.0: {1:"c"},
-		5.25: {2:"c"},
-		5.5: {1:"c"},
-		5.75: {2:"c"},
-		6.0: {1:"c"},
-		6.25: {2:"c"},
-		6.5: {1:"c"},
-		6.75: {2:"c"},
-
-	},
+	"drums":{
+		
+		},
+	"vocal":{
+		
+		},
+	"bass":{
+		
+		}
 }
 
 var music_2 = {
-	"title": "10 segundos",
-	"artist": "Debug",
-	"music": preload("res://songs/song_02/10seg.mp3"),
+	"title": "Nome Música 02",
+	"artist": "Nome Artista 02",
+	"music": preload("res://assets/songs/song_02/music_02.mp3"),
 	"guitar":{
-		0.7: {1: "sq",4: "sq"},
-		1.2: {4: "sq"},
-		1.7: {2: "sq",4: "sq"},
-		2.2: {4: "sq"},
-		2.7: {3: "sq",4: "sq"},
-		3.2: {4: "c"},
-		3.7: {2: "c",4: "c"},
-		4.2: {4: "c"},
-		4.7: {1: "c"},
-		5.2: {4: "c"},
-		5.7: {2: "c"},
-		6.2: {4: "c"},
-		6.7: {3: "c"},
-		7.2: {4: "c"},
-		7.7: {2: "c"},
-		8.2: {4: "c"},
-		8.7: {1: "c"},
-		9.2: {4: "c"},
-		9.7: {2: "c"},
+		
 	},
-	"drums":{0.7: {1: "c",4: "c"},
-		1.2: {4: "c"},
-		1.7: {2: "c",4: "c"},
-		2.2: {4: "c"}},
-	"vocal":{0.7: {1: "c",4: "c"},
-		1.2: {4: "c"},
-		1.7: {2: "c",4: "c"},
-		2.2: {4: "c"}},
-	"bass":{0.7: {1: "c",4: "c"},
-		1.2: {4: "c"},
-		1.7: {2: "c",4: "c"},
-		2.2: {4: "c"}}
+	"drums":{
+		
+		},
+	"vocal":{
+		
+		},
+	"bass":{
+		
+		}
 }
-var music_3 = music_1 
+
+var music_3 = {
+	"title": "Nome Música 03",
+	"artist": "Nome Artista 03",
+	"music": preload("res://assets/songs/song_03/music_03.mp3"),
+	"guitar":{
+		
+	},
+	"drums":{
+		
+		},
+	"vocal":{
+		
+		},
+	"bass":{
+		
+		}
+}
 
 func _get(property: StringName):
 	if property == &"1" or property == &"music_1": return music_1
 	if property == &"2" or property == &"music_2": return music_2
 	if property == &"3" or property == &"music_3": return music_3
 	return null
+
+# ==========================================
+# GUIA PARA CRIAR OS BEATMAPS DAS MÚSICAS
+# ==========================================
+# Para adicionar as notas nas chaves ("guitar", "drums", "vocal", "bass"), 
+# use o tempo exato em segundos como chave, seguido pelas pistas (tracks) e o tipo da nota.
+# 
+# Formato padrão:
+#   "tempo_em_segundos": { track: "tipo_da_nota", track: "tipo_da_nota" }
+#
+# Tipos de notas disponíveis:
+#   - "sq" -> Nota Quadrada (square)
+#   - "c"  -> Nota Circular (circle)
+#   - Tenha em mente que para trocar entre circular e quadrada terá o botão do pedal 
+#   - Ent pense sempre no delayzinho pra apertar o pedal.
+# Exemplo prático:
+#   "0.5": { 1: "sq", 4: "sq" },
+#   "1.23": {2: "c", 3: "c", 4: "c"}
+#   (No segundo 0.5 da música, aparece uma nota "sq" na track 1 e uma "c" na track 4).
+#	enquanto no segundo 1.23 terá uma nota c na track 2, 3 e 4.
+
+# Instrução final:
+#   Pode escolher as músicas que quiser, preencher os beatmaps seguindo esse modelo .
+#   e me mandar a lista das músicas lá no meu zap. 
+#   Para testar basta rodar o jogo em single player e escolher a musica.
+#   se quiser adicionar mais alguma me avisa.
+#	preencher também o nome das músicas na variável var music_database dentro do script globals.gd (basta dar ctrl f)
+
+# ==========================================

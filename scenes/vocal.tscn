@@ -2,13 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://bdgbqfwp7pco2" path="res://scenes/note_track.tscn" id="1_anvkw"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_anvkw"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i1115"]
+material = SubResource("StandardMaterial3D_anvkw")
+size = Vector2(1, 100)
+
 [node name="vocal" type="Node3D" unique_id=1404543057]
 
 [node name="noteTrack1" parent="." unique_id=1272245449 instance=ExtResource("1_anvkw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
-
-[node name="circle" parent="noteTrack1/detect" parent_id_path=PackedInt32Array(1272245449, 1583283065) index="1" unique_id=1063681936]
-visible = false
 
 [node name="Circulo_normal" parent="noteTrack1/detect" parent_id_path=PackedInt32Array(1272245449, 1583283065) index="2" unique_id=109056307]
 visible = true
@@ -394,6 +398,9 @@ visible = false
 [node name="sqr_normal" parent="noteTrack1/detect" parent_id_path=PackedInt32Array(1272245449, 1583283065) index="4" unique_id=1555965912]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
 
+[node name="Cylinder_001" parent="noteTrack1/detect/sqr_normal" index="0" unique_id=1865600520]
+visible = false
+
 [node name="Cylinder_002" parent="noteTrack1/detect/sqr_normal" index="1" unique_id=533030537]
 visible = false
 
@@ -774,9 +781,6 @@ visible = false
 
 [node name="noteTrack2" parent="." unique_id=261879713 instance=ExtResource("1_anvkw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
-
-[node name="circle" parent="noteTrack2/detect" parent_id_path=PackedInt32Array(261879713, 1583283065) index="1" unique_id=1063681936]
-visible = false
 
 [node name="Circulo_normal" parent="noteTrack2/detect" parent_id_path=PackedInt32Array(261879713, 1583283065) index="2" unique_id=109056307]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
@@ -1541,9 +1545,6 @@ visible = false
 
 [node name="noteTrack3" parent="." unique_id=478821108 instance=ExtResource("1_anvkw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
-
-[node name="circle" parent="noteTrack3/detect" parent_id_path=PackedInt32Array(478821108, 1583283065) index="1" unique_id=1063681936]
-visible = false
 
 [node name="Circulo_normal" parent="noteTrack3/detect" parent_id_path=PackedInt32Array(478821108, 1583283065) index="2" unique_id=109056307]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
@@ -2317,9 +2318,6 @@ visible = false
 [node name="noteTrack4" parent="." unique_id=250413521 instance=ExtResource("1_anvkw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
 
-[node name="circle" parent="noteTrack4/detect" parent_id_path=PackedInt32Array(250413521, 1583283065) index="1" unique_id=1063681936]
-visible = false
-
 [node name="Circulo_normal" parent="noteTrack4/detect" parent_id_path=PackedInt32Array(250413521, 1583283065) index="2" unique_id=109056307]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
 visible = true
@@ -3088,6 +3086,14 @@ visible = false
 
 [node name="quad atv_007" parent="noteTrack4/detect/sqr_levantado" index="62" unique_id=1773125604]
 visible = false
+
+[node name="TrackMesh" type="MeshInstance3D" parent="." unique_id=2127779543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8183546, 0, 0)
+mesh = SubResource("PlaneMesh_i1115")
+
+[node name="TrackMesh2" type="MeshInstance3D" parent="." unique_id=2119755949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8011897, 0, 0)
+mesh = SubResource("PlaneMesh_i1115")
 
 [editable path="noteTrack1"]
 [editable path="noteTrack1/detect"]

@@ -6,6 +6,8 @@ var hit_window: float = 2.0
 var instrument = ""
 var song_pos = -100.0
 
+var player_id: int = 1
+
 var inputs_enabled: bool = true
 
 var localBeatmaps = beatmaps.new()
@@ -35,8 +37,10 @@ func _ready() -> void:
 
 	if name == "PlayerTrack":
 		instrument = Globals.instrumento_1
+		player_id = 1
 	elif name == "PlayerTrack2":
 		instrument = Globals.instrumento_2
+		player_id = 2
 
 	_adjust_camera_for_instrument()
 
@@ -148,7 +152,9 @@ func math_check_inputs(detect_key: String) -> void:
 	var max_buttons = 8 if instrument == "drums" else 4
 
 	for track_i in range(1, max_buttons + 1):
-		if Input.is_action_just_pressed("bt" + str(track_i)):
+		var action_name = "customAction_player" + str(player_id) + "_bt" + str(track_i)
+		
+		if Input.is_action_just_pressed(action_name):
 			active_notes_queue[track_i] = active_notes_queue[track_i].filter(func(n): return is_instance_valid(n))
 			
 			var acertou = false
