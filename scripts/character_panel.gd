@@ -5,8 +5,10 @@ var player_id: int = 1
 var confirmado: bool = false
 var pode_interagir: bool = false
 
-signal cursor_moveu(nome_personagem, player_id)
+# Guarda a última direção do analógico para evitar que o cursor fique correndo descontroladamente
+var last_stick_dir: Vector2 = Vector2.ZERO
 
+signal cursor_moveu(nome_personagem, player_id)
 
 @export var ajuste_posicao: Vector2 = Vector2(0, 0)
 
@@ -35,32 +37,47 @@ func _ready() -> void:
 	menuCards = grid_container.get_children()
 	
 	# Chama a atualização visual no primeiro frame para configurar o estado inicial
-	# Usamos call_deferred para garantir que os nós estejam posicionados corretamente na tela
 	call_deferred("_atualizar_visual")
 	get_tree().create_timer(1.0).timeout.connect(func(): pode_interagir = true)
 
 func _process(delta: float) -> void:
-# Se o tempo ainda não passou, ele não lê nenhum botão e sai da função
 	if not pode_interagir:
 		return
 		
-	# (Se você estiver usando aquela variável "confirmado" do lock-in que comentei antes, 
-	# ela também entra aqui:)
-	# if confirmado:
-	#     return
-		
 	var mudou_selecao = false
+	var device_id = player_id - 1 # Player 1 = Controle 0, Player 2 = Controle 1
 	
-	if Input.is_action_just_pressed("customAction_player"+str(player_id)+"_up"):
+	# --- LEITURA DIRETA DO ANALÓGICO ---
+	var raw_x = Input.get_joy_axis(device_id, JOY_AXIS_LEFT_X)
+	var raw_y = Input.get_joy_axis(device_id, JOY_AXIS_LEFT_Y)
+	
+	var stick_dir = Vector2.ZERO
+	# Deadzone de 0.5 para ignorar drift do controle
+	if abs(raw_x) > 0.5 or abs(raw_y) > 0.5:
+		if abs(raw_x) > abs(raw_y):
+			stick_dir.x = 1.0 if raw_x > 0 else -1.0
+		else:
+			stick_dir.y = 1.0 if raw_y > 0 else -1.0
+			
+	# Detecta o exato momento em que o jogador empurrou o analógico (funciona como just_pressed)
+	var analog_up = (stick_dir.y < 0 and last_stick_dir.y >= 0)
+	var analog_down = (stick_dir.y > 0 and last_stick_dir.y <= 0)
+	var analog_left = (stick_dir.x < 0 and last_stick_dir.x >= 0)
+	var analog_right = (stick_dir.x > 0 and last_stick_dir.x <= 0)
+	
+	last_stick_dir = stick_dir
+	
+	# --- CHECAGEM DE ENTRADAS (BOTÕES / D-PAD / ANALÓGICO) ---
+	if Input.is_action_just_pressed("customAction_player" + str(player_id) + "_up") or analog_up:
 		boxId -= 2
 		mudou_selecao = true
-	elif Input.is_action_just_pressed("customAction_player"+str(player_id)+"_down"):
+	elif Input.is_action_just_pressed("customAction_player" + str(player_id) + "_down") or analog_down:
 		boxId += 2
 		mudou_selecao = true
-	elif Input.is_action_just_pressed("customAction_player"+str(player_id)+"_left"):
+	elif Input.is_action_just_pressed("customAction_player" + str(player_id) + "_left") or analog_left:
 		boxId -= 1
 		mudou_selecao = true
-	elif Input.is_action_just_pressed("customAction_player"+str(player_id)+"_right"):
+	elif Input.is_action_just_pressed("customAction_player" + str(player_id) + "_right") or analog_right:
 		boxId += 1
 		mudou_selecao = true
 		
@@ -74,34 +91,31 @@ func _process(delta: float) -> void:
 	if mudou_selecao:
 		_atualizar_visual()
 		
-	if Input.is_action_just_pressed("customAction_player"+str(player_id)+"_select"):
+	if Input.is_action_just_pressed("customAction_player" + str(player_id) + "_select"):
 		_on_character_pressed(personagens.keys()[boxId], personagens.values()[boxId])
 
 
 func _atualizar_visual() -> void:
-	# 1. Atualizar as texturas dos cards (mantém igual)
+	# 1. Atualizar as texturas dos cards
 	for i in range(menu_size):
 		var card = menuCards[i]
 		var esta_selecionado = (i == boxId)
 		if card.has_method("atualizar_selecao"):
 			card.atualizar_selecao(esta_selecionado)
 	
-	# 2. Mover a moldura COM TWEEN (animação suave)
+	# 2. Mover a moldura COM TWEEN
 	var card_atual = menuCards[boxId]
 	var offset_x = (moldura.size.x - card_atual.size.x) / 2.0
 	var offset_y = (moldura.size.y - card_atual.size.y) / 2.0
 	
 	var posicao_alvo = card_atual.global_position - Vector2(offset_x, offset_y) + ajuste_posicao
 	
-	# Mata a animação anterior se ela ainda estiver rodando
 	if tween_movimento:
 		tween_movimento.kill()
 		
-	# Cria uma nova animação de 0.15 segundos com curva de aceleração
 	tween_movimento = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	tween_movimento.tween_property(moldura, "global_position", posicao_alvo, 0.15)
 	
-	# Só usa o card_atual que já foi declarado lá em cima! Não precisa do "var" de novo.
 	var nome_base = card_atual.name.to_lower().replace("_card", "")
 	
 	# Emite o sinal avisando qual personagem está focado agora
