@@ -20,6 +20,7 @@ theme_override_constants/separation = 800
 alignment = 1
 
 [node name="Button" type="Button" parent="." unique_id=1208514218]
+visible = false
 offset_left = 617.0
 offset_top = 676.0
 offset_right = 758.0

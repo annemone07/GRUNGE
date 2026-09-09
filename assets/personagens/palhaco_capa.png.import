@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dffwh8l3r6opb"
-path="res://.godot/imported/macaco capa.png-8c5227030c23e721ff8bc7ab4271f6ed.ctex"
+uid="uid://b0a1mc6w0fgw5"
+path="res://.godot/imported/palhaco_capa.png-574a3d715eb727f24209a65def1aa784.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/personagens/macaco capa.png"
-dest_files=["res://.godot/imported/macaco capa.png-8c5227030c23e721ff8bc7ab4271f6ed.ctex"]
+source_file="res://assets/personagens/palhaco_capa.png"
+dest_files=["res://.godot/imported/palhaco_capa.png-574a3d715eb727f24209a65def1aa784.ctex"]
 
 [params]
 

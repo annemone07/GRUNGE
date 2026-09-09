@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://besh2u27u4y6k"
-path="res://.godot/imported/nana capa.png-dd54ad7f731da7838e714e0e9ec38e90.ctex"
+uid="uid://bcyp401wpl8v3"
+path="res://.godot/imported/emo_capa.png-b0cd58b520b2c801649c18782a6950c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/personagens/nana capa.png"
-dest_files=["res://.godot/imported/nana capa.png-dd54ad7f731da7838e714e0e9ec38e90.ctex"]
+source_file="res://assets/personagens/emo_capa.png"
+dest_files=["res://.godot/imported/emo_capa.png-b0cd58b520b2c801649c18782a6950c7.ctex"]
 
 [params]
 

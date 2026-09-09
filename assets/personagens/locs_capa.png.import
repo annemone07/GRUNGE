@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq30p1xhcxrs0"
-path="res://.godot/imported/mago capa.png-cd00752f7da2bab93552f96c0532295f.ctex"
+uid="uid://s4oivwc2kdvx"
+path="res://.godot/imported/locs_capa.png-6f15e170069d06c48d530decaab7530e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/personagens/mago capa.png"
-dest_files=["res://.godot/imported/mago capa.png-cd00752f7da2bab93552f96c0532295f.ctex"]
+source_file="res://assets/personagens/locs_capa.png"
+dest_files=["res://.godot/imported/locs_capa.png-6f15e170069d06c48d530decaab7530e.ctex"]
 
 [params]
 

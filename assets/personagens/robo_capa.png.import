@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcyp401wpl8v3"
-path="res://.godot/imported/emo capa.png-3ecef6e2f142ed9080bd6a04cc1da474.ctex"
+uid="uid://u1gqp6yj6h10"
+path="res://.godot/imported/robo_capa.png-20a46c067bfecb92ff7a593b2c05f6da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/personagens/emo capa.png"
-dest_files=["res://.godot/imported/emo capa.png-3ecef6e2f142ed9080bd6a04cc1da474.ctex"]
+source_file="res://assets/personagens/robo_capa.png"
+dest_files=["res://.godot/imported/robo_capa.png-20a46c067bfecb92ff7a593b2c05f6da.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhj1ssjglxc40"
-path="res://.godot/imported/et capa.png-b7a221a1b2dcf6f6c9b41a2784003f87.ctex"
+uid="uid://dffwh8l3r6opb"
+path="res://.godot/imported/macaco_capa.png-6a160079a9844197f600ba28c0f90eb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/personagens/et capa.png"
-dest_files=["res://.godot/imported/et capa.png-b7a221a1b2dcf6f6c9b41a2784003f87.ctex"]
+source_file="res://assets/personagens/macaco_capa.png"
+dest_files=["res://.godot/imported/macaco_capa.png-6a160079a9844197f600ba28c0f90eb3.ctex"]
 
 [params]
 

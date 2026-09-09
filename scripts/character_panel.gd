@@ -5,6 +5,8 @@ var player_id: int = 1
 var confirmado: bool = false
 var pode_interagir: bool = false
 
+signal cursor_moveu(nome_personagem, player_id)
+
 
 @export var ajuste_posicao: Vector2 = Vector2(0, 0)
 
@@ -98,6 +100,12 @@ func _atualizar_visual() -> void:
 	# Cria uma nova animação de 0.15 segundos com curva de aceleração
 	tween_movimento = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	tween_movimento.tween_property(moldura, "global_position", posicao_alvo, 0.15)
+	
+	# Só usa o card_atual que já foi declarado lá em cima! Não precisa do "var" de novo.
+	var nome_base = card_atual.name.to_lower().replace("_card", "")
+	
+	# Emite o sinal avisando qual personagem está focado agora
+	cursor_moveu.emit(nome_base, player_id)
 
 
 func _on_character_pressed(nome: String, instrumento: String) -> void:
