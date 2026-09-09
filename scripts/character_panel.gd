@@ -3,6 +3,8 @@ extends VBoxContainer
 var tween_movimento: Tween
 var player_id: int = 1
 var confirmado: bool = false
+var pode_interagir: bool = false
+
 
 @export var ajuste_posicao: Vector2 = Vector2(0, 0)
 
@@ -33,10 +35,18 @@ func _ready() -> void:
 	# Chama a atualização visual no primeiro frame para configurar o estado inicial
 	# Usamos call_deferred para garantir que os nós estejam posicionados corretamente na tela
 	call_deferred("_atualizar_visual")
+	get_tree().create_timer(1.0).timeout.connect(func(): pode_interagir = true)
 
 func _process(delta: float) -> void:
-	if confirmado:
+# Se o tempo ainda não passou, ele não lê nenhum botão e sai da função
+	if not pode_interagir:
 		return
+		
+	# (Se você estiver usando aquela variável "confirmado" do lock-in que comentei antes, 
+	# ela também entra aqui:)
+	# if confirmado:
+	#     return
+		
 	var mudou_selecao = false
 	
 	if Input.is_action_just_pressed("customAction_player"+str(player_id)+"_up"):
