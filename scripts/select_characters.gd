@@ -5,6 +5,13 @@ const PANEL_SCENE = preload("res://scenes/character_panel.tscn")
 # Aponta direto para o HBoxContainer que organiza o layout
 @onready var players_container = $UI 
 
+func _input(event: InputEvent) -> void:
+	if (
+		event.is_action_pressed("customAction_player1_pedal")
+		or event.is_action_pressed("customAction_player2_pedal")
+	):
+		_on_start_game_pressed()
+
 func _ready() -> void:
 	Globals.personagem_1 = ""
 	Globals.personagem_2 = ""
