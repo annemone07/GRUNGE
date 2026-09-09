@@ -1,15 +1,36 @@
 [gd_scene format=3 uid="uid://iyby3kxwrbyw"]
 
 [ext_resource type="Script" uid="uid://bp8wyleaaqnys" path="res://scripts/starter_menu.gd" id="1_yjol5"]
+[ext_resource type="Texture2D" uid="uid://ywdbh40ge7bk" path="res://assets/IMG_0812.PNG" id="2_yeddl"]
 
-[node name="starterMenu" type="Node2D" unique_id=1300079585]
+[node name="starterMenu" type="Control" unique_id=788738504]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_yjol5")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=216350297]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -683.0
+offset_top = -382.0
+offset_right = -683.0
+offset_bottom = -382.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yeddl")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1704505233]
 
 [node name="starterMenu" type="Node" parent="." unique_id=1529470060]
 
 [node name="menuContainer" type="VBoxContainer" parent="." unique_id=790205851]
+layout_mode = 0
 offset_left = -128.0
 offset_top = -82.0
 offset_right = 128.0
@@ -37,6 +58,7 @@ text = "Exit"
 
 [node name="settingsContainer" type="Panel" parent="." unique_id=611908290]
 visible = false
+layout_mode = 0
 offset_left = -167.0
 offset_top = -163.0
 offset_right = 156.0
@@ -50,6 +72,7 @@ text = "Back"
 
 [node name="highscoresContainer" type="Panel" parent="." unique_id=835169170]
 visible = false
+layout_mode = 0
 offset_left = -157.0
 offset_top = -188.0
 offset_right = 172.0
@@ -63,6 +86,7 @@ text = "Back"
 
 [node name="creditsContainer" type="Panel" parent="." unique_id=1805443349]
 visible = false
+layout_mode = 0
 offset_left = -163.0
 offset_top = -169.0
 offset_right = 169.0

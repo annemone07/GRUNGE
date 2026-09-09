@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://c21wgdxixr8ty"]
 
 [ext_resource type="Script" uid="uid://cfa0xctt44m0d" path="res://scripts/select_characters.gd" id="1_6tl78"]
+[ext_resource type="Texture2D" uid="uid://dwl1y6upqomeb" path="res://assets/New_Title_Screen.jpeg" id="2_d01ke"]
 
 [node name="SelectCharacters" type="Node2D" unique_id=192584206]
 script = ExtResource("1_6tl78")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=94508847]
+offset_right = 1364.0
+offset_bottom = 769.0
+texture = ExtResource("2_d01ke")
 
 [node name="UI" type="HBoxContainer" parent="." unique_id=590095534]
 offset_left = -66.0

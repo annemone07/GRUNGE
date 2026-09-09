@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var menu_container: VBoxContainer = $menuContainer
 @onready var settings_container: Panel = $settingsContainer

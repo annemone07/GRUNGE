@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://daq0jpb65sxbf"]
 
 [ext_resource type="Script" uid="uid://cknuoljgsgslr" path="res://scripts/select_music.gd" id="1_mik2o"]
+[ext_resource type="Texture2D" uid="uid://b0jj2yl1tqm4" path="res://assets/IMG_0814.PNG" id="2_3tkxt"]
 
 [node name="SelectMusic" type="Node3D" unique_id=1735619810]
 script = ExtResource("1_mik2o")
@@ -10,6 +11,12 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1368.0
 offset_bottom = 768.0
+
+[node name="TextureRect" type="TextureRect" parent="selectMusicScreen" unique_id=188424293]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_3tkxt")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="selectMusicScreen" unique_id=1219251227]
 layout_mode = 0

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgt7obn4s6ub3"]
 
 [ext_resource type="Script" uid="uid://cs04fllnmeeud" path="res://scripts/title_screen.gd" id="1_e1hrd"]
-[ext_resource type="Texture2D" uid="uid://dwl1y6upqomeb" path="res://assets/New_Title_Screen.jpeg" id="2_a6qrr"]
+[ext_resource type="Texture2D" uid="uid://d1b808iec4res" path="res://assets/IMG_0813.PNG" id="2_a6qrr"]
 [ext_resource type="FontFile" uid="uid://xi7ojbs5i05b" path="res://assets/fonts/KiwiSoda.ttf" id="3_a6qrr"]
 
 [node name="TitleScreen" type="Node2D" unique_id=1798236848]

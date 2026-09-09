@@ -8,12 +8,15 @@ anchors_preset = 0
 script = ExtResource("1_dn5fd")
 
 [node name="Button" type="Button" parent="." unique_id=1193944890]
-custom_minimum_size = Vector2(112, 156.8)
+custom_minimum_size = Vector2(90, 126)
+custom_maximum_size = Vector2(90, 126)
 layout_mode = 0
-offset_right = 112.0
-offset_bottom = 144.0
+offset_right = 90.0
+offset_bottom = 126.0
 button_mask = 0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1933172967]
+custom_minimum_size = Vector2(90, 126)
+custom_maximum_size = Vector2(90, 126)
 layout_mode = 0
 offset_right = 40.0
