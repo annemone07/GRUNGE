@@ -35,6 +35,7 @@ offset_left = -603.0
 offset_top = -349.0
 offset_right = -563.0
 offset_bottom = -245.0
+focus_behavior_recursive = 1
 alignment = 1
 script = ExtResource("2_wq417")
 
@@ -103,6 +104,7 @@ offset_left = 230.0
 offset_top = -339.0
 offset_right = 270.0
 offset_bottom = -235.0
+focus_behavior_recursive = 1
 script = ExtResource("2_wq417")
 
 [node name="Button2" type="Button" parent="VBoxContainer2" unique_id=1866389440]
