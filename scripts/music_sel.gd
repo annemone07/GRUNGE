@@ -22,12 +22,6 @@ func _ready() -> void:
 	
 	btn_play.pressed.connect(_on_btn_play_pressed)
 	btn_play.pivot_offset = btn_play.size / 2
-	
-	btn_play.focus_entered.connect(_on_focus_entered)
-	btn_play.focus_exited.connect(_on_focus_exited)
-	btn_play.mouse_entered.connect(btn_play.grab_focus)
-	
-	_aplicar_estilo_normal()
 
 func setup(id: String, title: String, high_score: int) -> void:
 	music_id = id
@@ -54,50 +48,3 @@ func _process(delta: float) -> void:
 
 func _on_btn_play_pressed() -> void:
 	music_selected.emit(music_id)
-
-func _on_focus_entered() -> void:
-	btn_play.pivot_offset = btn_play.size / 2
-	
-	var tween = create_tween()
-	tween.tween_property(btn_play, "scale", Vector2(1.1, 1.1), 0.15).set_trans(Tween.TRANS_SINE)
-	
-	_aplicar_estilo_focado()
-	
-	# Liga o efeito de letreiro
-	rolando_texto = true
-	tempo_scroll = 0.0
-
-func _on_focus_exited() -> void:
-	var tween = create_tween()
-	tween.tween_property(btn_play, "scale", Vector2(1.0, 1.0), 0.15).set_trans(Tween.TRANS_SINE)
-	
-	_aplicar_estilo_normal()
-	
-	# Desliga o letreiro e reseta o texto para o normal
-	rolando_texto = false
-	btn_play.text = texto_original
-
-func _aplicar_estilo_normal() -> void:
-	var estilo = StyleBoxEmpty.new()
-	btn_play.add_theme_stylebox_override("normal", estilo)
-	btn_play.add_theme_stylebox_override("hover", estilo)
-	btn_play.add_theme_stylebox_override("focus", estilo)
-	btn_play.add_theme_color_override("font_color", Color.WHITE)
-
-func _aplicar_estilo_focado() -> void:
-	var estilo = StyleBoxFlat.new()
-	estilo.bg_color = Color(0, 0, 0, 1)
-	estilo.corner_radius_top_left = 12
-	estilo.corner_radius_top_right = 12
-	estilo.corner_radius_bottom_left = 12
-	estilo.corner_radius_bottom_right = 12
-	
-	estilo.expand_margin_left = 10
-	estilo.expand_margin_right = 10
-	estilo.expand_margin_top = 5
-	estilo.expand_margin_bottom = 5
-	
-	btn_play.add_theme_stylebox_override("normal", estilo)
-	btn_play.add_theme_stylebox_override("hover", estilo)
-	btn_play.add_theme_stylebox_override("focus", estilo)
-	btn_play.add_theme_color_override("font_color", Color.WHITE)

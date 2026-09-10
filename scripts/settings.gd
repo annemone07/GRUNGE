@@ -1,12 +1,12 @@
 extends Node2D
-@onready var music_slider: HSlider = $music_slider
-@onready var master_slider: HSlider = $master_slider
-
+@onready var music_slider: HSlider = $Control3/controlBotoes/music_slider
+@onready var master_slider: HSlider = $Control3/controlBotoes/master_slider
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	music_slider.value = Globals.volume_music
 	master_slider.value = Globals.volume_master
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

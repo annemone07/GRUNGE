@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bgtg7utray2f0"]
 
 [ext_resource type="Script" uid="uid://bu7sycb2nolmg" path="res://scripts/victory_screen.gd" id="1_ujlt3"]
+[ext_resource type="Script" uid="uid://b8fmxhhm746jw" path="res://scripts/controleBtFimMapa.gd" id="2_wdgif"]
+[ext_resource type="Texture2D" uid="uid://cv8dr73m7sgs1" path="res://assets/mouse.png" id="3_pfcnd"]
 
 [node name="VictoryScreen" type="Node2D" unique_id=765099952]
 script = ExtResource("1_ujlt3")
@@ -75,13 +77,46 @@ text = "combo"
 layout_mode = 2
 text = "porcentagem"
 
-[node name="RestartButton" type="Button" parent="Control/VBoxContainer" unique_id=678909230]
-layout_mode = 2
+[node name="Control" type="Control" parent="Control" unique_id=1872366548]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_wdgif")
+
+[node name="RestartButton" type="Button" parent="Control/Control" unique_id=678909230]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 357.0
+offset_right = 851.0
+offset_bottom = 388.0
 text = "Restart"
 
-[node name="MenuButton" type="Button" parent="Control/VBoxContainer" unique_id=388232646]
-layout_mode = 2
+[node name="MenuButton" type="Button" parent="Control/Control" unique_id=388232646]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 392.0
+offset_right = 851.0
+offset_bottom = 423.0
 text = "Menu"
 
-[connection signal="pressed" from="Control/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[node name="controlMoldura" type="Control" parent="Control/Control" unique_id=1141456266]
+anchors_preset = 0
+offset_left = 522.0
+offset_top = 357.0
+offset_right = 851.0
+offset_bottom = 357.0
+
+[node name="Node2D" type="Node2D" parent="Control/Control/controlMoldura" unique_id=433938076]
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Control/controlMoldura/Node2D" unique_id=26783889]
+offset_left = -30.0
+offset_top = -22.0
+offset_right = 80.0
+offset_bottom = 88.0
+mouse_filter = 2
+texture = ExtResource("3_pfcnd")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/Control/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/Control/MenuButton" to="." method="_on_menu_button_pressed"]

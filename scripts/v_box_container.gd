@@ -56,10 +56,10 @@ func _process(delta: float) -> void:
 		moved = true
 
 	elif Input.is_action_just_pressed(action_select):
-		var target_btn = children[boxId]
-		if target_btn is Button:
-			target_btn.emit_signal("pressed")
+		if children[boxId] is ReconfigKey:
+			children[boxId]._pressed()
 			was_listening = true
+			
 
 	elif Input.is_action_just_pressed(action_back):
 		var parent_scene = get_parent()

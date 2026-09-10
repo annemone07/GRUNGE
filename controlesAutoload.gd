@@ -89,9 +89,6 @@ func _get_player_id(action: String) -> String:
 	return ""
 
 func rebind_keyboard(action: String, new_event: InputEvent):
-	if new_event is InputEventKey:
-		if new_event.physical_keycode == KEY_ENTER or new_event.physical_keycode == KEY_BACKSLASH:
-			return
 
 	var target_is_menu = _is_menu_action(action)
 	var target_player = _get_player_id(action)
