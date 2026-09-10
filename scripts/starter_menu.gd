@@ -107,12 +107,6 @@ func _unhandled_input(_event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			_on_back_button_pressed()
 
-func _focus_main_menu() -> void:
-	if menu_container and menu_container.get_child_count() > 0:
-		var start_btn = menu_container.get_node_or_null("startButton")
-		if start_btn:
-			start_btn.grab_focus()
-
 func _on_start_button_pressed() -> void:
 	var stage_scene = load("res://scenes/gamemode.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
@@ -134,20 +128,6 @@ func _on_settings_button_pressed() -> void:
 		main_node.get_child(old_stage_id).queue_free()
 	else:
 		print("Erro: Não conseguimos encontrar a cena.")
-
-func _on_highscores_button_pressed() -> void:
-	menu_container.visible = false
-	highscores_container.visible = true
-	var back_btn = highscores_container.get_node_or_null("backButton")
-	if back_btn:
-		back_btn.grab_focus()
-
-func _on_credits_button_pressed() -> void:
-	menu_container.visible = false
-	credits_container.visible = true
-	var back_btn = credits_container.get_node_or_null("backButton")
-	if back_btn:
-		back_btn.grab_focus()
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
