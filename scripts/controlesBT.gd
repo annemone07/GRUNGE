@@ -9,6 +9,7 @@ func _ready() -> void:
 	update_button_text()
 
 func _pressed() -> void:
+	print("a")
 	listening = true
 	text = "Aperte o botão..."
 
@@ -17,13 +18,29 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	var is_valid = false
-
+	
+	var deviceNum1 = 0
+	var deviceNum2 = 0
+	if InputMap.action_get_events("customAction_player1_select")[0] is InputEventKey:
+		deviceNum1 = InputMap.action_get_events("customAction_player1_select")[0].keycode
+	elif InputMap.action_get_events("customAction_player1_select")[0] is InputEventJoypadButton:
+		deviceNum1 = InputMap.action_get_events("customAction_player1_select")[0].button_index
+	elif InputMap.action_get_events("customAction_player1_select")[0] is InputEventJoypadMotion:
+		deviceNum1 = InputMap.action_get_events("customAction_player1_select")[0].axis
+	if InputMap.action_get_events("customAction_player2_select")[0] is InputEventKey:
+		deviceNum2 = InputMap.action_get_events("customAction_player2_select")[0].keycode
+	elif InputMap.action_get_events("customAction_player2_select")[0] is InputEventJoypadButton:
+		deviceNum2 = InputMap.action_get_events("customAction_player2_select")[0].button_index
+	elif InputMap.action_get_events("customAction_player2_select")[0] is InputEventJoypadMotion:
+		deviceNum2 = InputMap.action_get_events("customAction_player2_select")[0].axis
+		
 	if event is InputEventKey and event.is_pressed():
-		if event.physical_keycode != KEY_ENTER and event.physical_keycode != KEY_BACKSLASH:
+		if event.keycode != deviceNum1 and event.keycode != deviceNum2:
 			is_valid = true
 
 	elif event is InputEventJoypadButton and event.is_pressed():
-		is_valid = true
+		if event.button_index != deviceNum1 and event.keycode != deviceNum2:
+			is_valid = true
 
 	elif event is InputEventJoypadMotion and abs(event.axis_value) > 0.5:
 		is_valid = true

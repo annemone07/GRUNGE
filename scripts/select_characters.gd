@@ -8,6 +8,7 @@ var label_inst_p1: Label
 var label_inst_p2: Label
 
 @onready var players_container = $UI 
+@onready var comecar: Button = $Comecar
 
 var sprite_p1: Sprite2D
 var sprite_p2: Sprite2D
@@ -123,7 +124,16 @@ func _ready() -> void:
 		label_inst_p2.position = Vector2(0, 160) 
 		caixa_p2.add_child(label_inst_p2)
 
-# --- A MÁGICA DOS NOMES E INSTRUMENTOS ---
+func _process(_delta: float) -> void:
+	if Globals.personagem_1!="":
+		comecar.visible=true
+		if Globals.is_single_player:
+			if Input.is_action_just_pressed("customAction_player1_select"):
+				comecar.pressed.emit()
+		elif Globals.personagem_2!="":
+			if Input.is_action_just_pressed("customAction_player1_select") or Input.is_action_just_pressed("customAction_player2_select"):
+				comecar.pressed.emit()
+			
 func _on_cursor_moveu(nome_base: String, p_id: int) -> void:
 	var caminho = "res://assets/personagens/" + nome_base + "_capa.png"
 	
@@ -160,16 +170,7 @@ func _on_cursor_moveu(nome_base: String, p_id: int) -> void:
 
 
 func _on_start_game_pressed() -> void:
-	print("P1 Personagem: ", Globals.personagem_1)
-	if not Globals.is_single_player:
-		print("P2 Personagem: ", Globals.personagem_2)
-
-	if Globals.personagem_1 != "":
-		if not Globals.is_single_player and Globals.personagem_2 == "":
-			print("Aguardando o Player 2 escolher...")
-			return
-			
-		_iniciar_play_map()
+	_iniciar_play_map()
 
 func _iniciar_play_map() -> void:
 	var stage_scene = load("res://scenes/play_map.tscn")

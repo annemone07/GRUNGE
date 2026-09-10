@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bp8wyleaaqnys" path="res://scripts/starter_menu.gd" id="1_yjol5"]
 [ext_resource type="Texture2D" uid="uid://ywdbh40ge7bk" path="res://assets/IMG_0812.PNG" id="2_yeddl"]
-[ext_resource type="Texture2D" uid="uid://cv8dr73m7sgs1" path="res://assets/mouse.png" id="3_cskr7"]
 
 [node name="starterMenu" type="Control" unique_id=788738504]
 layout_mode = 3
@@ -98,21 +97,6 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Back"
-
-[node name="controlMoldura" type="Control" parent="." unique_id=1566749370]
-anchors_preset = 0
-
-[node name="Node2D" type="Node2D" parent="controlMoldura" unique_id=1162414118]
-
-[node name="TextureRect2" type="TextureRect" parent="controlMoldura/Node2D" unique_id=568031630]
-offset_left = -30.0
-offset_top = -22.0
-offset_right = 80.0
-offset_bottom = 88.0
-mouse_filter = 2
-texture = ExtResource("3_cskr7")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="menuContainer/startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="menuContainer/settingsButton" to="." method="_on_settings_button_pressed"]

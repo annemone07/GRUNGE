@@ -4,12 +4,132 @@ extends Node3D
 const MUSIC_ITEM_SCENE = preload("res://scenes/music_sel.tscn")
 
 @onready var vbox_container = $selectMusicScreen/HBoxContainer
+@onready var control_moldura: Control = $controlMoldura
+@onready var moldura_pos: Node2D = $controlMoldura/Node2D
+@onready var moldura: TextureRect = $controlMoldura/Node2D/TextureRect2
 
+
+var boxId = 0
+var menuCards = []
+var menuButtons = []
+var menu_size = 0
+var tween_movimento: Tween
+var player_id: int = 1
+var confirmado: bool = false
+var pode_interagir: bool = false
+
+# Guarda a última direção do analógico para evitar que o cursor fique correndo descontroladamente
+var last_stick_dir: Vector2 = Vector2.ZERO
+
+signal cursor_moveu(nome_personagem, player_id)
+
+@export var ajuste_posicao: Vector2 = Vector2(0, 0)
+
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for child in vbox_container.get_children():
 		child.queue_free()
 		
 	_populate_music_list()
+	
+	# Garantir que a moldura fique por cima de tudo
+	control_moldura.z_index = 1
+	
+	menuCards = vbox_container.get_children()
+	
+	for child in menuCards:
+		for childer in child.get_children():
+			if childer is Button:
+				menuButtons.append(childer)
+				menu_size+=1
+	
+	for button in menuButtons:
+		button.focus_entered.connect(_button_selected)
+		button.mouse_entered.connect(_button_selected)
+		button.focus_exited.connect(_button_deselected)
+		button.mouse_exited.connect(_button_deselected)
+		
+		_aplicar_estilo_normal(button)
+	
+	moldura_pos.position = menuButtons[0].position
+	
+	# Chama a atualização visual no primeiro frame para configurar o estado inicial
+	_atualizar_visual()
+	get_tree().create_timer(0.1).timeout.connect(func(): pode_interagir = true)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if not pode_interagir:
+		return
+		
+	var mudou_selecao = false
+	var device_id = player_id - 1 # Player 1 = Controle 0, Player 2 = Controle 1
+	
+	
+	# --- LEITURA DIRETA DO ANALÓGICO ---
+	var raw_x = Input.get_joy_axis(device_id, JOY_AXIS_LEFT_X)
+	var raw_y = Input.get_joy_axis(device_id, JOY_AXIS_LEFT_Y)
+	
+	var stick_dir = Vector2.ZERO
+	# Deadzone de 0.5 para ignorar drift do controle
+	if abs(raw_x) > 0.5 or abs(raw_y) > 0.5:
+		if abs(raw_x) > abs(raw_y):
+			stick_dir.x = 1.0 if raw_x > 0 else -1.0
+		else:
+			stick_dir.y = 1.0 if raw_y > 0 else -1.0
+			
+	# Detecta o exato momento em que o jogador empurrou o analógico (funciona como just_pressed)
+	var analog_left = (stick_dir.x < 0 and last_stick_dir.x >= 0)
+	var analog_right = (stick_dir.x > 0 and last_stick_dir.x <= 0)
+	var analog_up = (stick_dir.y < 0 and last_stick_dir.y >= 0)
+	var analog_down = (stick_dir.y > 0 and last_stick_dir.y <= 0)
+	
+	last_stick_dir = stick_dir
+	
+	# --- CHECAGEM DE ENTRADAS (BOTÕES / D-PAD / ANALÓGICO) ---
+	if (Input.is_action_just_pressed("customAction_player1_up") or Input.is_action_just_pressed("customAction_player2_up")) or analog_up:
+		boxId -= 1
+		mudou_selecao = true
+	elif (Input.is_action_just_pressed("customAction_player1_down") or Input.is_action_just_pressed("customAction_player2_down")) or analog_down:
+		boxId += 1
+		mudou_selecao = true
+		
+	# Limita o cursor
+	if boxId < 0:
+		boxId = 0
+	elif boxId > menu_size - 1:
+		boxId = menu_size - 1
+		
+	# Só atualiza a tela se o jogador moveu o cursor
+	if mudou_selecao:
+		_atualizar_visual()
+		for elemento in range(len(menuCards)):
+			if elemento!=boxId:
+				_button_deselected(menuButtons[elemento], menuCards[elemento])
+			else:
+				_button_selected(menuButtons[boxId], menuCards[boxId])
+	
+	if (Input.is_action_just_pressed("customAction_player1_select") or Input.is_action_just_pressed("customAction_player2_select")):
+		if menuButtons[boxId] is Button:
+			menuButtons[boxId].pressed.emit()
+
+
+func _atualizar_visual() -> void:
+		
+	# Mover a moldura com tween
+	var card_atual = menuCards[boxId]
+	
+	var posicao_alvo = card_atual.global_position + Vector2(card_atual.size.x/2, card_atual.size.y/2)
+	if tween_movimento:
+		tween_movimento.kill()
+		
+	tween_movimento = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween_movimento.tween_property(moldura_pos, "global_position", posicao_alvo, 0.15)
+	
+	var nome_base = card_atual.name.to_lower().replace("_card", "")
+	
+	cursor_moveu.emit(nome_base, player_id)
 
 func _populate_music_list() -> void:
 	for m_id in Globals.music_database:
@@ -20,11 +140,6 @@ func _populate_music_list() -> void:
 		
 		item.setup(m_id, music_data["title"], music_data["high_score"])
 		item.music_selected.connect(_on_music_item_selected)
-		
-	if vbox_container.get_child_count() > 0:
-		var primeiro_item = vbox_container.get_child(0)
-		if "btn_play" in primeiro_item and primeiro_item.btn_play:
-			primeiro_item.btn_play.grab_focus()
 
 func _unhandled_input(_event: InputEvent) -> void:
 	# 1. Confirmação (P1, P2 ou UI padrão)
@@ -70,3 +185,52 @@ func change_scene_to_instruments() -> void:
 		main_node.get_child(old_stage_id).queue_free()
 	else:
 		print("Erro: Não conseguimos encontrar a cena.")
+
+func _button_selected(button, vbox) -> void:
+	print("entrou ",vbox)
+	button.pivot_offset = button.size / 2
+	
+	var tween = create_tween()
+	tween.tween_property(button, "scale", Vector2(1.1, 1.1), 0.15).set_trans(Tween.TRANS_SINE)
+	
+	_aplicar_estilo_focado(button)
+	
+	# Liga o efeito de letreiro
+	vbox.rolando_texto = true
+	vbox.tempo_scroll = 0.0
+
+func _button_deselected(button, vbox) -> void:
+	print("saiu ",vbox)
+	var tween = create_tween()
+	tween.tween_property(button, "scale", Vector2(1.0, 1.0), 0.15).set_trans(Tween.TRANS_SINE)
+	
+	_aplicar_estilo_normal(button)
+	
+	# Desliga o letreiro e reseta o texto para o normal
+	vbox.rolando_texto = false
+	button.text = vbox.texto_original
+
+func _aplicar_estilo_normal(button) -> void:
+	var estilo = StyleBoxEmpty.new()
+	button.add_theme_stylebox_override("normal", estilo)
+	button.add_theme_stylebox_override("hover", estilo)
+	button.add_theme_stylebox_override("focus", estilo)
+	button.add_theme_color_override("font_color", Color.WHITE)
+
+func _aplicar_estilo_focado(button) -> void:
+	var estilo = StyleBoxFlat.new()
+	estilo.bg_color = Color(0, 0, 0, 1)
+	estilo.corner_radius_top_left = 12
+	estilo.corner_radius_top_right = 12
+	estilo.corner_radius_bottom_left = 12
+	estilo.corner_radius_bottom_right = 12
+	
+	estilo.expand_margin_left = 10
+	estilo.expand_margin_right = 10
+	estilo.expand_margin_top = 5
+	estilo.expand_margin_bottom = 5
+	
+	button.add_theme_stylebox_override("normal", estilo)
+	button.add_theme_stylebox_override("hover", estilo)
+	button.add_theme_stylebox_override("focus", estilo)
+	button.add_theme_color_override("font_color", Color.WHITE)

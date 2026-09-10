@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cknuoljgsgslr" path="res://scripts/select_music.gd" id="1_mik2o"]
 [ext_resource type="Texture2D" uid="uid://b0jj2yl1tqm4" path="res://assets/IMG_0814.PNG" id="2_3tkxt"]
+[ext_resource type="Texture2D" uid="uid://cv8dr73m7sgs1" path="res://assets/mouse.png" id="3_n48pg"]
 
 [node name="SelectMusic" type="Node3D" unique_id=1735619810]
 script = ExtResource("1_mik2o")
@@ -33,3 +34,19 @@ offset_top = 268.0
 offset_right = 747.0
 offset_bottom = 312.0
 text = "Escolha a Música"
+
+[node name="controlMoldura" type="Control" parent="." unique_id=860813433]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Node2D" type="Node2D" parent="controlMoldura" unique_id=1039347801]
+
+[node name="TextureRect2" type="TextureRect" parent="controlMoldura/Node2D" unique_id=107797269]
+offset_left = -30.0
+offset_top = -22.0
+offset_right = 80.0
+offset_bottom = 88.0
+mouse_filter = 2
+texture = ExtResource("3_n48pg")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true

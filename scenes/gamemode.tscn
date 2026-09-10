@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c43x20k27bxyh" path="res://scripts/gamemode.gd" id="1_bcl04"]
 [ext_resource type="Texture2D" uid="uid://dwl1y6upqomeb" path="res://assets/New_Title_Screen.jpeg" id="2_4jc26"]
+[ext_resource type="Texture2D" uid="uid://cv8dr73m7sgs1" path="res://assets/mouse.png" id="3_jdnmh"]
 
 [node name="Gamemode" type="Node2D" unique_id=361609405]
 
@@ -38,6 +39,20 @@ text = "1 Player"
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "2 Players"
+
+[node name="controlMoldura" type="Control" parent="Control" unique_id=626261782]
+anchors_preset = 0
+
+[node name="Node2D" type="Node2D" parent="Control/controlMoldura" unique_id=813339788]
+
+[node name="TextureRect2" type="TextureRect" parent="Control/controlMoldura/Node2D" unique_id=392922926]
+offset_left = -30.0
+offset_top = -22.0
+offset_right = 80.0
+offset_bottom = 88.0
+mouse_filter = 2
+texture = ExtResource("3_jdnmh")
+expand_mode = 1
 
 [connection signal="pressed" from="Control/VBoxContainer/solo" to="Control" method="_on_solo_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/multiplayer" to="Control" method="_on_multiplayer_pressed"]
