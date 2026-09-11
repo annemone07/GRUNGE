@@ -7,6 +7,8 @@ var player_id: int = 1
 @onready var sqr_normal: Node3D = $sqr_normal
 @onready var sqr_levantado: Node3D = $sqr_levantado
 
+var hit_tween: Tween # Armazena a referência do Tween ativo
+
 func _ready() -> void:
 	circulo_normal.visible = true
 	sqr_normal.visible = false
@@ -20,7 +22,6 @@ func _ready() -> void:
 			break
 
 func _process(delta: float) -> void:
-	#concatenando o player_id para separar entre os jogadores
 	var pedal_action = "customAction_player" + str(player_id) + "_pedal"
 	
 	if Input.is_action_just_pressed(pedal_action):
@@ -28,7 +29,6 @@ func _process(delta: float) -> void:
 		sqr_normal.visible = !sqr_normal.visible
 		circulo_levantado.visible = false
 		sqr_levantado.visible = false
-
 
 func animar_hit() -> void:
 	var sprite_alvo = null
@@ -39,13 +39,19 @@ func animar_hit() -> void:
 		sprite_alvo = sqr_levantado
 		
 	if sprite_alvo:
+		# Se já houver uma animação rodando, interrompe antes de começar outra
+		if hit_tween and hit_tween.is_running():
+			hit_tween.kill()
+		
 		sprite_alvo.visible = true
-		sprite_alvo.scale = Vector3(1.0, 1.0, 1.0)
+		sprite_alvo.scale = Vector3.ONE
 		
-		var tween = create_tween()
-		tween.set_parallel(true)
+		hit_tween = create_tween()
+		hit_tween.set_parallel(true)
 		
-		tween.tween_property(sprite_alvo, "scale", Vector3(1.1, 1.1, 1.1), 0.15).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		hit_tween.tween_property(sprite_alvo, "scale", Vector3(1.1, 1.1, 1.1), 0.15).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
-		tween.chain().tween_callback(func(): sprite_alvo.visible = false)
-		
+		hit_tween.chain().tween_callback(func():
+			sprite_alvo.visible = false
+			sprite_alvo.scale = Vector3.ONE # Garante o resete da escala ao esconder
+		)

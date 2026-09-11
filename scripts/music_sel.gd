@@ -26,6 +26,7 @@ func _ready() -> void:
 func setup(id: String, title: String, high_score: int) -> void:
 	music_id = id
 	lbl_score.text = str(high_score)
+	btn_play.name = id # <--- Joga o ID direto no nome do botão
 	
 	texto_original = title
 	

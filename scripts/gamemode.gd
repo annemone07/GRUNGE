@@ -171,7 +171,7 @@ func _aplicar_estilo_focado(botao: Button):
 
 func _on_solo_pressed() -> void:
 	Globals.is_single_player = true
-	var stage_scene = load("res://scenes/selectMusic.tscn")
+	var stage_scene = load("res://scenes/selectCharacters.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count() - 1
 	if stage_scene:
 		var stage = stage_scene.instantiate()
@@ -182,7 +182,7 @@ func _on_solo_pressed() -> void:
 
 func _on_multiplayer_pressed() -> void:
 	Globals.is_single_player = false
-	var stage_scene = load("res://scenes/selectMusic.tscn")
+	var stage_scene = load("res://scenes/selectCharacters.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count() - 1
 	if stage_scene:
 		var stage = stage_scene.instantiate()

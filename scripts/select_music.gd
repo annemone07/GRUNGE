@@ -66,7 +66,6 @@ func _process(delta: float) -> void:
 	var mudou_selecao = false
 	var device_id = player_id - 1 # Player 1 = Controle 0, Player 2 = Controle 1
 	
-	
 	# --- LEITURA DIRETA DO ANALÓGICO ---
 	var raw_x = Input.get_joy_axis(device_id, JOY_AXIS_LEFT_X)
 	var raw_y = Input.get_joy_axis(device_id, JOY_AXIS_LEFT_Y)
@@ -79,11 +78,11 @@ func _process(delta: float) -> void:
 		else:
 			stick_dir.y = 1.0 if raw_y > 0 else -1.0
 			
-	# Detecta o exato momento em que o jogador empurrou o analógico (funciona como just_pressed)
+	# Detecta o exato momento em que o jogador empurrou o analógico
 	var analog_left = (stick_dir.x < 0 and last_stick_dir.x >= 0)
 	var analog_right = (stick_dir.x > 0 and last_stick_dir.x <= 0)
 	var analog_up = (stick_dir.y < 0 and last_stick_dir.y >= 0)
-	var analog_down = (stick_dir.y > 0 and last_stick_dir.y <= 0)
+	var analog_down = (stick_dir.y > 0 and last_stick_dir.y >= 0)
 	
 	last_stick_dir = stick_dir
 	
@@ -95,32 +94,30 @@ func _process(delta: float) -> void:
 		boxId += 1
 		mudou_selecao = true
 		
-	# Limita o cursor
-	if boxId < 0:
-		boxId = 0
-	elif boxId > menu_size - 1:
-		boxId = menu_size - 1
-		
 	# Só atualiza a tela se o jogador moveu o cursor
 	if mudou_selecao:
+		if boxId < 0:
+			boxId = 0
+		elif boxId > menu_size - 1:
+			boxId = menu_size - 1
+			
 		_atualizar_visual()
-		for elemento in range(len(menuCards)):
-			if elemento!=boxId:
-				_button_deselected(menuButtons[elemento], menuCards[elemento])
-			else:
-				_button_selected(menuButtons[boxId], menuCards[boxId])
+		
+		# Dá o foco real do Godot para o botão correspondente, disparando o _button_selected corretamente
+		if menuButtons.size() > boxId:
+			menuButtons[boxId].grab_focus()
 	
 	if (Input.is_action_just_pressed("customAction_player1_select") or Input.is_action_just_pressed("customAction_player2_select")):
-		if menuButtons[boxId] is Button:
+		if menuButtons.size() > boxId and menuButtons[boxId] is Button:
 			menuButtons[boxId].pressed.emit()
 
-
 func _atualizar_visual() -> void:
+	if menuCards.size() <= boxId:
+		return
 		
-	# Mover a moldura com tween
 	var card_atual = menuCards[boxId]
+	var posicao_alvo = card_atual.global_position + Vector2(card_atual.size.x / 2, card_atual.size.y / 2)
 	
-	var posicao_alvo = card_atual.global_position + Vector2(card_atual.size.x/2, card_atual.size.y/2)
 	if tween_movimento:
 		tween_movimento.kill()
 		
@@ -128,7 +125,6 @@ func _atualizar_visual() -> void:
 	tween_movimento.tween_property(moldura_pos, "global_position", posicao_alvo, 0.15)
 	
 	var nome_base = card_atual.name.to_lower().replace("_card", "")
-	
 	cursor_moveu.emit(nome_base, player_id)
 
 func _populate_music_list() -> void:
@@ -139,7 +135,27 @@ func _populate_music_list() -> void:
 		vbox_container.add_child(item)
 		
 		item.setup(m_id, music_data["title"], music_data["high_score"])
-		item.music_selected.connect(_on_music_item_selected)
+		
+		# Conecta o sinal repassando diretamente o m_id daquela iteração exata do loop
+		item.music_selected.connect(func(id): _on_music_item_selected(id))
+		
+	# Atualiza as referências dos cards e botões após popular a lista
+	menuCards = vbox_container.get_children()
+	menuButtons.clear()
+	menu_size = 0
+	
+	for child in menuCards:
+		for childer in child.get_children():
+			if childer is Button:
+				menuButtons.append(childer)
+				menu_size += 1
+				
+	for button in menuButtons:
+		button.focus_entered.connect(func(): _button_selected(button))
+		button.mouse_entered.connect(func(): _button_selected(button))
+		button.focus_exited.connect(func(): _button_deselected(button))
+		button.mouse_exited.connect(func(): _button_deselected(button))
+		_aplicar_estilo_normal(button)
 
 func _unhandled_input(_event: InputEvent) -> void:
 	# 1. Confirmação (P1, P2 ou UI padrão)
@@ -186,29 +202,37 @@ func change_scene_to_instruments() -> void:
 	else:
 		print("Erro: Não conseguimos encontrar a cena.")
 
-func _button_selected(button, vbox) -> void:
-	print("entrou ",vbox)
-	button.pivot_offset = button.size / 2
-	
-	var tween = create_tween()
-	tween.tween_property(button, "scale", Vector2(1.1, 1.1), 0.15).set_trans(Tween.TRANS_SINE)
-	
-	_aplicar_estilo_focado(button)
-	
-	# Liga o efeito de letreiro
-	vbox.rolando_texto = true
-	vbox.tempo_scroll = 0.0
+func _button_selected(button: Node = null) -> void:
+	# Encontra qual botão/card foi selecionado para atualizar o boxId corretamente
+	var index = menuButtons.find(button)
+	if index != -1 and index != boxId:
+		boxId = index
+		_atualizar_visual()
 
-func _button_deselected(button, vbox) -> void:
-	print("saiu ",vbox)
-	var tween = create_tween()
-	tween.tween_property(button, "scale", Vector2(1.0, 1.0), 0.15).set_trans(Tween.TRANS_SINE)
-	
-	_aplicar_estilo_normal(button)
-	
-	# Desliga o letreiro e reseta o texto para o normal
-	vbox.rolando_texto = false
-	button.text = vbox.texto_original
+	if button:
+		button.pivot_offset = button.size / 2
+		var tween = create_tween()
+		tween.tween_property(button, "scale", Vector2(1.1, 1.1), 0.15).set_trans(Tween.TRANS_SINE)
+		_aplicar_estilo_focado(button)
+		
+		# Procura o card pai para ativar o letreiro
+		var card = button.get_parent()
+		if card in menuCards:
+			card.rolando_texto = true
+			card.tempo_scroll = 0.0
+
+func _button_deselected(button: Node = null) -> void:
+	if button:
+		var tween = create_tween()
+		tween.tween_property(button, "scale", Vector2(1.0, 1.0), 0.15).set_trans(Tween.TRANS_SINE)
+		_aplicar_estilo_normal(button)
+		
+		var card = button.get_parent()
+		if card in menuCards:
+			card.rolando_texto = false
+			button.text = card.texto_original
+
+
 
 func _aplicar_estilo_normal(button) -> void:
 	var estilo = StyleBoxEmpty.new()
