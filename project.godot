@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="grunge"
-run/main_scene="uid://cgt7obn4s6ub3"
+run/main_scene="uid://d2tswjbhahmdg"
 config/features=PackedStringArray("4.7", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://bx4hdr7rpg4rd"
 
 [audio]
 
@@ -22,8 +22,8 @@ driver/output_latency=10
 [autoload]
 
 Globals="*uid://3b44jrfo7yvs"
-MenuMusic="*uid://bukafphwdd2ok"
 ControlesAutoload="*uid://bh3juunjgtvgg"
+MenuMusic="*uid://bukafphwdd2ok"
 
 [display]
 

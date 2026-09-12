@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dywe5y84fa23q"]
 
 [ext_resource type="PackedScene" uid="uid://c15qr6ssgce11" path="res://scenes/PlayerTrack.tscn" id="1_kqs1s"]
+[ext_resource type="Texture2D" uid="uid://d1b808iec4res" path="res://assets/IMG_0813.PNG" id="2_32lhk"]
 
 [sub_resource type="Environment" id="Environment_otrat"]
 background_mode = 3
@@ -9,6 +10,15 @@ background_mode = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=603822578]
 environment = SubResource("Environment_otrat")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=156625978]
+layer = -1
+
+[node name="Img0813" type="TextureRect" parent="CanvasLayer" unique_id=363221132]
+offset_right = 1366.0
+offset_bottom = 768.0
+texture = ExtResource("2_32lhk")
+metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=447938418]
 anchors_preset = 15
@@ -25,6 +35,7 @@ size_flags_vertical = 3
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="GridContainer/track_1_view" unique_id=436759632]
+transparent_bg = true
 handle_input_locally = false
 audio_listener_enable_3d = true
 size = Vector2i(681, 768)
@@ -40,6 +51,7 @@ size_flags_vertical = 3
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="GridContainer/track_2_view" unique_id=2697188]
+transparent_bg = true
 handle_input_locally = false
 audio_listener_enable_3d = true
 size = Vector2i(681, 768)

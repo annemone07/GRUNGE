@@ -34,9 +34,13 @@ func _ready() -> void:
 	
 	var nome_base = menuButtons[boxId].name.to_lower()
 	cursor_moveu.emit(nome_base, player_id)
+
+	
 	
 	
 func _process(delta: float) -> void:
+	await get_tree().create_timer(0.1).timeout
+	
 	var mudou_selecao = false
 	var device_id = player_id-1  # Player 1 = Controle 0, Player 2 = Controle 1
 	
@@ -85,16 +89,6 @@ func _process(delta: float) -> void:
 			menuButtons[boxId].pressed.emit()
 
 func _unhandled_input(_event: InputEvent) -> void:
-	# 1. Confirmação com controle/teclado
-	var is_select = Input.is_action_just_pressed("customAction_player1_select") or \
-					Input.is_action_just_pressed("customAction_player2_select") or \
-					Input.is_action_just_pressed("ui_accept")
-
-	if is_select:
-		var focused_node = get_viewport().gui_get_focus_owner()
-		if focused_node and focused_node is Button:
-			get_viewport().set_input_as_handled()
-			focused_node.emit_signal("pressed")
 
 	# 2. Voltar com controle/teclado
 	var is_back = Input.is_action_just_pressed("customAction_player1_back") or \
@@ -154,3 +148,15 @@ func _atualizar_visual() -> void:
 	var nome_base = botaoAtual.name.to_lower()
 	
 	cursor_moveu.emit(nome_base, player_id)
+
+
+func _on_credits_button_pressed() -> void:
+	var stage_scene = load("res://scenes/creditos.tscn")
+	var main_node = get_tree().root.get_node_or_null("Main")
+	if main_node and stage_scene:
+		var old_stage_id = main_node.get_child_count() - 1
+		var stage = stage_scene.instantiate()
+		main_node.add_child(stage)
+		main_node.get_child(old_stage_id).queue_free()
+	else:
+		print("Erro: Não conseguimos encontrar a cena.")

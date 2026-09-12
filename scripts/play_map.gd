@@ -29,8 +29,6 @@ func _ready() -> void:
 	Globals.current_life = 50.0
 	
 	_setup_screen_mode()
-	if MenuMusic.playing:
-		MenuMusic.stop()
 
 	Globals.score_updated.connect(_on_score_updated)
 	Globals.combo_updated.connect(_on_combo_updated)

@@ -107,7 +107,7 @@ func _on_restart_button_pressed() -> void:
 func _on_menu_button_pressed() -> void:
 	_reset_globals()
 	
-	var menu_scene = load("res://scenes/selectMusic.tscn")
+	var menu_scene = load("res://scenes/StarterMenu.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
 	
 	if menu_scene and main_node:
