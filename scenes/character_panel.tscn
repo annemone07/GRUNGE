@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://uektrfxjdwu7"]
+
+[ext_resource type="PackedScene" uid="uid://dqk67dcqkspvq" path="res://scenes/character_card.tscn" id="1_8w47t"]
+[ext_resource type="Script" uid="uid://bk8hve05utyw8" path="res://scripts/character_panel.gd" id="1_s6vyo"]
+[ext_resource type="Texture2D" uid="uid://bbcm487ag3a6s" path="res://assets/cards/Emo_card.png" id="3_oapnq"]
+[ext_resource type="Texture2D" uid="uid://cxv1ptgdfta25" path="res://assets/cards/Et_card.png" id="4_aoqt7"]
+[ext_resource type="Texture2D" uid="uid://df52iix6esdm3" path="res://assets/cards/Locs_card_colored.png" id="4_sdtr4"]
+[ext_resource type="Texture2D" uid="uid://ddv0d1vx4k7s8" path="res://assets/cards/Locs_card.png" id="5_3mdj2"]
+[ext_resource type="Texture2D" uid="uid://mgt6qr6tolrl" path="res://assets/cards/Macaco_card.png" id="6_p0d8a"]
+[ext_resource type="Texture2D" uid="uid://bp7ib8duvyl4h" path="res://assets/cards/Mago_card_colored.png" id="6_wetd0"]
+[ext_resource type="Texture2D" uid="uid://cqgj7vmf1cavi" path="res://assets/cards/Mago_card.png" id="7_ikcqp"]
+[ext_resource type="Texture2D" uid="uid://oby5fxqvgond" path="res://assets/cards/Emo_card_colored.png" id="8_63502"]
+[ext_resource type="Texture2D" uid="uid://cnh6wx8sspvd4" path="res://assets/cards/Nana_card.png" id="8_xcd1a"]
+[ext_resource type="Texture2D" uid="uid://cuvfosmkfxiww" path="res://assets/cards/Palhaco_card.png" id="9_kexx5"]
+[ext_resource type="Texture2D" uid="uid://c32r10gi3dsnh" path="res://assets/cards/Robo_card.png" id="10_8fx2f"]
+[ext_resource type="Texture2D" uid="uid://bgs6wlh4ma6y7" path="res://assets/cards/Et_card_colored.png" id="10_mdpww"]
+[ext_resource type="Texture2D" uid="uid://cq2vnb6mikonr" path="res://assets/ui/moldura_borda.png" id="11_aoqt7"]
+[ext_resource type="Texture2D" uid="uid://dqnv060dp0cwn" path="res://assets/cards/Macaco_card_colored.png" id="12_b326d"]
+[ext_resource type="Texture2D" uid="uid://c8ci07bj8dvi7" path="res://assets/cards/Palhaco_card_colored.png" id="14_5cbb8"]
+[ext_resource type="Texture2D" uid="uid://dgqv31r481mwl" path="res://assets/cards/Robo_card_colored.png" id="16_kx33s"]
+[ext_resource type="Texture2D" uid="uid://d0o2t6odteu2d" path="res://assets/cards/Nana_card_colored.png" id="18_c3sky"]
+
+[node name="character_panel" type="VBoxContainer" unique_id=77715228]
+offset_left = 5.0
+offset_top = 87.0
+offset_right = 209.0
+offset_bottom = 716.0
+theme_override_constants/separation = 27
+script = ExtResource("1_s6vyo")
+ajuste_posicao = Vector2(40, 60)
+
+[node name="Label" type="Label" parent="." unique_id=539170337]
+layout_mode = 2
+text = "PLAYER 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=891346314]
+layout_mode = 2
+theme_override_constants/h_separation = 105
+theme_override_constants/v_separation = 140
+columns = 2
+
+[node name="Locs_card" parent="GridContainer" unique_id=2135603834 instance=ExtResource("1_8w47t")]
+layout_mode = 2
+instrumento_atribuido = "bass"
+textura_selecionada = ExtResource("5_3mdj2")
+textura_nao_selecionada = ExtResource("4_sdtr4")
+
+[node name="TextureRect" parent="GridContainer/Locs_card" index="1" unique_id=1933172967]
+offset_right = 112.0
+offset_bottom = 157.0
+texture = ExtResource("5_3mdj2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Mago_card" parent="GridContainer" unique_id=1235397221 instance=ExtResource("1_8w47t")]
+layout_mode = 2
+instrumento_atribuido = "bass"
+textura_selecionada = ExtResource("7_ikcqp")
+textura_nao_selecionada = ExtResource("6_wetd0")
+
+[node name="TextureRect" parent="GridContainer/Mago_card" index="1" unique_id=1933172967]
+offset_right = 112.0
+offset_bottom = 157.0
+texture = ExtResource("7_ikcqp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Emo_card" parent="GridContainer" unique_id=708334686 instance=ExtResource("1_8w47t")]
+layout_mode = 2
+textura_selecionada = ExtResource("3_oapnq")
+textura_nao_selecionada = ExtResource("8_63502")
+
+[node name="TextureRect" parent="GridContainer/Emo_card" index="1" unique_id=1933172967]
+offset_right = 112.0
+offset_bottom = 157.0
+texture = ExtResource("3_oapnq")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Et_card" parent="GridContainer" unique_id=1342459255 instance=ExtResource("1_8w47t")]
+layout_mode = 2
+textura_selecionada = ExtResource("4_aoqt7")
+textura_nao_selecionada = ExtResource("10_mdpww")
+
+[node name="TextureRect" parent="GridContainer/Et_card" index="1" unique_id=1933172967]
+offset_right = 112.0
+offset_bottom = 157.0
+texture = ExtResource("4_aoqt7")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Macaco_card" parent="GridContainer" unique_id=1099501367 instance=ExtResource("1_8w47t")]
+layout_mode = 2
+instrumento_atribuido = "drums"
+textura_selecionada = ExtResource("6_p0d8a")
+textura_nao_selecionada = ExtResource("12_b326d")
+
+[node name="TextureRect" parent="GridContainer/Macaco_card" index="1" unique_id=1933172967]
+offset_right = 112.0
+offset_bottom = 157.0
+texture = ExtResource("6_p0d8a")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Palhaco_card" parent="GridContainer" unique_id=415864349 instance=ExtResource("1_8w47t")]
+layout_mode = 2
+instrumento_atribuido = "drums"
+textura_selecionada = ExtResource("9_kexx5")
+textura_nao_selecionada = ExtResource("14_5cbb8")
+
+[node name="TextureRect" parent="GridContainer/Palhaco_card" index="1" unique_id=1933172967]
+offset_right = 112.0
+offset_bottom = 157.0
+texture = ExtResource("9_kexx5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Robo_card" parent="GridContainer" unique_id=1720655296 instance=ExtResource("1_8w47t")]
+layout_mode = 2
+instrumento_atribuido = "vocal"
+textura_selecionada = ExtResource("10_8fx2f")
+textura_nao_selecionada = ExtResource("16_kx33s")
+
+[node name="TextureRect" parent="GridContainer/Robo_card" index="1" unique_id=1933172967]
+offset_right = 112.0
+offset_bottom = 157.0
+texture = ExtResource("10_8fx2f")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Nana_card" parent="GridContainer" unique_id=2030450822 instance=ExtResource("1_8w47t")]
+layout_mode = 2
+instrumento_atribuido = "vocal"
+textura_selecionada = ExtResource("8_xcd1a")
+textura_nao_selecionada = ExtResource("18_c3sky")
+
+[node name="TextureRect" parent="GridContainer/Nana_card" index="1" unique_id=1933172967]
+offset_right = 112.0
+offset_bottom = 157.0
+texture = ExtResource("8_xcd1a")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Control" type="Control" parent="." unique_id=474818789]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=2026792641]
+layout_mode = 0
+offset_left = -78.0
+offset_top = -91.0
+offset_right = 72.0
+offset_bottom = 85.0
+texture = ExtResource("11_aoqt7")
+
+[editable path="GridContainer/Locs_card"]
+[editable path="GridContainer/Mago_card"]
+[editable path="GridContainer/Emo_card"]
+[editable path="GridContainer/Et_card"]
+[editable path="GridContainer/Macaco_card"]
+[editable path="GridContainer/Palhaco_card"]
+[editable path="GridContainer/Robo_card"]
+[editable path="GridContainer/Nana_card"]

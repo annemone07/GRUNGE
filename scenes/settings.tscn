@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://c4aqxc3wqtwh0"]
+
+[ext_resource type="Script" uid="uid://djwujccds5qx8" path="res://scripts/settings.gd" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://b3lge1mps5g2q" path="res://scripts/controlSettings.gd" id="2_r6d6q"]
+[ext_resource type="Texture2D" uid="uid://cv8dr73m7sgs1" path="res://assets/mouse.png" id="3_6wm04"]
+
+[node name="settings" type="Node2D" unique_id=1190145560]
+script = ExtResource("1_5p8wc")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=364211600]
+
+[node name="Control3" type="Control" parent="." unique_id=1537496182]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_r6d6q")
+
+[node name="controlBotoes" type="Control" parent="Control3" unique_id=1130710931]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="controles" type="Button" parent="Control3/controlBotoes" unique_id=1922586716]
+layout_mode = 0
+offset_left = -622.0
+offset_top = -329.0
+offset_right = -541.0
+offset_bottom = -298.0
+text = "controles"
+
+[node name="master_slider" type="HSlider" parent="Control3/controlBotoes" unique_id=582838131]
+layout_mode = 0
+offset_left = 171.0
+offset_top = -203.0
+offset_right = 502.0
+offset_bottom = -187.0
+max_value = 1.0
+step = 0.01
+
+[node name="Label" type="Label" parent="Control3/controlBotoes/master_slider" unique_id=97645881]
+layout_mode = 0
+offset_left = 111.0
+offset_top = -34.0
+offset_right = 228.0
+offset_bottom = -11.0
+text = "master volume"
+
+[node name="music_slider" type="HSlider" parent="Control3/controlBotoes" unique_id=1982049999]
+layout_mode = 0
+offset_left = 171.0
+offset_top = -82.0
+offset_right = 502.0
+offset_bottom = -66.0
+max_value = 1.0
+step = 0.01
+
+[node name="Label2" type="Label" parent="Control3/controlBotoes/music_slider" unique_id=1317237874]
+layout_mode = 0
+offset_left = 148.0
+offset_top = -23.0
+offset_right = 265.0
+text = "music"
+
+[node name="Button" type="Button" parent="Control3/controlBotoes" unique_id=1524285035]
+layout_mode = 0
+offset_left = -622.0
+offset_top = 289.0
+offset_right = -541.0
+offset_bottom = 320.0
+text = "voltar"
+
+[node name="controlMoldura" type="Control" parent="Control3" unique_id=2091216568]
+anchors_preset = 0
+
+[node name="Node2D" type="Node2D" parent="Control3/controlMoldura" unique_id=184948835]
+
+[node name="TextureRect2" type="TextureRect" parent="Control3/controlMoldura/Node2D" unique_id=34426356]
+offset_left = -30.0
+offset_top = -22.0
+offset_right = 80.0
+offset_bottom = 88.0
+mouse_filter = 2
+texture = ExtResource("3_6wm04")
+expand_mode = 1
+
+[connection signal="pressed" from="Control3/controlBotoes/controles" to="." method="_on_controles_pressed"]
+[connection signal="value_changed" from="Control3/controlBotoes/master_slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Control3/controlBotoes/music_slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="Control3/controlBotoes/Button" to="." method="_on_button_pressed"]

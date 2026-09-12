@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://iyby3kxwrbyw"]
+
+[ext_resource type="Script" uid="uid://bp8wyleaaqnys" path="res://scripts/starter_menu.gd" id="1_yjol5"]
+[ext_resource type="Texture2D" uid="uid://ywdbh40ge7bk" path="res://assets/IMG_0812.PNG" id="2_yeddl"]
+[ext_resource type="Texture2D" uid="uid://cv8dr73m7sgs1" path="res://assets/mouse.png" id="3_cskr7"]
+
+[node name="starterMenu" type="Control" unique_id=788738504]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yjol5")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=216350297]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -683.0
+offset_top = -382.0
+offset_right = -683.0
+offset_bottom = -382.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yeddl")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1704505233]
+
+[node name="starterMenu" type="Node" parent="." unique_id=1529470060]
+
+[node name="menuContainer" type="VBoxContainer" parent="." unique_id=790205851]
+layout_mode = 0
+offset_left = -128.0
+offset_top = -82.0
+offset_right = 128.0
+offset_bottom = 89.0
+
+[node name="startButton" type="Button" parent="menuContainer" unique_id=1294860641]
+layout_mode = 2
+text = "Play Game"
+
+[node name="settingsButton" type="Button" parent="menuContainer" unique_id=883793600]
+layout_mode = 2
+text = "Settings"
+
+[node name="highscoresButton" type="Button" parent="menuContainer" unique_id=485300018]
+layout_mode = 2
+text = "Highscores"
+
+[node name="creditsButton" type="Button" parent="menuContainer" unique_id=1137695686]
+layout_mode = 2
+text = "Credits"
+
+[node name="exitButton" type="Button" parent="menuContainer" unique_id=65413102]
+layout_mode = 2
+text = "Exit"
+
+[node name="settingsContainer" type="Panel" parent="." unique_id=611908290]
+visible = false
+layout_mode = 0
+offset_left = -167.0
+offset_top = -163.0
+offset_right = 156.0
+offset_bottom = 169.0
+
+[node name="backButton" type="Button" parent="settingsContainer" unique_id=1853049416]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Back"
+
+[node name="highscoresContainer" type="Panel" parent="." unique_id=835169170]
+visible = false
+layout_mode = 0
+offset_left = -157.0
+offset_top = -188.0
+offset_right = 172.0
+offset_bottom = 150.0
+
+[node name="backButton" type="Button" parent="highscoresContainer" unique_id=1821185473]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Back"
+
+[node name="creditsContainer" type="Panel" parent="." unique_id=1805443349]
+visible = false
+layout_mode = 0
+offset_left = -163.0
+offset_top = -169.0
+offset_right = 169.0
+offset_bottom = 172.0
+
+[node name="backButton" type="Button" parent="creditsContainer" unique_id=560922651]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Back"
+
+[node name="controlMoldura" type="Control" parent="." unique_id=1566749370]
+anchors_preset = 0
+
+[node name="Node2D" type="Node2D" parent="controlMoldura" unique_id=1162414118]
+
+[node name="TextureRect2" type="TextureRect" parent="controlMoldura/Node2D" unique_id=568031630]
+offset_left = -30.0
+offset_top = -22.0
+offset_right = 80.0
+offset_bottom = 88.0
+mouse_filter = 2
+texture = ExtResource("3_cskr7")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="menuContainer/startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="menuContainer/settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="menuContainer/highscoresButton" to="." method="_on_highscores_button_pressed"]
+[connection signal="pressed" from="menuContainer/creditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="menuContainer/exitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="settingsContainer/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="highscoresContainer/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="creditsContainer/backButton" to="." method="_on_back_button_pressed"]

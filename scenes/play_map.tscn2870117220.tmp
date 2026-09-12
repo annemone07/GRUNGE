@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cjhhoixrmilnc"]
+
+[ext_resource type="PackedScene" uid="uid://dywe5y84fa23q" path="res://scenes/World.tscn" id="1_00lnd"]
+[ext_resource type="Script" uid="uid://tobn1u6ylpeo" path="res://scripts/play_map.gd" id="1_dliau"]
+[ext_resource type="Texture2D" uid="uid://x3yd4i35af73" path="res://icon.svg" id="3_qwvua"]
+
+[node name="playMap" type="Node3D" unique_id=1877076580]
+script = ExtResource("1_dliau")
+
+[node name="fundoPlaceholder" type="Sprite2D" parent="." unique_id=560256277]
+position = Vector2(737.5, 417)
+scale = Vector2(4.8828125, 3.8125)
+texture = ExtResource("3_qwvua")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=427530221]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=105822666]
+offset_right = 1366.0
+offset_bottom = 768.0
+
+[node name="Control" type="Control" parent="UI/MarginContainer" unique_id=1019095326]
+layout_mode = 2
+
+[node name="MusicUI" type="VBoxContainer" parent="UI/MarginContainer/Control" unique_id=1583202593]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 53.0
+offset_right = 990.0
+offset_bottom = 232.0
+
+[node name="MusicName" type="Label" parent="UI/MarginContainer/Control/MusicUI" unique_id=1205605017]
+layout_mode = 2
+text = "Places To Go (That I Haven't Been Yet)"
+horizontal_alignment = 1
+
+[node name="MusicAuthor" type="Label" parent="UI/MarginContainer/Control/MusicUI" unique_id=1893563501]
+layout_mode = 2
+text = "Ismael Santos"
+horizontal_alignment = 1
+
+[node name="ScoreUI" type="VBoxContainer" parent="UI/MarginContainer/Control" unique_id=610857007]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 290.0
+offset_right = 225.0
+offset_bottom = 373.0
+
+[node name="Score" type="Label" parent="UI/MarginContainer/Control/ScoreUI" unique_id=1867206574]
+layout_mode = 2
+text = "676767"
+
+[node name="Combo" type="Label" parent="UI/MarginContainer/Control/ScoreUI" unique_id=1337367457]
+layout_mode = 2
+text = "x67"
+
+[node name="LifeBar" type="TextureProgressBar" parent="UI" unique_id=1487925583]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PauseMenu" type="Control" parent="UI" unique_id=593386236]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="World" parent="." unique_id=109743837 instance=ExtResource("1_00lnd")]
+
+[node name="createTestNote" type="Timer" parent="." unique_id=433223015]
+autostart = true
+
+[node name="resetColor" type="Timer" parent="." unique_id=1796917674]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="createTestNote" to="." method="_on_create_test_note_timeout"]
+[connection signal="timeout" from="resetColor" to="." method="_on_reset_color_timeout"]

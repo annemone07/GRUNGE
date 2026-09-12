@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://cjhhoixrmilnc"]
+
+[ext_resource type="PackedScene" uid="uid://dywe5y84fa23q" path="res://scenes/World.tscn" id="1_00lnd"]
+[ext_resource type="Script" uid="uid://tobn1u6ylpeo" path="res://scripts/play_map.gd" id="1_dliau"]
+[ext_resource type="FontFile" uid="uid://xi7ojbs5i05b" path="res://assets/fonts/KiwiSoda.ttf" id="2_ta1n7"]
+[ext_resource type="Texture2D" uid="uid://bix62g760hry8" path="res://assets/ui/palheta_vazia.png" id="2_w7fhx"]
+[ext_resource type="Texture2D" uid="uid://du65hg6rixpte" path="res://assets/ui/palheta_cheia_2.png" id="3_w7fhx"]
+
+[node name="playMap" type="Node3D" unique_id=1877076580]
+script = ExtResource("1_dliau")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=427530221]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=105822666]
+offset_right = 1366.0
+offset_bottom = 768.0
+
+[node name="Control" type="Control" parent="UI/MarginContainer" unique_id=1019095326]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/MarginContainer/Control" unique_id=97093981]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 5.0
+offset_right = 1044.0
+offset_bottom = 53.0
+color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="UI/MarginContainer/Control" unique_id=1349828025]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 53.0
+offset_right = 759.0
+offset_bottom = 86.90625
+color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+
+[node name="MusicUI" type="VBoxContainer" parent="UI/MarginContainer/Control" unique_id=1583202593]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 5.0
+offset_right = 1038.0
+offset_bottom = 184.0
+
+[node name="MusicName" type="Label" parent="UI/MarginContainer/Control/MusicUI" unique_id=1205605017]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ta1n7")
+theme_override_font_sizes/font_size = 46
+text = "Places To Go (That I Haven't Been Yet)"
+horizontal_alignment = 1
+
+[node name="MusicAuthor" type="Label" parent="UI/MarginContainer/Control/MusicUI" unique_id=1893563501]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ta1n7")
+theme_override_font_sizes/font_size = 32
+text = "Ismael Santos"
+horizontal_alignment = 1
+
+[node name="ScoreUI" type="VBoxContainer" parent="UI/MarginContainer/Control" unique_id=610857007]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 290.0
+offset_right = 225.0
+offset_bottom = 373.0
+
+[node name="Score" type="Label" parent="UI/MarginContainer/Control/ScoreUI" unique_id=1867206574]
+layout_mode = 2
+text = "676767"
+
+[node name="Combo" type="Label" parent="UI/MarginContainer/Control/ScoreUI" unique_id=1337367457]
+layout_mode = 2
+text = "x67"
+
+[node name="PauseMenu" type="Control" parent="UI" unique_id=593386236]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CountdownLabel" type="Label" parent="UI" unique_id=214243799]
+offset_left = 626.0
+offset_top = 299.0
+offset_right = 776.0
+offset_bottom = 464.0
+pivot_offset = Vector2(75, 82.5)
+theme_override_font_sizes/font_size = 120
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LifeBar" type="TextureProgressBar" parent="UI" unique_id=692209806]
+offset_left = 998.0
+offset_top = 503.0
+offset_right = 1185.0
+offset_bottom = 724.56396
+value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("2_w7fhx")
+texture_progress = ExtResource("3_w7fhx")
+tint_under = Color(0.15127608, 0.15127608, 0.15127608, 1)
+tint_progress = Color(0.8283348, 0.8945491, 0.9649729, 1)
+
+[node name="MultiplierLabel" type="Label" parent="UI/LifeBar" unique_id=1038896048]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -5.0
+offset_right = 2.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="World" parent="." unique_id=109743837 instance=ExtResource("1_00lnd")]
+
+[node name="createTestNote" type="Timer" parent="." unique_id=433223015]
+autostart = true
+
+[node name="resetColor" type="Timer" parent="." unique_id=1796917674]
+wait_time = 0.1
+one_shot = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=880146984]
+
+[connection signal="timeout" from="resetColor" to="." method="_on_reset_color_timeout"]

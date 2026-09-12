@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://ckrb0bft1egok"]
+
+[sub_resource type="Gradient" id="Gradient_b6nin"]
+colors = PackedColorArray(0.24470544, 0.2306276, 0.22652844, 1, 0.25800982, 0.2449454, 0.24556461, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_57qmd"]
+gradient = SubResource("Gradient_b6nin")
+width = 100
+
+[node name="ConfirmarStart" type="Control" unique_id=709652164]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 549.0
+offset_top = 242.0
+offset_right = -455.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1860791886]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 294.0
+offset_top = -71.0
+offset_right = 262.95996
+offset_bottom = -29.859985
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+texture = SubResource("GradientTexture1D_57qmd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2054748952]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 212.0
+offset_bottom = 98.0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1622004214]
+layout_mode = 2
+text = "DESEJA INICIAR?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=11724534]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Iniciar" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1581835311]
+custom_minimum_size = Vector2(90, 45)
+custom_maximum_size = Vector2(90, 45)
+layout_mode = 2
+text = "X Iniciar"
+
+[node name="Voltar" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1864480851]
+custom_minimum_size = Vector2(90, 44)
+custom_maximum_size = Vector2(90, 44)
+layout_mode = 2
+text = "X Voltar"

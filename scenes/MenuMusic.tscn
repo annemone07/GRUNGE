@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bukafphwdd2ok"]
+
+[ext_resource type="AudioStream" uid="uid://bh7fp0l8sam20" path="res://assets/musics/Ladêra - Mangroov [Title Screen].mp3" id="1_g3qj0"]
+
+[node name="MenuMusic" type="AudioStreamPlayer" unique_id=1080944772]
+stream = ExtResource("1_g3qj0")
+volume_db = 1.523
+autoplay = true

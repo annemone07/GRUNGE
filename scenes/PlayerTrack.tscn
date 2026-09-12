@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c15qr6ssgce11"]
+
+[ext_resource type="Script" uid="uid://cchembykghrrn" path="res://scripts/player_track.gd" id="1_teju0"]
+
+[node name="PlayerTrack" type="Node3D" unique_id=1360706888]
+script = ExtResource("1_teju0")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=180781956]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 8, 12)
+fov = 60.0
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=104038639]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=20901634]
+transform = Transform3D(1, 0, 0, 0, 0.7680431, 0.64039814, 0, -0.64039814, 0.7680431, 0, 9.463108, 13.627919)

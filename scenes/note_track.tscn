@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bdgbqfwp7pco2"]
+
+[ext_resource type="PackedScene" uid="uid://bvnqrw2jldu2v" path="res://scenes/detect.tscn" id="1_kmsaf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nd7vr"]
+albedo_color = Color(0, 0, 0, 1)
+distance_fade_mode = 2
+distance_fade_min_distance = 70.0
+distance_fade_max_distance = 40.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mxwii"]
+material = SubResource("StandardMaterial3D_nd7vr")
+size = Vector2(1, 100)
+
+[node name="noteTrack" type="Node3D" unique_id=1272245449]
+
+[node name="TrackMesh" type="MeshInstance3D" parent="." unique_id=1056550689]
+mesh = SubResource("PlaneMesh_mxwii")
+
+[node name="detect" parent="." unique_id=1583283065 instance=ExtResource("1_kmsaf")]
+
+[node name="spawn" type="Node3D" parent="." unique_id=1574365836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+
+[editable path="detect"]
