@@ -4,6 +4,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nd7vr"]
 albedo_color = Color(0, 0, 0, 1)
+distance_fade_mode = 2
+distance_fade_min_distance = 70.0
+distance_fade_max_distance = 40.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mxwii"]
 material = SubResource("StandardMaterial3D_nd7vr")

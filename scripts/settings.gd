@@ -36,6 +36,7 @@ func _on_button_pressed() -> void:
 
 
 func _on_controles_pressed() -> void:
+	
 	var stage_scene = load("res://scenes/controles.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
 	if stage_scene:

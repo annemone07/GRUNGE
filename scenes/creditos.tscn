@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dpicuftca8w21"]
+
+[ext_resource type="Script" uid="uid://b5feqkh887tgb" path="res://scripts/creditos.gd" id="1_6yhot"]
+[ext_resource type="FontFile" uid="uid://xi7ojbs5i05b" path="res://assets/fonts/KiwiSoda.ttf" id="1_spoww"]
+
+[node name="Node2D" type="Node2D" unique_id=456887814]
+script = ExtResource("1_6yhot")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1892471896]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1647225808]
+offset_left = -662.0
+offset_top = -241.0
+offset_right = -136.0
+offset_bottom = 469.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_spoww")
+theme_override_font_sizes/normal_font_size = 46
+text = "Concept: Caio, Malu, Ruan, Vicente
+
+Design: Malu, Giovanna, Nicolas
+
+Beatmap: VIcente
+
+Programming: Caio & Rodrigo"
+
+[node name="Label" type="Label" parent="." unique_id=1294450753]
+offset_left = 644.0
+offset_top = 348.0
+offset_right = 684.0
+offset_bottom = 371.0
+theme_override_font_sizes/font_size = 16
+text = "'-'"
+
+[node name="Label2" type="Label" parent="." unique_id=675730930]
+offset_left = -167.0
+offset_top = -362.0
+offset_right = 163.0
+offset_bottom = -266.0
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 96
+text = "Créditos"
+
+[node name="Button" type="Button" parent="." unique_id=2056267919]
+offset_left = -656.0
+offset_top = 331.0
+offset_right = -588.0
+offset_bottom = 362.0
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 32
+text = "Voltar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

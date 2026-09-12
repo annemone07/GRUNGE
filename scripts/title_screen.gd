@@ -20,4 +20,11 @@ func _input(event: InputEvent) -> void:
 			
 			set_process_input(false)
 			
-			get_tree().change_scene_to_file("res://scenes/Main.tscn")
+			var stage_scene = load("res://scenes/StarterMenu.tscn")
+			var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
+			if stage_scene:
+				var stage = stage_scene.instantiate()
+				get_tree().root.get_node("Main").add_child(stage)
+				get_tree().root.get_node("Main").get_child(old_stage_id).queue_free()
+			else:
+				print("Erro: Não conseguimos encontrar a cena.")

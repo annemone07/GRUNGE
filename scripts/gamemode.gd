@@ -133,6 +133,23 @@ func _unhandled_input(_event: InputEvent) -> void:
 		if focused_node and focused_node is Button and vbox.get_children().has(focused_node):
 			get_viewport().set_input_as_handled()
 			focused_node.emit_signal("pressed")
+	
+	var is_back = Input.is_action_just_pressed("customAction_player1_back") or \
+				  Input.is_action_just_pressed("customAction_player2_back") or \
+				  Input.is_action_just_pressed("ui_cancel")
+	
+	if is_back:
+		get_viewport().set_input_as_handled()
+		_go_back_to_mainMenu()
+
+func _go_back_to_mainMenu() -> void:
+	var stage_scene = load("res://scenes/StarterMenu.tscn")
+	var main_node = get_tree().root.get_node_or_null("Main")
+	if main_node and stage_scene:
+		var old_stage_id = main_node.get_child_count() - 1
+		var stage = stage_scene.instantiate()
+		main_node.add_child(stage)
+		main_node.get_child(old_stage_id).queue_free()
 
 func _button_selected(botao: Button):
 	var tween = create_tween()

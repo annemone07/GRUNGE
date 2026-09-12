@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dywe5y84fa23q" path="res://scenes/World.tscn" id="1_00lnd"]
 [ext_resource type="Script" uid="uid://tobn1u6ylpeo" path="res://scripts/play_map.gd" id="1_dliau"]
+[ext_resource type="FontFile" uid="uid://xi7ojbs5i05b" path="res://assets/fonts/KiwiSoda.ttf" id="2_ta1n7"]
 [ext_resource type="Texture2D" uid="uid://bix62g760hry8" path="res://assets/ui/palheta_vazia.png" id="2_w7fhx"]
 [ext_resource type="Texture2D" uid="uid://du65hg6rixpte" path="res://assets/ui/palheta_cheia_2.png" id="3_w7fhx"]
 
@@ -17,20 +18,43 @@ offset_bottom = 768.0
 [node name="Control" type="Control" parent="UI/MarginContainer" unique_id=1019095326]
 layout_mode = 2
 
+[node name="ColorRect" type="ColorRect" parent="UI/MarginContainer/Control" unique_id=97093981]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 5.0
+offset_right = 1044.0
+offset_bottom = 53.0
+color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="UI/MarginContainer/Control" unique_id=1349828025]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 53.0
+offset_right = 759.0
+offset_bottom = 86.90625
+color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+
 [node name="MusicUI" type="VBoxContainer" parent="UI/MarginContainer/Control" unique_id=1583202593]
 layout_mode = 0
-offset_left = 329.0
-offset_top = 53.0
-offset_right = 990.0
-offset_bottom = 232.0
+offset_left = 285.0
+offset_top = 5.0
+offset_right = 1038.0
+offset_bottom = 184.0
 
 [node name="MusicName" type="Label" parent="UI/MarginContainer/Control/MusicUI" unique_id=1205605017]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ta1n7")
+theme_override_font_sizes/font_size = 46
 text = "Places To Go (That I Haven't Been Yet)"
 horizontal_alignment = 1
 
 [node name="MusicAuthor" type="Label" parent="UI/MarginContainer/Control/MusicUI" unique_id=1893563501]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ta1n7")
+theme_override_font_sizes/font_size = 32
 text = "Ismael Santos"
 horizontal_alignment = 1
 
