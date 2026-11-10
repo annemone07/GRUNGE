@@ -140,7 +140,7 @@ func _adjust_camera_for_instrument() -> void:
 	if not camera:
 		return
 	
-	camera.fov = 60.0
+	camera.fov = 40.0
 	camera.position = Vector3(0, 8.0, 12.0)
 
 func disable_inputs() -> void:

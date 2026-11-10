@@ -7,14 +7,16 @@
 [node name="TitleScreen" type="Node2D" unique_id=1798236848]
 script = ExtResource("1_e1hrd")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1614182387]
-offset_left = -3.0
-offset_top = 3.0
-offset_right = 1368.0
-offset_bottom = 775.0
-texture = ExtResource("2_a6qrr")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=514300728]
 
-[node name="Label" type="Label" parent="." unique_id=1740497567]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1886758125]
+offset_right = 1366.0
+offset_bottom = 768.0
+texture = ExtResource("2_a6qrr")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1740497567]
 offset_left = 214.0
 offset_top = 564.0
 offset_right = 1165.0

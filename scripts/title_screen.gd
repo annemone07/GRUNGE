@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var press_text: Label = $Label
+@onready var press_text: Label = $CanvasLayer/Label
 
 func _ready() -> void:
 	if press_text:

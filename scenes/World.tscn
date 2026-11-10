@@ -18,6 +18,7 @@ layer = -1
 offset_right = 1366.0
 offset_bottom = 768.0
 texture = ExtResource("2_32lhk")
+expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=447938418]
