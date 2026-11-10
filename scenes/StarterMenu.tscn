@@ -13,19 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yjol5")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=216350297]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -683.0
-offset_top = -382.0
-offset_right = -683.0
-offset_bottom = -382.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_yeddl")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1704505233]
 
 [node name="starterMenu" type="Node" parent="." unique_id=1529470060]
@@ -113,6 +100,16 @@ mouse_filter = 2
 texture = ExtResource("3_cskr7")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1521194868]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1637137139]
+offset_right = 1366.0
+offset_bottom = 768.0
+texture = ExtResource("2_yeddl")
+expand_mode = 2
+stretch_mode = 5
 
 [connection signal="pressed" from="menuContainer/startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="menuContainer/settingsButton" to="." method="_on_settings_button_pressed"]

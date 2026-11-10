@@ -13,11 +13,12 @@ anchors_preset = 0
 offset_right = 1368.0
 offset_bottom = 768.0
 
-[node name="TextureRect" type="TextureRect" parent="selectMusicScreen" unique_id=188424293]
+[node name="TextureRect" type="TextureRect" parent="selectMusicScreen" unique_id=224426096]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1366.0
+offset_bottom = 768.0
 texture = ExtResource("2_3tkxt")
+expand_mode = 2
 
 [node name="HBoxContainer" type="VBoxContainer" parent="selectMusicScreen" unique_id=1219251227]
 layout_mode = 0
