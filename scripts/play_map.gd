@@ -1,6 +1,5 @@
 extends Node3D
 
-
 @onready var multiplier_label: Label = $UI/LifeBar/MultiplierLabel
 @onready var score_label: Label = $UI/MarginContainer/Control/ScoreUI/Score
 @onready var combo_label: Label = $UI/MarginContainer/Control/ScoreUI/Combo
@@ -19,6 +18,8 @@ var is_game_over: bool = false
 var local_beatmaps = beatmaps.new()
 var time_elapsed: float = 0.0
 var music_started: bool = false
+@export var single_health_pos: Vector2 = Vector2(998, 503)
+@export var multi_health_pos: Vector2 = Vector2(594, 211)
 
 func _ready() -> void:
 	Globals.score = 0
@@ -85,6 +86,7 @@ func _setup_screen_mode() -> void:
 	var is_single = Globals.is_single_player if "is_single_player" in Globals else true
 	
 	if is_single:
+		life_bar.position = single_health_pos
 		var grid_container = $World/GridContainer
 		var track2_view = $World/GridContainer/track_2_view
 		
@@ -100,7 +102,7 @@ func _instantiate_instruments() -> void:
 	var is_single = "is_single_player" in Globals and Globals.is_single_player
 	if not is_single:
 		_add_instrument_to_track(Globals.instrumento_2, $World/GridContainer/track_2_view/SubViewport/PlayerTrack2)
-
+		
 func _add_instrument_to_track(instrument_name: String, track_node: Node) -> void:
 	if instrument_name == "" or instrument_name == null:
 		return
