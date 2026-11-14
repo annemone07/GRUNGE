@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dny5u2kfalnne"
+path="res://.godot/imported/Ladêra - Mangroov [Title Screen Music].mp3-c1d754c8626202f2c6a1c49afce0da71.mp3str"
+
+[deps]
+
+source_file="res://assets/soundtrack/menu_soundtrack/Ladêra - Mangroov [Title Screen Music].mp3"
+dest_files=["res://.godot/imported/Ladêra - Mangroov [Title Screen Music].mp3-c1d754c8626202f2c6a1c49afce0da71.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

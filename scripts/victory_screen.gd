@@ -8,8 +8,8 @@ const STAR_EMPTY = preload("res://assets/ui/estrela_vazia.png")
 @onready var title_label: Label = $Control/VBoxContainer/TitleLabel
 @onready var score_label: Label = $Control/VBoxContainer/ScoreLabel
 @onready var combo_label: Label = $Control/VBoxContainer/ComboLabel
-@onready var restart_button: Button = $Control/VBoxContainer/RestartButton
-@onready var menu_button: Button = $Control/VBoxContainer/MenuButton
+@onready var restart_button: Button = $Control/Control/RestartButton
+@onready var menu_button: Button = $Control/Control/MenuButton
 
 var _is_setup: bool = false
 
@@ -20,7 +20,7 @@ func _ready() -> void:
 func setup_screen(is_victory: bool = true) -> void:
 	_is_setup = true
 
-	var restart_btn = $Control/VBoxContainer/RestartButton
+	var restart_btn = $Control/Control/RestartButton
 
 	if is_victory:
 		if restart_btn:

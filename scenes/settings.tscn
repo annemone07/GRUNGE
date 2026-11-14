@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djwujccds5qx8" path="res://scripts/settings.gd" id="1_5p8wc"]
 [ext_resource type="Script" uid="uid://b3lge1mps5g2q" path="res://scripts/controlSettings.gd" id="2_r6d6q"]
-[ext_resource type="Texture2D" uid="uid://cv8dr73m7sgs1" path="res://assets/mouse.png" id="3_6wm04"]
+[ext_resource type="Texture2D" uid="uid://cv8dr73m7sgs1" path="res://assets/ui/mouse.png" id="3_6wm04"]
 
 [node name="settings" type="Node2D" unique_id=1190145560]
 script = ExtResource("1_5p8wc")

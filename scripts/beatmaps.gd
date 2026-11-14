@@ -3,7 +3,7 @@ class_name beatmaps
 var music_1 = {
 	"title": "Places to Go (That I Haven't Been Yet)",
 	"artist": "Ismael Oliveira",
-	"music": preload("res://assets/songs/song_01/music_01.mp3"),
+	"music": preload("res://assets/soundtrack/song_01/music_01.mp3"),
 	"guitar":{
 		1.3: {3:"c"},
 		1.7: {3:"c"},
@@ -1195,7 +1195,7 @@ var music_1 = {
 var music_2 = {
 	"title": "Nome Música 02",
 	"artist": "Nome Artista 02",
-	"music": preload("res://assets/songs/song_02/music_02.mp3"),
+	"music": preload("res://assets/soundtrack/song_02/music_02.mp3"),
 	"guitar":{
 		
 	},
@@ -1213,7 +1213,7 @@ var music_2 = {
 var music_3 = {
 	"title": "Nome Música 03",
 	"artist": "Nome Artista 03",
-	"music": preload("res://assets/songs/song_03/music_03.mp3"),
+	"music": preload("res://assets/soundtrack/song_03/music_03.mp3"),
 	"guitar":{
 		
 	},
