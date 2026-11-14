@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dywe5y84fa23q"]
 
-[ext_resource type="PackedScene" uid="uid://c15qr6ssgce11" path="res://scenes/PlayerTrack.tscn" id="1_kqs1s"]
+[ext_resource type="PackedScene" uid="uid://c15qr6ssgce11" path="res://scenes/gameplay/player_track.tscn" id="1_kqs1s"]
 [ext_resource type="Texture2D" uid="uid://d1b808iec4res" path="res://assets/backgrounds/Main_Menu.PNG" id="2_32lhk"]
 
 [sub_resource type="Environment" id="Environment_otrat"]

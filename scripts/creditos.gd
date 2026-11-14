@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	var stage_scene = load("res://scenes/Telas/starter_menu.tscn")
+	var stage_scene = load("res://scenes/telas/starter_menu.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
 	if main_node and stage_scene:
 		var old_stage_id = main_node.get_child_count() - 1

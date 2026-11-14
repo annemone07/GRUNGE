@@ -173,7 +173,7 @@ func _on_start_game_pressed() -> void:
 	_iniciar_play_map()
 
 func _iniciar_play_map() -> void:
-	var stage_scene = load("res://scenes/play_map.tscn")
+	var stage_scene = load("res://scenes/gameplay/play_map.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count() - 1
 	if stage_scene:
 		var stage = stage_scene.instantiate()

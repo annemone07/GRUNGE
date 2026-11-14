@@ -162,7 +162,7 @@ func _end_game(is_victory: bool) -> void:
 		
 	var status_text = "VITÓRIA!" if is_victory else "GAME OVER!"
 	
-	var end_scene = load("res://scenes/Telas/victory_menu.tscn")
+	var end_scene = load("res://scenes/telas/victory_menu.tscn")
 	if end_scene:
 		var end_instance = end_scene.instantiate()
 		$UI.add_child(end_instance)

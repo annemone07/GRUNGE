@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhmtgvp45w4qg"]
 
-[ext_resource type="PackedScene" uid="uid://bdgbqfwp7pco2" path="res://scenes/note_track.tscn" id="1_wnfv1"]
+[ext_resource type="PackedScene" uid="uid://bdgbqfwp7pco2" path="res://scenes/gameplay/note_track.tscn" id="1_wnfv1"]
 
 [node name="drums" type="Node3D" unique_id=1829957149]
 

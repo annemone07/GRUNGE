@@ -20,7 +20,7 @@ func _input(event: InputEvent) -> void:
 			
 			set_process_input(false)
 			
-			var stage_scene = load("res://scenes/Telas/starter_menu.tscn")
+			var stage_scene = load("res://scenes/telas/starter_menu.tscn")
 			var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
 			if stage_scene:
 				var stage = stage_scene.instantiate()

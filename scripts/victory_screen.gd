@@ -93,7 +93,7 @@ func _on_restart_button_pressed() -> void:
 	_reset_globals()
 	
 	var main_node = get_tree().root.get_node_or_null("Main")
-	var stage_scene = load("res://scenes/play_map.tscn")
+	var stage_scene = load("res://scenes/gameplay/play_map.tscn")
 	
 	if main_node and stage_scene:
 		for child in main_node.get_children():
@@ -107,7 +107,7 @@ func _on_restart_button_pressed() -> void:
 func _on_menu_button_pressed() -> void:
 	_reset_globals()
 	
-	var menu_scene = load("res://scenes/Telas/starter_menu.tscn")
+	var menu_scene = load("res://scenes/telas/starter_menu.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
 	
 	if menu_scene and main_node:
