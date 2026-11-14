@@ -49,7 +49,7 @@ func animar_hit() -> void:
 		hit_tween = create_tween()
 		hit_tween.set_parallel(true)
 		
-		hit_tween.tween_property(sprite_alvo, "scale", Vector3(1.1, 1.1, 1.1), 0.15).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		hit_tween.tween_property(sprite_alvo, "scale", Vector3(1.05, 1.05, 1.05), 0.15).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 		hit_tween.chain().tween_callback(func():
 			sprite_alvo.visible = false
