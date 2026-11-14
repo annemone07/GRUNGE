@@ -107,7 +107,7 @@ func _add_instrument_to_track(instrument_name: String, track_node: Node) -> void
 	if instrument_name == "" or instrument_name == null:
 		return
 		
-	var path = "res://scenes/" + instrument_name + ".tscn"
+	var path = "res://scenes/instrumentos/" + instrument_name + ".tscn"
 	
 	if ResourceLoader.exists(path):
 		var instrument_scene = load(path).instantiate()
