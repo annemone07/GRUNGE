@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	print(MenuMusic.playing)
 	if (get_child(-1).scene_file_path == titleScreen or get_child(-1).scene_file_path == starterMenu):
 		if not MenuMusic.playing:

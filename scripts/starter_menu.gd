@@ -38,7 +38,7 @@ func _ready() -> void:
 	
 	
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	await get_tree().create_timer(0.1).timeout
 	
 	var mudou_selecao = false
@@ -58,18 +58,18 @@ func _process(delta: float) -> void:
 			stick_dir.y = 1.0 if raw_y > 0 else -1.0
 			
 	# Detecta o exato momento em que o jogador empurrou o analógico (funciona como just_pressed)
-	var analog_left = (stick_dir.x < 0 and last_stick_dir.x >= 0)
-	var analog_right = (stick_dir.x > 0 and last_stick_dir.x <= 0)
-	var analog_up = (stick_dir.y < 0 and last_stick_dir.y >= 0)
-	var analog_down = (stick_dir.y > 0 and last_stick_dir.y <= 0)
+	var _analog_left = (stick_dir.x < 0 and last_stick_dir.x >= 0)
+	var _analog_right = (stick_dir.x > 0 and last_stick_dir.x <= 0)
+	var _analog_up = (stick_dir.y < 0 and last_stick_dir.y >= 0)
+	var _analog_down = (stick_dir.y > 0 and last_stick_dir.y <= 0)
 	
 	last_stick_dir = stick_dir
 	
 	# --- CHECAGEM DE ENTRADAS (BOTÕES / D-PAD / ANALÓGICO) ---
-	if (Input.is_action_just_pressed("customAction_player1_up") or Input.is_action_just_pressed("customAction_player2_up")) or analog_up:
+	if (Input.is_action_just_pressed("customAction_player1_up") or Input.is_action_just_pressed("customAction_player2_up")) or _analog_up:
 		boxId -= 1
 		mudou_selecao = true
-	elif (Input.is_action_just_pressed("customAction_player1_down") or Input.is_action_just_pressed("customAction_player2_down")) or analog_down:
+	elif (Input.is_action_just_pressed("customAction_player1_down") or Input.is_action_just_pressed("customAction_player2_down")) or _analog_down:
 		boxId += 1
 		mudou_selecao = true
 		

@@ -30,28 +30,35 @@ func _process(delta: float) -> void:
 		circulo_levantado.visible = false
 		sqr_levantado.visible = false
 
+# Guarde as escalas originais definidas no Inspetor
+@onready var escala_circulo: Vector3 = circulo_levantado.scale
+@onready var escala_sqr: Vector3 = sqr_levantado.scale
+
 func animar_hit() -> void:
 	var sprite_alvo = null
+	var escala_base = Vector3.ONE
 	
 	if circulo_normal.visible:
 		sprite_alvo = circulo_levantado
+		escala_base = escala_circulo
 	elif sqr_normal.visible:
 		sprite_alvo = sqr_levantado
+		escala_base = escala_sqr
 		
 	if sprite_alvo:
-		# Se já houver uma animação rodando, interrompe antes de começar outra
 		if hit_tween and hit_tween.is_running():
 			hit_tween.kill()
 		
 		sprite_alvo.visible = true
-		sprite_alvo.scale = Vector3.ONE
+		sprite_alvo.scale = escala_base
 		
 		hit_tween = create_tween()
 		hit_tween.set_parallel(true)
 		
-		hit_tween.tween_property(sprite_alvo, "scale", Vector3(1.05, 1.05, 1.05), 0.15).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		# Multiplica a escala original por 1.05 (aumenta 5% do tamanho real dela)
+		hit_tween.tween_property(sprite_alvo, "scale", escala_base * 1.05, 0.15).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 		hit_tween.chain().tween_callback(func():
 			sprite_alvo.visible = false
-			sprite_alvo.scale = Vector3.ONE # Garante o resete da escala ao esconder
+			sprite_alvo.scale = escala_base
 		)
