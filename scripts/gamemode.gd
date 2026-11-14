@@ -188,7 +188,7 @@ func _aplicar_estilo_focado(botao: Button):
 
 func _on_solo_pressed() -> void:
 	Globals.is_single_player = true
-	var stage_scene = load("res://scenes/selectCharacters.tscn")
+	var stage_scene = load("res://scenes/Telas/select_character_menu.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count() - 1
 	if stage_scene:
 		var stage = stage_scene.instantiate()

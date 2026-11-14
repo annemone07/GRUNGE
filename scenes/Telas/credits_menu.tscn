@@ -9,20 +9,22 @@ script = ExtResource("1_6yhot")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1892471896]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1647225808]
-offset_left = -662.0
-offset_top = -241.0
-offset_right = -136.0
-offset_bottom = 469.0
+offset_left = -653.0
+offset_top = -194.0
+offset_right = 315.0
+offset_bottom = 516.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("1_spoww")
 theme_override_font_sizes/normal_font_size = 46
-text = "Concept: Caio, Malu, Ruan, Vicente
+text = "Concept: Cesinha, Malu, Ruan, Vicente
 
 Design: Malu, Giovanna, Nicolas
 
-Beatmap: VIcente
+Beatmaps: Vicente
 
-Programming: Caio & Rodrigo"
+Programação: Cesinha & Rodrigo
+
+Músicas: Ismael"
 
 [node name="Label" type="Label" parent="." unique_id=1294450753]
 offset_left = 644.0

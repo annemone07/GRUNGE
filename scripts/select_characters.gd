@@ -1,6 +1,6 @@
 extends Node2D
 
-const PANEL_SCENE = preload("res://scenes/character_panel.tscn")
+const PANEL_SCENE = preload("res://scenes/Telas/character_panel.tscn")
 # Carrega a sua fonte logo no início
 const FONTE_NOME = preload("res://assets/fonts/Roboto_Condensed-Medium.ttf")
 

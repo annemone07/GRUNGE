@@ -25,7 +25,7 @@ func _on_master_slider_value_changed(value: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	var stage_scene = load("res://scenes/StarterMenu.tscn")
+	var stage_scene = load("res://scenes/Telas/starter_menu.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
 	if stage_scene:
 		var stage = stage_scene.instantiate()

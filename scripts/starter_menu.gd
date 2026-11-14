@@ -102,7 +102,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			_on_back_button_pressed()
 
 func _on_start_button_pressed() -> void:
-	var stage_scene = load("res://scenes/gamemode.tscn")
+	var stage_scene = load("res://scenes/Telas/gamemode_menu.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
 	if main_node and stage_scene:
 		var old_stage_id = main_node.get_child_count() - 1
@@ -113,7 +113,7 @@ func _on_start_button_pressed() -> void:
 		print("Erro: Não conseguimos encontrar a cena.")
 
 func _on_settings_button_pressed() -> void:
-	var stage_scene = load("res://scenes/settings.tscn")
+	var stage_scene = load("res://scenes/Telas/settings_menu.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
 	if main_node and stage_scene:
 		var old_stage_id = main_node.get_child_count() - 1
@@ -151,7 +151,7 @@ func _atualizar_visual() -> void:
 
 
 func _on_credits_button_pressed() -> void:
-	var stage_scene = load("res://scenes/creditos.tscn")
+	var stage_scene = load("res://scenes/Telas/credits_menu.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
 	if main_node and stage_scene:
 		var old_stage_id = main_node.get_child_count() - 1
