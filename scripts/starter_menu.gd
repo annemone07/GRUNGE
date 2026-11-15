@@ -34,7 +34,16 @@ func _ready() -> void:
 	
 	var nome_base = menuButtons[boxId].name.to_lower()
 	cursor_moveu.emit(nome_base, player_id)
-
+	
+	#DELAY AO INICIAR A CENA
+	get_viewport().gui_disable_input = true
+	set_process_input(false)
+	
+	await get_tree().create_timer(0.65).timeout
+	
+	get_viewport().gui_disable_input = false
+	set_process_input(true)
+	#-----------
 	
 	
 	
@@ -148,7 +157,6 @@ func _atualizar_visual() -> void:
 	var nome_base = botaoAtual.name.to_lower()
 	
 	cursor_moveu.emit(nome_base, player_id)
-
 
 func _on_credits_button_pressed() -> void:
 	var stage_scene = load("res://scenes/telas/credits_menu.tscn")

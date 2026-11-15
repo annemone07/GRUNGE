@@ -24,6 +24,17 @@ signal cursor_moveu(nome_personagem, player_id)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	#DELAY AO INICIAR A CENA
+	get_viewport().gui_disable_input = true
+	set_process_input(false)
+	
+	await get_tree().create_timer(0.65).timeout
+	
+	get_viewport().gui_disable_input = false
+	set_process_input(true)
+	#--------------
+	
 	# Garantir que a moldura fique por cima de tudo
 	var botoes = vbox.get_children()
 	for botao in botoes:

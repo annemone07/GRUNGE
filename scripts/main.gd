@@ -2,7 +2,7 @@ extends Node3D
 
 
 var titleScreen = "res://scenes/ui/Title_screen.tscn"
-var starterMenu = "res://scenes/StarterMenu.tscn"
+var starterMenu = "res://scenes/telas/starter_menu.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

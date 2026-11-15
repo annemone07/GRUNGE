@@ -1,7 +1,7 @@
 extends Node3D
 
 # Carrega a sua nova cena modular
-const MUSIC_ITEM_SCENE = preload("res://scenes/music_sel.tscn")
+const MUSIC_ITEM_SCENE = preload("res://scenes/telas/select_music_panel.tscn")
 
 @onready var vbox_container = $selectMusicScreen/HBoxContainer
 @onready var control_moldura: Control = $controlMoldura
