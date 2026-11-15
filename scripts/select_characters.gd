@@ -28,9 +28,6 @@ func _ready() -> void:
 	#Transição
 	$Transition.play() #Toca o audio da Transição
 	
-
-	
-	
 	Globals.personagem_1 = ""
 	Globals.personagem_2 = ""
 	

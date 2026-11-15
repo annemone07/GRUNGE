@@ -26,35 +26,47 @@ signal cursor_moveu(nome_personagem, player_id)
 @export var ajuste_posicao: Vector2 = Vector2(0, 0)
 
 func _ready() -> void:
-	# Define o foco inicial no primeiro botão (Play Game)
-	#_focus_main_menu()
-	menuButtons = menu_container.get_children()
-	menuButtonCount = menu_container.get_child_count()
-	moldura_pos.global_position = Vector2(start_button.position.x, menu_container.position.y+start_button.size.y/2)
-	
-	var nome_base = menuButtons[boxId].name.to_lower()
-	cursor_moveu.emit(nome_base, player_id)
-	
-	#Transição de Cena
-	$Transition.play() #tocar o áudio ao começar a cena
-	#DELAY AO INICIAR A CENA
+	# 1. Toca o áudio e trava os inputs imediatamente
+	$Transition.play()
+	pode_interagir = false
 	get_viewport().gui_disable_input = true
 	set_process_input(false)
 	
+	# 2. Espera 1 frame pro container calcular o tamanho/posição real dos botões
+	await get_tree().process_frame
+	
+	menuButtons = menu_container.get_children()
+	menuButtonCount = menu_container.get_child_count()
+	
+	# 3. Coloca a moldura INSTANTANEAMENTE no mesmo alvo exato do _atualizar_visual()
+	var botao_inicial: Control = menuButtons[boxId]
+	moldura_pos.global_position = botao_inicial.global_position + (botao_inicial.size / 2)
+	
+	var nome_base = botao_inicial.name.to_lower()
+	cursor_moveu.emit(nome_base, player_id)
+	
+	# 4. Configura o Fade In + Zoom In depois da moldura já estar encaixada no botão
+	pivot_offset = size / 2
+	modulate.a = 0.0
+	scale = Vector2(0.92, 0.92)
+	
+	var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "modulate:a", 1.0, 0.18)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.18)
+	
+	# 5. Termina o delay de entrada e libera o _process
 	await get_tree().create_timer(0.3).timeout
 	
+	pode_interagir = true
 	get_viewport().gui_disable_input = false
 	set_process_input(true)
-	#-----------
-	
-	
 	
 func _process(_delta: float) -> void:
-	await get_tree().create_timer(0.1).timeout
+	if not pode_interagir:
+		return
 	
 	var mudou_selecao = false
-	var device_id = player_id-1  # Player 1 = Controle 0, Player 2 = Controle 1
-	
+	var device_id = player_id - 1  # Player 1 = Controle 0, Player 2 = Controle 1
 	
 	# --- LEITURA DIRETA DO ANALÓGICO ---
 	var raw_x = Input.get_joy_axis(device_id, JOY_AXIS_LEFT_X)
@@ -69,8 +81,6 @@ func _process(_delta: float) -> void:
 			stick_dir.y = 1.0 if raw_y > 0 else -1.0
 			
 	# Detecta o exato momento em que o jogador empurrou o analógico (funciona como just_pressed)
-	var _analog_left = (stick_dir.x < 0 and last_stick_dir.x >= 0)
-	var _analog_right = (stick_dir.x > 0 and last_stick_dir.x <= 0)
 	var _analog_up = (stick_dir.y < 0 and last_stick_dir.y >= 0)
 	var _analog_down = (stick_dir.y > 0 and last_stick_dir.y <= 0)
 	
@@ -98,6 +108,7 @@ func _process(_delta: float) -> void:
 		if menuButtons[boxId] is Button:
 			print(menuButtons[boxId].name)
 			menuButtons[boxId].pressed.emit()
+
 
 func _unhandled_input(_event: InputEvent) -> void:
 
