@@ -25,6 +25,12 @@ func _input(event: InputEvent) -> void:
 		_on_start_game_pressed()
 
 func _ready() -> void:
+	#Transição
+	$Transition.play() #Toca o audio da Transição
+	
+
+	
+	
 	Globals.personagem_1 = ""
 	Globals.personagem_2 = ""
 	
@@ -123,7 +129,17 @@ func _ready() -> void:
 		label_inst_p2.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label_inst_p2.position = Vector2(0, 160) 
 		caixa_p2.add_child(label_inst_p2)
-
+		
+	#DELAY AO INICIAR A CENA
+	get_viewport().gui_disable_input = true
+	set_process_input(false)
+	
+	await get_tree().create_timer(0.15).timeout
+	
+	get_viewport().gui_disable_input = false
+	set_process_input(true)
+	#--------------
+		
 func _process(_delta: float) -> void:
 	if Globals.personagem_1!="":
 		comecar.visible=true

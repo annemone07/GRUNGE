@@ -25,16 +25,10 @@ signal cursor_moveu(nome_personagem, player_id)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	#DELAY AO INICIAR A CENA
-	get_viewport().gui_disable_input = true
-	set_process_input(false)
+	#Transição
+	$Transition.play() #Toca o audio da Transição
 	
-	await get_tree().create_timer(0.65).timeout
-	
-	get_viewport().gui_disable_input = false
-	set_process_input(true)
-	#--------------
-	
+
 	# Garantir que a moldura fique por cima de tudo
 	var botoes = vbox.get_children()
 	for botao in botoes:
@@ -57,7 +51,17 @@ func _ready() -> void:
 	
 	# Chama a atualização visual no primeiro frame para configurar o estado inicial
 	_atualizar_visual()
-	get_tree().create_timer(0.2).timeout.connect(func(): pode_interagir = true)
+	get_tree().create_timer(0.05).timeout.connect(func(): pode_interagir = true)
+	
+	#DELAY AO INICIAR A CENA
+	get_viewport().gui_disable_input = true
+	set_process_input(false)
+	
+	await get_tree().create_timer(0.05).timeout
+	
+	get_viewport().gui_disable_input = false
+	set_process_input(true)
+	#--------------
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5feqkh887tgb" path="res://scripts/creditos.gd" id="1_6yhot"]
 [ext_resource type="FontFile" uid="uid://xi7ojbs5i05b" path="res://assets/fonts/KiwiSoda.ttf" id="1_spoww"]
+[ext_resource type="AudioStream" uid="uid://dojlcn640cgt6" path="res://assets/soundtrack/props/Switch.wav" id="3_vrllt"]
 
 [node name="Node2D" type="Node2D" unique_id=456887814]
 script = ExtResource("1_6yhot")
@@ -51,5 +52,8 @@ offset_bottom = 362.0
 theme_override_fonts/font = ExtResource("1_spoww")
 theme_override_font_sizes/font_size = 32
 text = "Voltar"
+
+[node name="Transition" type="AudioStreamPlayer" parent="." unique_id=2018874493]
+stream = ExtResource("3_vrllt")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -35,6 +35,8 @@ func _ready() -> void:
 	var nome_base = menuButtons[boxId].name.to_lower()
 	cursor_moveu.emit(nome_base, player_id)
 	
+	#Transição de Cena
+	$Transition.play() #tocar o áudio ao começar a cena
 	#DELAY AO INICIAR A CENA
 	get_viewport().gui_disable_input = true
 	set_process_input(false)

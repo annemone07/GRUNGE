@@ -4,6 +4,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#Transição
+	$Transition.play() #Toca o audio da Transição
 	
 	#DELAY AO INICIAR A CENA
 	get_viewport().gui_disable_input = true
