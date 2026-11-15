@@ -1,0 +1,17 @@
+{
+  "title": "Places to Go (That I Haven't Been Yet)",
+  "artist": "Ismael Oliveira",
+  "bpm": 120.0,
+  "audio_path": "res://assets/soundtrack/song_01/music_01.mp3",
+  "tracks": {
+	"guitar": [
+	  { "time": 1.300, "lane": 3, "type": "c", "duration": 0.0 },
+	  { "time": 1.700, "lane": 3, "type": "c", "duration": 0.0 },
+	  { "time": 1.900, "lane": 3, "type": "sq", "duration": 0.0 },
+	  { "time": 2.300, "lane": 2, "type": "c", "duration": 1.200 }
+	],
+	"drums": [],
+	"vocal": [],
+	"bass": []
+  }
+}

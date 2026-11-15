@@ -59,8 +59,6 @@ func _ready() -> void:
 
 	_instantiate_instruments()
 	
-	_instantiate_instruments()
-	
 	# Trava os botões das pistas e UI
 	get_tree().call_group("player_tracks", "disable_inputs")
 	get_viewport().gui_disable_input = true

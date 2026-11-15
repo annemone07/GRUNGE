@@ -1,0 +1,38 @@
+{
+  "title": "Places to Go (That I Haven't Been Yet)",
+  "artist": "Ismael Oliveira",
+  "bpm": 120.0,
+  "audio_path": "res://assets/soundtrack/song_01/music_01.mp3",
+  "tracks": {
+	"guitar": [
+	  { "time": 1.300, "lane": 1, "type": "c", "duration": 0.0 },
+	  { "time": 1.800, "lane": 2, "type": "c", "duration": 0.0 },
+	  { "time": 2.300, "lane": 3, "type": "sq", "duration": 0.0 },
+	  { "time": 2.800, "lane": 4, "type": "sq", "duration": 0.0 },
+	  { "time": 3.500, "lane": 1, "type": "c", "duration": 1.200 },
+	  { "time": 5.200, "lane": 3, "type": "sq", "duration": 1.500 },
+	  { "time": 7.200, "lane": 1, "type": "c", "duration": 0.0 },
+	  { "time": 7.200, "lane": 4, "type": "c", "duration": 0.0 },
+	  { "time": 8.000, "lane": 2, "type": "sq", "duration": 0.0 },
+	  { "time": 8.000, "lane": 3, "type": "sq", "duration": 0.0 },
+	  { "time": 9.000, "lane": 2, "type": "c", "duration": 2.000 }
+	],
+	"drums": [
+	  { "time": 1.300, "lane": 1, "type": "c", "duration": 0.0 },
+	  { "time": 1.800, "lane": 2, "type": "c", "duration": 0.0 },
+	  { "time": 2.300, "lane": 5, "type": "sq", "duration": 0.0 },
+	  { "time": 2.800, "lane": 8, "type": "sq", "duration": 0.0 },
+	  { "time": 3.500, "lane": 4, "type": "c", "duration": 1.200 }
+	],
+	"vocal": [
+	  { "time": 1.300, "lane": 1, "type": "c", "duration": 0.0 },
+	  { "time": 2.000, "lane": 2, "type": "sq", "duration": 0.0 },
+	  { "time": 3.000, "lane": 3, "type": "c", "duration": 1.500 }
+	],
+	"bass": [
+	  { "time": 1.300, "lane": 1, "type": "c", "duration": 0.0 },
+	  { "time": 2.000, "lane": 2, "type": "sq", "duration": 0.0 },
+	  { "time": 3.000, "lane": 4, "type": "c", "duration": 1.500 }
+	]
+  }
+}
