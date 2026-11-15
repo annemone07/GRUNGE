@@ -146,6 +146,9 @@ func _adjust_camera_for_instrument() -> void:
 func disable_inputs() -> void:
 	inputs_enabled = false
 
+func enable_inputs() -> void:
+	inputs_enabled = true
+
 func math_check_inputs(detect_key: String) -> void:
 	if not inputs_enabled: return
 	

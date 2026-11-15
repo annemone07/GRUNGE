@@ -8,8 +8,8 @@ const STAR_EMPTY = preload("res://assets/ui/estrela_vazia.png")
 @onready var title_label: Label = $Control/VBoxContainer/TitleLabel
 @onready var score_label: Label = $Control/VBoxContainer/ScoreLabel
 @onready var combo_label: Label = $Control/VBoxContainer/ComboLabel
-@onready var restart_button: Button = $Control/VBoxContainer/RestartButton
-@onready var menu_button: Button = $Control/VBoxContainer/MenuButton
+@onready var restart_button: Button = $Control/Control/RestartButton
+@onready var menu_button: Button = $Control/Control/MenuButton
 
 var _is_setup: bool = false
 
@@ -20,7 +20,7 @@ func _ready() -> void:
 func setup_screen(is_victory: bool = true) -> void:
 	_is_setup = true
 
-	var restart_btn = $Control/VBoxContainer/RestartButton
+	var restart_btn = $Control/Control/RestartButton
 
 	if is_victory:
 		if restart_btn:
@@ -93,7 +93,7 @@ func _on_restart_button_pressed() -> void:
 	_reset_globals()
 	
 	var main_node = get_tree().root.get_node_or_null("Main")
-	var stage_scene = load("res://scenes/play_map.tscn")
+	var stage_scene = load("res://scenes/gameplay/play_map.tscn")
 	
 	if main_node and stage_scene:
 		for child in main_node.get_children():
@@ -107,7 +107,7 @@ func _on_restart_button_pressed() -> void:
 func _on_menu_button_pressed() -> void:
 	_reset_globals()
 	
-	var menu_scene = load("res://scenes/StarterMenu.tscn")
+	var menu_scene = load("res://scenes/telas/starter_menu.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
 	
 	if menu_scene and main_node:

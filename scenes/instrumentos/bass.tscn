@@ -1,0 +1,3124 @@
+[gd_scene format=3 uid="uid://coc7vgoaclfui"]
+
+[ext_resource type="PackedScene" uid="uid://bdgbqfwp7pco2" path="res://scenes/gameplay/note_track.tscn" id="1_qhpin"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhpin"]
+albedo_color = Color(0, 0, 0, 1)
+distance_fade_mode = 2
+distance_fade_min_distance = 70.0
+distance_fade_max_distance = 40.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mxwii"]
+material = SubResource("StandardMaterial3D_qhpin")
+size = Vector2(1, 100)
+
+[node name="bass" type="Node3D" unique_id=630460287]
+
+[node name="noteTrack1" parent="." unique_id=1272245449 instance=ExtResource("1_qhpin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="Circulo_normal" parent="noteTrack1/detect" parent_id_path=PackedInt32Array(1272245449, 1583283065) index="2" unique_id=109056307]
+visible = true
+
+[node name="Cylinder_001" parent="noteTrack1/detect/Circulo_normal" index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack1/detect/Circulo_normal" index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack1/detect/Circulo_normal" index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack1/detect/Circulo_normal" index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack1/detect/Circulo_normal" index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack1/detect/Circulo_normal" index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack1/detect/Circulo_normal" index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack1/detect/Circulo_normal" index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack1/detect/Circulo_normal" index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack1/detect/Circulo_normal" index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack1/detect/Circulo_normal" index="10" unique_id=521608449]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, -1.2247436)
+
+[node name="nota circ" parent="noteTrack1/detect/Circulo_normal" index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack1/detect/Circulo_normal" index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack1/detect/Circulo_normal" index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack1/detect/Circulo_normal" index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack1/detect/Circulo_normal" index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack1/detect/Circulo_normal" index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack1/detect/Circulo_normal" index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack1/detect/Circulo_normal" index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack1/detect/Circulo_normal" index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack1/detect/Circulo_normal" index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack1/detect/Circulo_normal" index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack1/detect/Circulo_normal" index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack1/detect/Circulo_normal" index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack1/detect/Circulo_normal" index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack1/detect/Circulo_normal" index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack1/detect/Circulo_normal" index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack1/detect/Circulo_normal" index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack1/detect/Circulo_normal" index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack1/detect/Circulo_normal" index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack1/detect/Circulo_normal" index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack1/detect/Circulo_normal" index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack1/detect/Circulo_normal" index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack1/detect/Circulo_normal" index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack1/detect/Circulo_normal" index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack1/detect/Circulo_normal" index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack1/detect/Circulo_normal" index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack1/detect/Circulo_normal" index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack1/detect/Circulo_normal" index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack1/detect/Circulo_normal" index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack1/detect/Circulo_normal" index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack1/detect/Circulo_normal" index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack1/detect/Circulo_normal" index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack1/detect/Circulo_normal" index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack1/detect/Circulo_normal" index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack1/detect/Circulo_normal" index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack1/detect/Circulo_normal" index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack1/detect/Circulo_normal" index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack1/detect/Circulo_normal" index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack1/detect/Circulo_normal" index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack1/detect/Circulo_normal" index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack1/detect/Circulo_normal" index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack1/detect/Circulo_normal" index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack1/detect/Circulo_normal" index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack1/detect/Circulo_normal" index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack1/detect/Circulo_normal" index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack1/detect/Circulo_normal" index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack1/detect/Circulo_normal" index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack1/detect/Circulo_normal" index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack1/detect/Circulo_normal" index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack1/detect/Circulo_normal" index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack1/detect/Circulo_normal" index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack1/detect/Circulo_normal" index="62" unique_id=1987540047]
+visible = false
+
+[node name="Cylinder_001" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="9" unique_id=1840304093]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+
+[node name="circ " parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack1/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1272245449, 1583283065, 581156094) index="62" unique_id=1987540047]
+visible = false
+
+[node name="sqr_normal" parent="noteTrack1/detect" parent_id_path=PackedInt32Array(1272245449, 1583283065) index="4" unique_id=1555965912]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+
+[node name="Cylinder_001" parent="noteTrack1/detect/sqr_normal" index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack1/detect/sqr_normal" index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack1/detect/sqr_normal" index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack1/detect/sqr_normal" index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack1/detect/sqr_normal" index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack1/detect/sqr_normal" index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack1/detect/sqr_normal" index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack1/detect/sqr_normal" index="7" unique_id=1698853145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3970013, 0, -2.246988)
+
+[node name="quad atv" parent="noteTrack1/detect/sqr_normal" index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack1/detect/sqr_normal" index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack1/detect/sqr_normal" index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack1/detect/sqr_normal" index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack1/detect/sqr_normal" index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack1/detect/sqr_normal" index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack1/detect/sqr_normal" index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack1/detect/sqr_normal" index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack1/detect/sqr_normal" index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack1/detect/sqr_normal" index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack1/detect/sqr_normal" index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack1/detect/sqr_normal" index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack1/detect/sqr_normal" index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack1/detect/sqr_normal" index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack1/detect/sqr_normal" index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack1/detect/sqr_normal" index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack1/detect/sqr_normal" index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack1/detect/sqr_normal" index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack1/detect/sqr_normal" index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack1/detect/sqr_normal" index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack1/detect/sqr_normal" index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack1/detect/sqr_normal" index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack1/detect/sqr_normal" index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack1/detect/sqr_normal" index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack1/detect/sqr_normal" index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack1/detect/sqr_normal" index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack1/detect/sqr_normal" index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack1/detect/sqr_normal" index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack1/detect/sqr_normal" index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack1/detect/sqr_normal" index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack1/detect/sqr_normal" index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack1/detect/sqr_normal" index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack1/detect/sqr_normal" index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack1/detect/sqr_normal" index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack1/detect/sqr_normal" index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack1/detect/sqr_normal" index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack1/detect/sqr_normal" index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack1/detect/sqr_normal" index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack1/detect/sqr_normal" index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack1/detect/sqr_normal" index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack1/detect/sqr_normal" index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack1/detect/sqr_normal" index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack1/detect/sqr_normal" index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack1/detect/sqr_normal" index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack1/detect/sqr_normal" index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack1/detect/sqr_normal" index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack1/detect/sqr_normal" index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack1/detect/sqr_normal" index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack1/detect/sqr_normal" index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack1/detect/sqr_normal" index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack1/detect/sqr_normal" index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack1/detect/sqr_normal" index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack1/detect/sqr_normal" index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack1/detect/sqr_normal" index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack1/detect/sqr_normal" index="62" unique_id=1987540047]
+visible = false
+
+[node name="sqr_levantado" parent="noteTrack1/detect" parent_id_path=PackedInt32Array(1272245449, 1583283065) index="5" unique_id=461452921]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+
+[node name="Cylinder_001" parent="noteTrack1/detect/sqr_levantado" index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack1/detect/sqr_levantado" index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack1/detect/sqr_levantado" index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack1/detect/sqr_levantado" index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack1/detect/sqr_levantado" index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack1/detect/sqr_levantado" index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack1/detect/sqr_levantado" index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack1/detect/sqr_levantado" index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack1/detect/sqr_levantado" index="8" unique_id=109639891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.432044, 0, -0.06949165)
+
+[node name="cirt atv" parent="noteTrack1/detect/sqr_levantado" index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack1/detect/sqr_levantado" index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack1/detect/sqr_levantado" index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack1/detect/sqr_levantado" index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack1/detect/sqr_levantado" index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack1/detect/sqr_levantado" index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack1/detect/sqr_levantado" index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack1/detect/sqr_levantado" index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack1/detect/sqr_levantado" index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack1/detect/sqr_levantado" index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack1/detect/sqr_levantado" index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack1/detect/sqr_levantado" index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack1/detect/sqr_levantado" index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack1/detect/sqr_levantado" index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack1/detect/sqr_levantado" index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack1/detect/sqr_levantado" index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack1/detect/sqr_levantado" index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack1/detect/sqr_levantado" index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack1/detect/sqr_levantado" index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack1/detect/sqr_levantado" index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack1/detect/sqr_levantado" index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack1/detect/sqr_levantado" index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack1/detect/sqr_levantado" index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack1/detect/sqr_levantado" index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack1/detect/sqr_levantado" index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack1/detect/sqr_levantado" index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack1/detect/sqr_levantado" index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack1/detect/sqr_levantado" index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack1/detect/sqr_levantado" index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack1/detect/sqr_levantado" index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack1/detect/sqr_levantado" index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack1/detect/sqr_levantado" index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack1/detect/sqr_levantado" index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack1/detect/sqr_levantado" index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack1/detect/sqr_levantado" index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack1/detect/sqr_levantado" index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack1/detect/sqr_levantado" index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack1/detect/sqr_levantado" index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack1/detect/sqr_levantado" index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack1/detect/sqr_levantado" index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack1/detect/sqr_levantado" index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack1/detect/sqr_levantado" index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack1/detect/sqr_levantado" index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack1/detect/sqr_levantado" index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack1/detect/sqr_levantado" index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack1/detect/sqr_levantado" index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack1/detect/sqr_levantado" index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack1/detect/sqr_levantado" index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack1/detect/sqr_levantado" index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack1/detect/sqr_levantado" index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack1/detect/sqr_levantado" index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack1/detect/sqr_levantado" index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack1/detect/sqr_levantado" index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack1/detect/sqr_levantado" index="62" unique_id=1987540047]
+visible = false
+
+[node name="noteTrack2" parent="." unique_id=1460280726 instance=ExtResource("1_qhpin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+
+[node name="Circulo_normal" parent="noteTrack2/detect" parent_id_path=PackedInt32Array(1460280726, 1583283065) index="2" unique_id=109056307]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+visible = true
+
+[node name="Cylinder_001" parent="noteTrack2/detect/Circulo_normal" index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack2/detect/Circulo_normal" index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack2/detect/Circulo_normal" index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack2/detect/Circulo_normal" index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack2/detect/Circulo_normal" index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack2/detect/Circulo_normal" index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack2/detect/Circulo_normal" index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack2/detect/Circulo_normal" index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack2/detect/Circulo_normal" index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack2/detect/Circulo_normal" index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack2/detect/Circulo_normal" index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack2/detect/Circulo_normal" index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack2/detect/Circulo_normal" index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack2/detect/Circulo_normal" index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack2/detect/Circulo_normal" index="14" unique_id=708981259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2224834)
+
+[node name="cirt atv_001" parent="noteTrack2/detect/Circulo_normal" index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack2/detect/Circulo_normal" index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack2/detect/Circulo_normal" index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack2/detect/Circulo_normal" index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack2/detect/Circulo_normal" index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack2/detect/Circulo_normal" index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack2/detect/Circulo_normal" index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack2/detect/Circulo_normal" index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack2/detect/Circulo_normal" index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack2/detect/Circulo_normal" index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack2/detect/Circulo_normal" index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack2/detect/Circulo_normal" index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack2/detect/Circulo_normal" index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack2/detect/Circulo_normal" index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack2/detect/Circulo_normal" index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack2/detect/Circulo_normal" index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack2/detect/Circulo_normal" index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack2/detect/Circulo_normal" index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack2/detect/Circulo_normal" index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack2/detect/Circulo_normal" index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack2/detect/Circulo_normal" index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack2/detect/Circulo_normal" index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack2/detect/Circulo_normal" index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack2/detect/Circulo_normal" index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack2/detect/Circulo_normal" index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack2/detect/Circulo_normal" index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack2/detect/Circulo_normal" index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack2/detect/Circulo_normal" index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack2/detect/Circulo_normal" index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack2/detect/Circulo_normal" index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack2/detect/Circulo_normal" index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack2/detect/Circulo_normal" index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack2/detect/Circulo_normal" index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack2/detect/Circulo_normal" index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack2/detect/Circulo_normal" index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack2/detect/Circulo_normal" index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack2/detect/Circulo_normal" index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack2/detect/Circulo_normal" index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack2/detect/Circulo_normal" index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack2/detect/Circulo_normal" index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack2/detect/Circulo_normal" index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack2/detect/Circulo_normal" index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack2/detect/Circulo_normal" index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack2/detect/Circulo_normal" index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack2/detect/Circulo_normal" index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack2/detect/Circulo_normal" index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack2/detect/Circulo_normal" index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack2/detect/Circulo_normal" index="62" unique_id=1987540047]
+visible = false
+
+[node name="Cylinder_001" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="15" unique_id=857859231]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0.00391531)
+
+[node name="nota circ_001" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack2/detect/Circulo_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 581156094) index="62" unique_id=1987540047]
+visible = false
+
+[node name="Cylinder_001" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="18" unique_id=1312494837]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -1.2738367, 0, -1.1988325)
+
+[node name="quad_003" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="20" unique_id=37686338]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -1.377171, 0, -0.06895864)
+visible = false
+
+[node name="circ _002" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack2/detect/sqr_normal" parent_id_path=PackedInt32Array(1460280726, 1583283065, 1555965912) index="62" unique_id=1987540047]
+visible = false
+
+[node name="Cylinder_001" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="20" unique_id=37686338]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -1.2494451, 0, 0.0038313866)
+
+[node name="circ _002" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack2/detect/sqr_levantado" parent_id_path=PackedInt32Array(1460280726, 1583283065, 461452921) index="62" unique_id=1987540047]
+visible = false
+
+[node name="noteTrack3" parent="." unique_id=1785538458 instance=ExtResource("1_qhpin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="Circulo_normal" parent="noteTrack3/detect" parent_id_path=PackedInt32Array(1785538458, 1583283065) index="2" unique_id=109056307]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+visible = true
+
+[node name="Cylinder_001" parent="noteTrack3/detect/Circulo_normal" index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack3/detect/Circulo_normal" index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack3/detect/Circulo_normal" index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack3/detect/Circulo_normal" index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack3/detect/Circulo_normal" index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack3/detect/Circulo_normal" index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack3/detect/Circulo_normal" index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack3/detect/Circulo_normal" index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack3/detect/Circulo_normal" index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack3/detect/Circulo_normal" index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack3/detect/Circulo_normal" index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack3/detect/Circulo_normal" index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack3/detect/Circulo_normal" index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack3/detect/Circulo_normal" index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack3/detect/Circulo_normal" index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack3/detect/Circulo_normal" index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack3/detect/Circulo_normal" index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack3/detect/Circulo_normal" index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack3/detect/Circulo_normal" index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack3/detect/Circulo_normal" index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack3/detect/Circulo_normal" index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack3/detect/Circulo_normal" index="21" unique_id=1204268233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.250931)
+
+[node name="cirt atv_002" parent="noteTrack3/detect/Circulo_normal" index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack3/detect/Circulo_normal" index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack3/detect/Circulo_normal" index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack3/detect/Circulo_normal" index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack3/detect/Circulo_normal" index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack3/detect/Circulo_normal" index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack3/detect/Circulo_normal" index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack3/detect/Circulo_normal" index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack3/detect/Circulo_normal" index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack3/detect/Circulo_normal" index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack3/detect/Circulo_normal" index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack3/detect/Circulo_normal" index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack3/detect/Circulo_normal" index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack3/detect/Circulo_normal" index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack3/detect/Circulo_normal" index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack3/detect/Circulo_normal" index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack3/detect/Circulo_normal" index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack3/detect/Circulo_normal" index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack3/detect/Circulo_normal" index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack3/detect/Circulo_normal" index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack3/detect/Circulo_normal" index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack3/detect/Circulo_normal" index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack3/detect/Circulo_normal" index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack3/detect/Circulo_normal" index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack3/detect/Circulo_normal" index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack3/detect/Circulo_normal" index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack3/detect/Circulo_normal" index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack3/detect/Circulo_normal" index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack3/detect/Circulo_normal" index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack3/detect/Circulo_normal" index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack3/detect/Circulo_normal" index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack3/detect/Circulo_normal" index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack3/detect/Circulo_normal" index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack3/detect/Circulo_normal" index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack3/detect/Circulo_normal" index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack3/detect/Circulo_normal" index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack3/detect/Circulo_normal" index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack3/detect/Circulo_normal" index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack3/detect/Circulo_normal" index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack3/detect/Circulo_normal" index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack3/detect/Circulo_normal" index="62" unique_id=1987540047]
+visible = false
+
+[node name="Circulo_levantado" parent="noteTrack3/detect" parent_id_path=PackedInt32Array(1785538458, 1583283065) index="3" unique_id=581156094]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+
+[node name="Cylinder_001" parent="noteTrack3/detect/Circulo_levantado" index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack3/detect/Circulo_levantado" index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack3/detect/Circulo_levantado" index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack3/detect/Circulo_levantado" index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack3/detect/Circulo_levantado" index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack3/detect/Circulo_levantado" index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack3/detect/Circulo_levantado" index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack3/detect/Circulo_levantado" index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack3/detect/Circulo_levantado" index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack3/detect/Circulo_levantado" index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack3/detect/Circulo_levantado" index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack3/detect/Circulo_levantado" index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack3/detect/Circulo_levantado" index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack3/detect/Circulo_levantado" index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack3/detect/Circulo_levantado" index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack3/detect/Circulo_levantado" index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack3/detect/Circulo_levantado" index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack3/detect/Circulo_levantado" index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack3/detect/Circulo_levantado" index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack3/detect/Circulo_levantado" index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack3/detect/Circulo_levantado" index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack3/detect/Circulo_levantado" index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack3/detect/Circulo_levantado" index="22" unique_id=1051048312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.022282166)
+
+[node name="nota circ_002" parent="noteTrack3/detect/Circulo_levantado" index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack3/detect/Circulo_levantado" index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack3/detect/Circulo_levantado" index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack3/detect/Circulo_levantado" index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack3/detect/Circulo_levantado" index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack3/detect/Circulo_levantado" index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack3/detect/Circulo_levantado" index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack3/detect/Circulo_levantado" index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack3/detect/Circulo_levantado" index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack3/detect/Circulo_levantado" index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack3/detect/Circulo_levantado" index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack3/detect/Circulo_levantado" index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack3/detect/Circulo_levantado" index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack3/detect/Circulo_levantado" index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack3/detect/Circulo_levantado" index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack3/detect/Circulo_levantado" index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack3/detect/Circulo_levantado" index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack3/detect/Circulo_levantado" index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack3/detect/Circulo_levantado" index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack3/detect/Circulo_levantado" index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack3/detect/Circulo_levantado" index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack3/detect/Circulo_levantado" index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack3/detect/Circulo_levantado" index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack3/detect/Circulo_levantado" index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack3/detect/Circulo_levantado" index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack3/detect/Circulo_levantado" index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack3/detect/Circulo_levantado" index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack3/detect/Circulo_levantado" index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack3/detect/Circulo_levantado" index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack3/detect/Circulo_levantado" index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack3/detect/Circulo_levantado" index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack3/detect/Circulo_levantado" index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack3/detect/Circulo_levantado" index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack3/detect/Circulo_levantado" index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack3/detect/Circulo_levantado" index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack3/detect/Circulo_levantado" index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack3/detect/Circulo_levantado" index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack3/detect/Circulo_levantado" index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack3/detect/Circulo_levantado" index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack3/detect/Circulo_levantado" index="62" unique_id=1987540047]
+visible = false
+
+[node name="sqr_normal" parent="noteTrack3/detect" parent_id_path=PackedInt32Array(1785538458, 1583283065) index="4" unique_id=1555965912]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+
+[node name="Cylinder_001" parent="noteTrack3/detect/sqr_normal" index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack3/detect/sqr_normal" index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack3/detect/sqr_normal" index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack3/detect/sqr_normal" index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack3/detect/sqr_normal" index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack3/detect/sqr_normal" index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack3/detect/sqr_normal" index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack3/detect/sqr_normal" index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack3/detect/sqr_normal" index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack3/detect/sqr_normal" index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack3/detect/sqr_normal" index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack3/detect/sqr_normal" index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack3/detect/sqr_normal" index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack3/detect/sqr_normal" index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack3/detect/sqr_normal" index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack3/detect/sqr_normal" index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack3/detect/sqr_normal" index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack3/detect/sqr_normal" index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack3/detect/sqr_normal" index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack3/detect/sqr_normal" index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack3/detect/sqr_normal" index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack3/detect/sqr_normal" index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack3/detect/sqr_normal" index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack3/detect/sqr_normal" index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack3/detect/sqr_normal" index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack3/detect/sqr_normal" index="25" unique_id=1838312513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.288, 0, -2.214)
+
+[node name="quad_005" parent="noteTrack3/detect/sqr_normal" index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack3/detect/sqr_normal" index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack3/detect/sqr_normal" index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack3/detect/sqr_normal" index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack3/detect/sqr_normal" index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack3/detect/sqr_normal" index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack3/detect/sqr_normal" index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack3/detect/sqr_normal" index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack3/detect/sqr_normal" index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack3/detect/sqr_normal" index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack3/detect/sqr_normal" index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack3/detect/sqr_normal" index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack3/detect/sqr_normal" index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack3/detect/sqr_normal" index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack3/detect/sqr_normal" index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack3/detect/sqr_normal" index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack3/detect/sqr_normal" index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack3/detect/sqr_normal" index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack3/detect/sqr_normal" index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack3/detect/sqr_normal" index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack3/detect/sqr_normal" index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack3/detect/sqr_normal" index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack3/detect/sqr_normal" index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack3/detect/sqr_normal" index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack3/detect/sqr_normal" index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack3/detect/sqr_normal" index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack3/detect/sqr_normal" index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack3/detect/sqr_normal" index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack3/detect/sqr_normal" index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack3/detect/sqr_normal" index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack3/detect/sqr_normal" index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack3/detect/sqr_normal" index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack3/detect/sqr_normal" index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack3/detect/sqr_normal" index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack3/detect/sqr_normal" index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack3/detect/sqr_normal" index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack3/detect/sqr_normal" index="62" unique_id=1987540047]
+visible = false
+
+[node name="sqr_levantado" parent="noteTrack3/detect" parent_id_path=PackedInt32Array(1785538458, 1583283065) index="5" unique_id=461452921]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+
+[node name="Cylinder_001" parent="noteTrack3/detect/sqr_levantado" index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack3/detect/sqr_levantado" index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack3/detect/sqr_levantado" index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack3/detect/sqr_levantado" index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack3/detect/sqr_levantado" index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack3/detect/sqr_levantado" index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack3/detect/sqr_levantado" index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack3/detect/sqr_levantado" index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack3/detect/sqr_levantado" index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack3/detect/sqr_levantado" index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack3/detect/sqr_levantado" index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack3/detect/sqr_levantado" index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack3/detect/sqr_levantado" index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack3/detect/sqr_levantado" index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack3/detect/sqr_levantado" index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack3/detect/sqr_levantado" index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack3/detect/sqr_levantado" index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack3/detect/sqr_levantado" index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack3/detect/sqr_levantado" index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack3/detect/sqr_levantado" index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack3/detect/sqr_levantado" index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack3/detect/sqr_levantado" index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack3/detect/sqr_levantado" index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack3/detect/sqr_levantado" index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack3/detect/sqr_levantado" index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack3/detect/sqr_levantado" index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack3/detect/sqr_levantado" index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack3/detect/sqr_levantado" index="27" unique_id=1916381520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.288085, 0, 0.029951442)
+
+[node name="circ _003" parent="noteTrack3/detect/sqr_levantado" index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack3/detect/sqr_levantado" index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack3/detect/sqr_levantado" index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack3/detect/sqr_levantado" index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack3/detect/sqr_levantado" index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack3/detect/sqr_levantado" index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack3/detect/sqr_levantado" index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack3/detect/sqr_levantado" index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack3/detect/sqr_levantado" index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack3/detect/sqr_levantado" index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack3/detect/sqr_levantado" index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack3/detect/sqr_levantado" index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack3/detect/sqr_levantado" index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack3/detect/sqr_levantado" index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack3/detect/sqr_levantado" index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack3/detect/sqr_levantado" index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack3/detect/sqr_levantado" index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack3/detect/sqr_levantado" index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack3/detect/sqr_levantado" index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack3/detect/sqr_levantado" index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack3/detect/sqr_levantado" index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack3/detect/sqr_levantado" index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack3/detect/sqr_levantado" index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack3/detect/sqr_levantado" index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack3/detect/sqr_levantado" index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack3/detect/sqr_levantado" index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack3/detect/sqr_levantado" index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack3/detect/sqr_levantado" index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack3/detect/sqr_levantado" index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack3/detect/sqr_levantado" index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack3/detect/sqr_levantado" index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack3/detect/sqr_levantado" index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack3/detect/sqr_levantado" index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack3/detect/sqr_levantado" index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack3/detect/sqr_levantado" index="62" unique_id=1987540047]
+visible = false
+
+[node name="noteTrack4" parent="." unique_id=441849950 instance=ExtResource("1_qhpin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+
+[node name="Circulo_normal" parent="noteTrack4/detect" parent_id_path=PackedInt32Array(441849950, 1583283065) index="2" unique_id=109056307]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+visible = true
+
+[node name="Cylinder_001" parent="noteTrack4/detect/Circulo_normal" index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack4/detect/Circulo_normal" index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack4/detect/Circulo_normal" index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack4/detect/Circulo_normal" index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack4/detect/Circulo_normal" index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack4/detect/Circulo_normal" index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack4/detect/Circulo_normal" index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack4/detect/Circulo_normal" index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack4/detect/Circulo_normal" index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack4/detect/Circulo_normal" index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack4/detect/Circulo_normal" index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack4/detect/Circulo_normal" index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack4/detect/Circulo_normal" index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack4/detect/Circulo_normal" index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack4/detect/Circulo_normal" index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack4/detect/Circulo_normal" index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack4/detect/Circulo_normal" index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack4/detect/Circulo_normal" index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack4/detect/Circulo_normal" index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack4/detect/Circulo_normal" index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack4/detect/Circulo_normal" index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack4/detect/Circulo_normal" index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack4/detect/Circulo_normal" index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack4/detect/Circulo_normal" index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack4/detect/Circulo_normal" index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack4/detect/Circulo_normal" index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack4/detect/Circulo_normal" index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack4/detect/Circulo_normal" index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack4/detect/Circulo_normal" index="28" unique_id=1773042872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2374153)
+
+[node name="cirt atv_003" parent="noteTrack4/detect/Circulo_normal" index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack4/detect/Circulo_normal" index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack4/detect/Circulo_normal" index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack4/detect/Circulo_normal" index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack4/detect/Circulo_normal" index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack4/detect/Circulo_normal" index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack4/detect/Circulo_normal" index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack4/detect/Circulo_normal" index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack4/detect/Circulo_normal" index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack4/detect/Circulo_normal" index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack4/detect/Circulo_normal" index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack4/detect/Circulo_normal" index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack4/detect/Circulo_normal" index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack4/detect/Circulo_normal" index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack4/detect/Circulo_normal" index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack4/detect/Circulo_normal" index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack4/detect/Circulo_normal" index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack4/detect/Circulo_normal" index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack4/detect/Circulo_normal" index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack4/detect/Circulo_normal" index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack4/detect/Circulo_normal" index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack4/detect/Circulo_normal" index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack4/detect/Circulo_normal" index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack4/detect/Circulo_normal" index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack4/detect/Circulo_normal" index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack4/detect/Circulo_normal" index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack4/detect/Circulo_normal" index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack4/detect/Circulo_normal" index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack4/detect/Circulo_normal" index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack4/detect/Circulo_normal" index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack4/detect/Circulo_normal" index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack4/detect/Circulo_normal" index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack4/detect/Circulo_normal" index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack4/detect/Circulo_normal" index="62" unique_id=1987540047]
+visible = false
+
+[node name="Circulo_levantado" parent="noteTrack4/detect" parent_id_path=PackedInt32Array(441849950, 1583283065) index="3" unique_id=581156094]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+
+[node name="Cylinder_001" parent="noteTrack4/detect/Circulo_levantado" index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack4/detect/Circulo_levantado" index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack4/detect/Circulo_levantado" index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack4/detect/Circulo_levantado" index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack4/detect/Circulo_levantado" index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack4/detect/Circulo_levantado" index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack4/detect/Circulo_levantado" index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack4/detect/Circulo_levantado" index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack4/detect/Circulo_levantado" index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack4/detect/Circulo_levantado" index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack4/detect/Circulo_levantado" index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack4/detect/Circulo_levantado" index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack4/detect/Circulo_levantado" index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack4/detect/Circulo_levantado" index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack4/detect/Circulo_levantado" index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack4/detect/Circulo_levantado" index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack4/detect/Circulo_levantado" index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack4/detect/Circulo_levantado" index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack4/detect/Circulo_levantado" index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack4/detect/Circulo_levantado" index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack4/detect/Circulo_levantado" index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack4/detect/Circulo_levantado" index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack4/detect/Circulo_levantado" index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack4/detect/Circulo_levantado" index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack4/detect/Circulo_levantado" index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack4/detect/Circulo_levantado" index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack4/detect/Circulo_levantado" index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack4/detect/Circulo_levantado" index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack4/detect/Circulo_levantado" index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack4/detect/Circulo_levantado" index="29" unique_id=1558670593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.054685418)
+
+[node name="nota circ_003" parent="noteTrack4/detect/Circulo_levantado" index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack4/detect/Circulo_levantado" index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack4/detect/Circulo_levantado" index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack4/detect/Circulo_levantado" index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack4/detect/Circulo_levantado" index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack4/detect/Circulo_levantado" index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack4/detect/Circulo_levantado" index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack4/detect/Circulo_levantado" index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack4/detect/Circulo_levantado" index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack4/detect/Circulo_levantado" index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack4/detect/Circulo_levantado" index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack4/detect/Circulo_levantado" index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack4/detect/Circulo_levantado" index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack4/detect/Circulo_levantado" index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack4/detect/Circulo_levantado" index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack4/detect/Circulo_levantado" index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack4/detect/Circulo_levantado" index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack4/detect/Circulo_levantado" index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack4/detect/Circulo_levantado" index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack4/detect/Circulo_levantado" index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack4/detect/Circulo_levantado" index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack4/detect/Circulo_levantado" index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack4/detect/Circulo_levantado" index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack4/detect/Circulo_levantado" index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack4/detect/Circulo_levantado" index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack4/detect/Circulo_levantado" index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack4/detect/Circulo_levantado" index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack4/detect/Circulo_levantado" index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack4/detect/Circulo_levantado" index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack4/detect/Circulo_levantado" index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack4/detect/Circulo_levantado" index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack4/detect/Circulo_levantado" index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack4/detect/Circulo_levantado" index="62" unique_id=1987540047]
+visible = false
+
+[node name="sqr_normal" parent="noteTrack4/detect" parent_id_path=PackedInt32Array(441849950, 1583283065) index="4" unique_id=1555965912]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+
+[node name="Cylinder_001" parent="noteTrack4/detect/sqr_normal" index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack4/detect/sqr_normal" index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack4/detect/sqr_normal" index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack4/detect/sqr_normal" index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack4/detect/sqr_normal" index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack4/detect/sqr_normal" index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack4/detect/sqr_normal" index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack4/detect/sqr_normal" index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack4/detect/sqr_normal" index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack4/detect/sqr_normal" index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack4/detect/sqr_normal" index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack4/detect/sqr_normal" index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack4/detect/sqr_normal" index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack4/detect/sqr_normal" index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack4/detect/sqr_normal" index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack4/detect/sqr_normal" index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack4/detect/sqr_normal" index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack4/detect/sqr_normal" index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack4/detect/sqr_normal" index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack4/detect/sqr_normal" index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack4/detect/sqr_normal" index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack4/detect/sqr_normal" index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack4/detect/sqr_normal" index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack4/detect/sqr_normal" index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack4/detect/sqr_normal" index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack4/detect/sqr_normal" index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack4/detect/sqr_normal" index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack4/detect/sqr_normal" index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack4/detect/sqr_normal" index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack4/detect/sqr_normal" index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack4/detect/sqr_normal" index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack4/detect/sqr_normal" index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack4/detect/sqr_normal" index="32" unique_id=1832434910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2879999, 0, -2.1951084)
+
+[node name="quad_007" parent="noteTrack4/detect/sqr_normal" index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack4/detect/sqr_normal" index="34" unique_id=1988162691]
+visible = false
+
+[node name="circ _004" parent="noteTrack4/detect/sqr_normal" index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack4/detect/sqr_normal" index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack4/detect/sqr_normal" index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack4/detect/sqr_normal" index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack4/detect/sqr_normal" index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack4/detect/sqr_normal" index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack4/detect/sqr_normal" index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack4/detect/sqr_normal" index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack4/detect/sqr_normal" index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack4/detect/sqr_normal" index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack4/detect/sqr_normal" index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack4/detect/sqr_normal" index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack4/detect/sqr_normal" index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack4/detect/sqr_normal" index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack4/detect/sqr_normal" index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack4/detect/sqr_normal" index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack4/detect/sqr_normal" index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack4/detect/sqr_normal" index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack4/detect/sqr_normal" index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack4/detect/sqr_normal" index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack4/detect/sqr_normal" index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack4/detect/sqr_normal" index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack4/detect/sqr_normal" index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack4/detect/sqr_normal" index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack4/detect/sqr_normal" index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack4/detect/sqr_normal" index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack4/detect/sqr_normal" index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack4/detect/sqr_normal" index="62" unique_id=1987540047]
+visible = false
+
+[node name="sqr_levantado" parent="noteTrack4/detect" parent_id_path=PackedInt32Array(441849950, 1583283065) index="5" unique_id=461452921]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+
+[node name="Cylinder_001" parent="noteTrack4/detect/sqr_levantado" index="0" unique_id=1387004127]
+visible = false
+
+[node name="Cylinder_002" parent="noteTrack4/detect/sqr_levantado" index="1" unique_id=887401282]
+visible = false
+
+[node name="Cylinder_003" parent="noteTrack4/detect/sqr_levantado" index="2" unique_id=784114965]
+visible = false
+
+[node name="Cylinder_004" parent="noteTrack4/detect/sqr_levantado" index="3" unique_id=112246624]
+visible = false
+
+[node name="Cylinder_005" parent="noteTrack4/detect/sqr_levantado" index="4" unique_id=491757098]
+visible = false
+
+[node name="Cylinder_006" parent="noteTrack4/detect/sqr_levantado" index="5" unique_id=1130215192]
+visible = false
+
+[node name="Cylinder_007" parent="noteTrack4/detect/sqr_levantado" index="6" unique_id=1415197624]
+visible = false
+
+[node name="quad" parent="noteTrack4/detect/sqr_levantado" index="7" unique_id=1698853145]
+visible = false
+
+[node name="quad atv" parent="noteTrack4/detect/sqr_levantado" index="8" unique_id=109639891]
+visible = false
+
+[node name="cirt atv" parent="noteTrack4/detect/sqr_levantado" index="9" unique_id=1840304093]
+visible = false
+
+[node name="circ " parent="noteTrack4/detect/sqr_levantado" index="10" unique_id=521608449]
+visible = false
+
+[node name="nota circ" parent="noteTrack4/detect/sqr_levantado" index="11" unique_id=1775700194]
+visible = false
+
+[node name="nota estrela" parent="noteTrack4/detect/sqr_levantado" index="12" unique_id=1036988195]
+visible = false
+
+[node name="quad_001" parent="noteTrack4/detect/sqr_levantado" index="13" unique_id=1383894221]
+visible = false
+
+[node name="circ _001" parent="noteTrack4/detect/sqr_levantado" index="14" unique_id=708981259]
+visible = false
+
+[node name="cirt atv_001" parent="noteTrack4/detect/sqr_levantado" index="15" unique_id=857859231]
+visible = false
+
+[node name="nota circ_001" parent="noteTrack4/detect/sqr_levantado" index="16" unique_id=1846525597]
+visible = false
+
+[node name="nota estrela_001" parent="noteTrack4/detect/sqr_levantado" index="17" unique_id=288433733]
+visible = false
+
+[node name="quad_002" parent="noteTrack4/detect/sqr_levantado" index="18" unique_id=1312494837]
+visible = false
+
+[node name="quad_003" parent="noteTrack4/detect/sqr_levantado" index="19" unique_id=922561712]
+visible = false
+
+[node name="quad atv_001" parent="noteTrack4/detect/sqr_levantado" index="20" unique_id=37686338]
+visible = false
+
+[node name="circ _002" parent="noteTrack4/detect/sqr_levantado" index="21" unique_id=1204268233]
+visible = false
+
+[node name="cirt atv_002" parent="noteTrack4/detect/sqr_levantado" index="22" unique_id=1051048312]
+visible = false
+
+[node name="nota circ_002" parent="noteTrack4/detect/sqr_levantado" index="23" unique_id=1883943183]
+visible = false
+
+[node name="nota estrela_002" parent="noteTrack4/detect/sqr_levantado" index="24" unique_id=935615051]
+visible = false
+
+[node name="quad_004" parent="noteTrack4/detect/sqr_levantado" index="25" unique_id=1838312513]
+visible = false
+
+[node name="quad_005" parent="noteTrack4/detect/sqr_levantado" index="26" unique_id=584306400]
+visible = false
+
+[node name="quad atv_002" parent="noteTrack4/detect/sqr_levantado" index="27" unique_id=1916381520]
+visible = false
+
+[node name="circ _003" parent="noteTrack4/detect/sqr_levantado" index="28" unique_id=1773042872]
+visible = false
+
+[node name="cirt atv_003" parent="noteTrack4/detect/sqr_levantado" index="29" unique_id=1558670593]
+visible = false
+
+[node name="nota circ_003" parent="noteTrack4/detect/sqr_levantado" index="30" unique_id=2033105314]
+visible = false
+
+[node name="nota estrela_003" parent="noteTrack4/detect/sqr_levantado" index="31" unique_id=612844101]
+visible = false
+
+[node name="quad_006" parent="noteTrack4/detect/sqr_levantado" index="32" unique_id=1832434910]
+visible = false
+
+[node name="quad_007" parent="noteTrack4/detect/sqr_levantado" index="33" unique_id=1384468257]
+visible = false
+
+[node name="quad atv_003" parent="noteTrack4/detect/sqr_levantado" index="34" unique_id=1988162691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2879999, 0, -0.042797)
+
+[node name="circ _004" parent="noteTrack4/detect/sqr_levantado" index="35" unique_id=2028875612]
+visible = false
+
+[node name="cirt atv_004" parent="noteTrack4/detect/sqr_levantado" index="36" unique_id=341046919]
+visible = false
+
+[node name="nota circ_004" parent="noteTrack4/detect/sqr_levantado" index="37" unique_id=695655562]
+visible = false
+
+[node name="nota estrela_004" parent="noteTrack4/detect/sqr_levantado" index="38" unique_id=1007002797]
+visible = false
+
+[node name="quad_008" parent="noteTrack4/detect/sqr_levantado" index="39" unique_id=1509877039]
+visible = false
+
+[node name="quad_009" parent="noteTrack4/detect/sqr_levantado" index="40" unique_id=1769266212]
+visible = false
+
+[node name="quad atv_004" parent="noteTrack4/detect/sqr_levantado" index="41" unique_id=2103579810]
+visible = false
+
+[node name="circ _005" parent="noteTrack4/detect/sqr_levantado" index="42" unique_id=751609420]
+visible = false
+
+[node name="cirt atv_005" parent="noteTrack4/detect/sqr_levantado" index="43" unique_id=1343311852]
+visible = false
+
+[node name="nota circ_005" parent="noteTrack4/detect/sqr_levantado" index="44" unique_id=1863540971]
+visible = false
+
+[node name="nota estrela_005" parent="noteTrack4/detect/sqr_levantado" index="45" unique_id=2082891853]
+visible = false
+
+[node name="quad_010" parent="noteTrack4/detect/sqr_levantado" index="46" unique_id=175788398]
+visible = false
+
+[node name="quad_011" parent="noteTrack4/detect/sqr_levantado" index="47" unique_id=686099876]
+visible = false
+
+[node name="quad atv_005" parent="noteTrack4/detect/sqr_levantado" index="48" unique_id=1008153770]
+visible = false
+
+[node name="circ _006" parent="noteTrack4/detect/sqr_levantado" index="49" unique_id=661461800]
+visible = false
+
+[node name="cirt atv_006" parent="noteTrack4/detect/sqr_levantado" index="50" unique_id=1086990734]
+visible = false
+
+[node name="nota circ_006" parent="noteTrack4/detect/sqr_levantado" index="51" unique_id=1080268259]
+visible = false
+
+[node name="nota estrela_006" parent="noteTrack4/detect/sqr_levantado" index="52" unique_id=289010796]
+visible = false
+
+[node name="quad_012" parent="noteTrack4/detect/sqr_levantado" index="53" unique_id=2144896045]
+visible = false
+
+[node name="quad_013" parent="noteTrack4/detect/sqr_levantado" index="54" unique_id=1139072639]
+visible = false
+
+[node name="quad atv_006" parent="noteTrack4/detect/sqr_levantado" index="55" unique_id=1918548336]
+visible = false
+
+[node name="circ _007" parent="noteTrack4/detect/sqr_levantado" index="56" unique_id=798741168]
+visible = false
+
+[node name="cirt atv_007" parent="noteTrack4/detect/sqr_levantado" index="57" unique_id=1575921770]
+visible = false
+
+[node name="nota circ_007" parent="noteTrack4/detect/sqr_levantado" index="58" unique_id=482801538]
+visible = false
+
+[node name="nota estrela_007" parent="noteTrack4/detect/sqr_levantado" index="59" unique_id=639795469]
+visible = false
+
+[node name="quad_014" parent="noteTrack4/detect/sqr_levantado" index="60" unique_id=685045802]
+visible = false
+
+[node name="quad_015" parent="noteTrack4/detect/sqr_levantado" index="61" unique_id=878625267]
+visible = false
+
+[node name="quad atv_007" parent="noteTrack4/detect/sqr_levantado" index="62" unique_id=1987540047]
+visible = false
+
+[node name="TrackMesh" type="MeshInstance3D" parent="." unique_id=392859120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7830908, 0, 0)
+mesh = SubResource("PlaneMesh_mxwii")
+
+[node name="TrackMesh2" type="MeshInstance3D" parent="." unique_id=2093515693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7498243, 0, 0)
+mesh = SubResource("PlaneMesh_mxwii")
+
+[editable path="noteTrack1"]
+[editable path="noteTrack1/detect"]
+[editable path="noteTrack1/detect/Circulo_normal"]
+[editable path="noteTrack1/detect/Circulo_levantado"]
+[editable path="noteTrack1/detect/sqr_normal"]
+[editable path="noteTrack1/detect/sqr_levantado"]
+[editable path="noteTrack2"]
+[editable path="noteTrack2/detect"]
+[editable path="noteTrack2/detect/Circulo_normal"]
+[editable path="noteTrack2/detect/Circulo_levantado"]
+[editable path="noteTrack2/detect/sqr_normal"]
+[editable path="noteTrack2/detect/sqr_levantado"]
+[editable path="noteTrack3"]
+[editable path="noteTrack3/detect"]
+[editable path="noteTrack3/detect/Circulo_normal"]
+[editable path="noteTrack3/detect/Circulo_levantado"]
+[editable path="noteTrack3/detect/sqr_normal"]
+[editable path="noteTrack3/detect/sqr_levantado"]
+[editable path="noteTrack4"]
+[editable path="noteTrack4/detect"]
+[editable path="noteTrack4/detect/Circulo_normal"]
+[editable path="noteTrack4/detect/Circulo_levantado"]
+[editable path="noteTrack4/detect/sqr_normal"]
+[editable path="noteTrack4/detect/sqr_levantado"]

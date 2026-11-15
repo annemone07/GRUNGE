@@ -24,6 +24,22 @@ signal cursor_moveu(nome_personagem, player_id)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var centro := get_viewport_rect().size / 2
+	var escala_inicial := 0.92
+	
+	modulate.a = 0.0
+	scale = Vector2(escala_inicial, escala_inicial)
+	position = centro * (1.0 - escala_inicial) # Compensa o deslocamento para crescer do centro
+	
+	var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "modulate:a", 1.0, 0.18)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.18)
+	tween.tween_property(self, "position", Vector2.ZERO, 0.18)
+	
+	#Transição
+	$Transition.play() #Toca o audio da Transição
+	
+
 	# Garantir que a moldura fique por cima de tudo
 	var botoes = vbox.get_children()
 	for botao in botoes:
@@ -45,8 +61,19 @@ func _ready() -> void:
 	moldura_pos.position = menuCards[0].position
 	
 	# Chama a atualização visual no primeiro frame para configurar o estado inicial
+
+	get_tree().create_timer(0.05).timeout.connect(func(): pode_interagir = true)
+	
+	#DELAY AO INICIAR A CENA
+	get_viewport().gui_disable_input = true
+	set_process_input(false)
+	
+	await get_tree().create_timer(0.05).timeout
+	
+	get_viewport().gui_disable_input = false
+	set_process_input(true)
+	#--------------
 	_atualizar_visual()
-	get_tree().create_timer(0.2).timeout.connect(func(): pode_interagir = true)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -188,7 +215,7 @@ func _aplicar_estilo_focado(botao: Button):
 
 func _on_solo_pressed() -> void:
 	Globals.is_single_player = true
-	var stage_scene = load("res://scenes/selectCharacters.tscn")
+	var stage_scene = load("res://scenes/telas/select_character_menu.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count() - 1
 	if stage_scene:
 		var stage = stage_scene.instantiate()
@@ -199,7 +226,7 @@ func _on_solo_pressed() -> void:
 
 func _on_multiplayer_pressed() -> void:
 	Globals.is_single_player = false
-	var stage_scene = load("res://scenes/selectCharacters.tscn")
+	var stage_scene = load("res://scenes/telas/select_character_menu.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count() - 1
 	if stage_scene:
 		var stage = stage_scene.instantiate()

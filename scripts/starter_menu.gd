@@ -26,24 +26,47 @@ signal cursor_moveu(nome_personagem, player_id)
 @export var ajuste_posicao: Vector2 = Vector2(0, 0)
 
 func _ready() -> void:
-	# Define o foco inicial no primeiro botão (Play Game)
-	#_focus_main_menu()
+	# 1. Toca o áudio e trava os inputs imediatamente
+	$Transition.play()
+	pode_interagir = false
+	get_viewport().gui_disable_input = true
+	set_process_input(false)
+	
+	# 2. Espera 1 frame pro container calcular o tamanho/posição real dos botões
+	await get_tree().process_frame
+	
 	menuButtons = menu_container.get_children()
 	menuButtonCount = menu_container.get_child_count()
-	moldura_pos.global_position = Vector2(start_button.position.x, menu_container.position.y+start_button.size.y/2)
 	
-	var nome_base = menuButtons[boxId].name.to_lower()
+	# 3. Coloca a moldura INSTANTANEAMENTE no mesmo alvo exato do _atualizar_visual()
+	var botao_inicial: Control = menuButtons[boxId]
+	moldura_pos.global_position = botao_inicial.global_position + (botao_inicial.size / 2)
+	
+	var nome_base = botao_inicial.name.to_lower()
 	cursor_moveu.emit(nome_base, player_id)
-
 	
+	# 4. Configura o Fade In + Zoom In depois da moldura já estar encaixada no botão
+	pivot_offset = size / 2
+	modulate.a = 0.0
+	scale = Vector2(0.92, 0.92)
 	
+	var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "modulate:a", 1.0, 0.18)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.18)
 	
-func _process(delta: float) -> void:
-	await get_tree().create_timer(0.1).timeout
+	# 5. Termina o delay de entrada e libera o _process
+	await get_tree().create_timer(0.3).timeout
+	
+	pode_interagir = true
+	get_viewport().gui_disable_input = false
+	set_process_input(true)
+	
+func _process(_delta: float) -> void:
+	if not pode_interagir:
+		return
 	
 	var mudou_selecao = false
-	var device_id = player_id-1  # Player 1 = Controle 0, Player 2 = Controle 1
-	
+	var device_id = player_id - 1  # Player 1 = Controle 0, Player 2 = Controle 1
 	
 	# --- LEITURA DIRETA DO ANALÓGICO ---
 	var raw_x = Input.get_joy_axis(device_id, JOY_AXIS_LEFT_X)
@@ -58,18 +81,16 @@ func _process(delta: float) -> void:
 			stick_dir.y = 1.0 if raw_y > 0 else -1.0
 			
 	# Detecta o exato momento em que o jogador empurrou o analógico (funciona como just_pressed)
-	var analog_left = (stick_dir.x < 0 and last_stick_dir.x >= 0)
-	var analog_right = (stick_dir.x > 0 and last_stick_dir.x <= 0)
-	var analog_up = (stick_dir.y < 0 and last_stick_dir.y >= 0)
-	var analog_down = (stick_dir.y > 0 and last_stick_dir.y <= 0)
+	var _analog_up = (stick_dir.y < 0 and last_stick_dir.y >= 0)
+	var _analog_down = (stick_dir.y > 0 and last_stick_dir.y <= 0)
 	
 	last_stick_dir = stick_dir
 	
 	# --- CHECAGEM DE ENTRADAS (BOTÕES / D-PAD / ANALÓGICO) ---
-	if (Input.is_action_just_pressed("customAction_player1_up") or Input.is_action_just_pressed("customAction_player2_up")) or analog_up:
+	if (Input.is_action_just_pressed("customAction_player1_up") or Input.is_action_just_pressed("customAction_player2_up")) or _analog_up:
 		boxId -= 1
 		mudou_selecao = true
-	elif (Input.is_action_just_pressed("customAction_player1_down") or Input.is_action_just_pressed("customAction_player2_down")) or analog_down:
+	elif (Input.is_action_just_pressed("customAction_player1_down") or Input.is_action_just_pressed("customAction_player2_down")) or _analog_down:
 		boxId += 1
 		mudou_selecao = true
 		
@@ -88,6 +109,7 @@ func _process(delta: float) -> void:
 			print(menuButtons[boxId].name)
 			menuButtons[boxId].pressed.emit()
 
+
 func _unhandled_input(_event: InputEvent) -> void:
 
 	# 2. Voltar com controle/teclado
@@ -102,7 +124,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			_on_back_button_pressed()
 
 func _on_start_button_pressed() -> void:
-	var stage_scene = load("res://scenes/gamemode.tscn")
+	var stage_scene = load("res://scenes/telas/gamemode_menu.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
 	if main_node and stage_scene:
 		var old_stage_id = main_node.get_child_count() - 1
@@ -113,7 +135,7 @@ func _on_start_button_pressed() -> void:
 		print("Erro: Não conseguimos encontrar a cena.")
 
 func _on_settings_button_pressed() -> void:
-	var stage_scene = load("res://scenes/settings.tscn")
+	var stage_scene = load("res://scenes/telas/settings_menu.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
 	if main_node and stage_scene:
 		var old_stage_id = main_node.get_child_count() - 1
@@ -124,7 +146,13 @@ func _on_settings_button_pressed() -> void:
 		print("Erro: Não conseguimos encontrar a cena.")
 
 func _on_exit_button_pressed() -> void:
-	get_tree().quit()
+	get_viewport().gui_disable_input = true # Para os gui inputs
+	set_process_input(false) # Para os inputs
+	
+	$exit.play() # Reproduz o exit_sound
+	
+	await get_tree().create_timer(0.96).timeout # Dá o await enquanto espera o som tocar
+	get_tree().quit() # Fecha o jogo
 
 func _on_back_button_pressed() -> void:
 	settings_container.visible = false
@@ -149,9 +177,8 @@ func _atualizar_visual() -> void:
 	
 	cursor_moveu.emit(nome_base, player_id)
 
-
 func _on_credits_button_pressed() -> void:
-	var stage_scene = load("res://scenes/creditos.tscn")
+	var stage_scene = load("res://scenes/telas/credits_menu.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
 	if main_node and stage_scene:
 		var old_stage_id = main_node.get_child_count() - 1

@@ -4,6 +4,18 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#Transição
+	$Transition.play() #Toca o audio da Transição
+	
+	#DELAY AO INICIAR A CENA
+	get_viewport().gui_disable_input = true
+	set_process_input(false)
+	
+	await get_tree().create_timer(0.65).timeout
+	
+	get_viewport().gui_disable_input = false
+	set_process_input(true)
+	#--------
 	music_slider.value = Globals.volume_music
 	master_slider.value = Globals.volume_master
 	
@@ -25,7 +37,7 @@ func _on_master_slider_value_changed(value: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	var stage_scene = load("res://scenes/StarterMenu.tscn")
+	var stage_scene = load("res://scenes/telas/starter_menu.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
 	if stage_scene:
 		var stage = stage_scene.instantiate()
@@ -37,7 +49,7 @@ func _on_button_pressed() -> void:
 
 func _on_controles_pressed() -> void:
 	
-	var stage_scene = load("res://scenes/controles.tscn")
+	var stage_scene = load("res://scenes/telas/controles.tscn")
 	var old_stage_id = get_tree().root.get_node("Main").get_child_count()-1
 	if stage_scene:
 		var stage = stage_scene.instantiate()

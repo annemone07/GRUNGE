@@ -22,6 +22,12 @@ var music_started: bool = false
 @export var multi_health_pos: Vector2 = Vector2(594, 211)
 
 func _ready() -> void:
+	# Toca o som assim que a cena inicia
+	$start.play()
+	
+	# Trava os inputs logo no início
+	get_viewport().gui_disable_input = true
+	
 	Globals.score = 0
 	Globals.combo = 0
 	Globals.max_combo = 0
@@ -52,6 +58,19 @@ func _ready() -> void:
 	time_elapsed = -Globals.start_delay
 
 	_instantiate_instruments()
+	
+	_instantiate_instruments()
+	
+	# Trava os botões das pistas e UI
+	get_tree().call_group("player_tracks", "disable_inputs")
+	get_viewport().gui_disable_input = true
+	
+	# Timer de freeze ao começar 
+	await get_tree().create_timer(3.0).timeout
+	
+	# Libera os botões das pistas e UI
+	get_tree().call_group("player_tracks", "enable_inputs")
+	get_viewport().gui_disable_input = false
 
 func _process(delta: float) -> void:
 	if is_game_over:
@@ -107,7 +126,7 @@ func _add_instrument_to_track(instrument_name: String, track_node: Node) -> void
 	if instrument_name == "" or instrument_name == null:
 		return
 		
-	var path = "res://scenes/" + instrument_name + ".tscn"
+	var path = "res://scenes/instrumentos/" + instrument_name + ".tscn"
 	
 	if ResourceLoader.exists(path):
 		var instrument_scene = load(path).instantiate()
@@ -162,7 +181,7 @@ func _end_game(is_victory: bool) -> void:
 		
 	var status_text = "VITÓRIA!" if is_victory else "GAME OVER!"
 	
-	var end_scene = load("res://scenes/victory_screen.tscn")
+	var end_scene = load("res://scenes/telas/victory_menu.tscn")
 	if end_scene:
 		var end_instance = end_scene.instantiate()
 		$UI.add_child(end_instance)

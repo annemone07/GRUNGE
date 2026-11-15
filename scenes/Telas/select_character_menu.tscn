@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c21wgdxixr8ty"]
+
+[ext_resource type="Script" uid="uid://cfa0xctt44m0d" path="res://scripts/select_characters.gd" id="1_kanji"]
+[ext_resource type="Texture2D" uid="uid://dwl1y6upqomeb" path="res://assets/backgrounds/Menu_02.jpeg" id="2_qsgly"]
+[ext_resource type="AudioStream" uid="uid://dojlcn640cgt6" path="res://assets/soundtrack/props/Switch.wav" id="3_nxdkm"]
+
+[node name="SelectCharacters" type="Node2D" unique_id=192584206]
+script = ExtResource("1_kanji")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1460300658]
+offset_right = 1366.0
+offset_bottom = 768.0
+texture = ExtResource("2_qsgly")
+
+[node name="UI" type="HBoxContainer" parent="." unique_id=590095534]
+offset_left = -66.0
+offset_top = 3.0
+offset_right = 1298.0
+offset_bottom = 769.0
+theme_override_constants/separation = 800
+alignment = 1
+
+[node name="Comecar" type="Button" parent="." unique_id=1208514218]
+visible = false
+z_index = 2
+offset_left = 617.0
+offset_top = 676.0
+offset_right = 758.0
+offset_bottom = 728.0
+text = "Começar"
+
+[node name="Transition" type="AudioStreamPlayer" parent="." unique_id=539478152]
+stream = ExtResource("3_nxdkm")
+
+[connection signal="pressed" from="Comecar" to="." method="_on_start_game_pressed"]

@@ -17,7 +17,7 @@ func _ready() -> void:
 			player += 1
 
 func _on_button_pressed() -> void:
-	var stage_scene = load("res://scenes/StarterMenu.tscn")
+	var stage_scene = load("res://scenes/telas/starter_menu.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
 	if main_node and stage_scene:
 		var old_stage_id = main_node.get_child_count() - 1
@@ -25,4 +25,4 @@ func _on_button_pressed() -> void:
 		main_node.add_child(stage)
 		main_node.get_child(old_stage_id).queue_free()
 	else:
-		get_tree().change_scene_to_file("res://scenes/StarterMenu.tscn")
+		get_tree().change_scene_to_file("res://scenes/telas/starter_menu.tscn")
