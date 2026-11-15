@@ -41,7 +41,7 @@ func _ready() -> void:
 	get_viewport().gui_disable_input = true
 	set_process_input(false)
 	
-	await get_tree().create_timer(0.65).timeout
+	await get_tree().create_timer(0.3).timeout
 	
 	get_viewport().gui_disable_input = false
 	set_process_input(true)
@@ -135,7 +135,13 @@ func _on_settings_button_pressed() -> void:
 		print("Erro: Não conseguimos encontrar a cena.")
 
 func _on_exit_button_pressed() -> void:
-	get_tree().quit()
+	get_viewport().gui_disable_input = true # Para os gui inputs
+	set_process_input(false) # Para os inputs
+	
+	$exit.play() # Reproduz o exit_sound
+	
+	await get_tree().create_timer(0.96).timeout # Dá o await enquanto espera o som tocar
+	get_tree().quit() # Fecha o jogo
 
 func _on_back_button_pressed() -> void:
 	settings_container.visible = false

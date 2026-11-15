@@ -22,6 +22,12 @@ var music_started: bool = false
 @export var multi_health_pos: Vector2 = Vector2(594, 211)
 
 func _ready() -> void:
+	# Toca o som assim que a cena inicia
+	$start.play()
+	
+	# Trava os inputs logo no início
+	get_viewport().gui_disable_input = true
+	
 	Globals.score = 0
 	Globals.combo = 0
 	Globals.max_combo = 0
@@ -52,6 +58,19 @@ func _ready() -> void:
 	time_elapsed = -Globals.start_delay
 
 	_instantiate_instruments()
+	
+	_instantiate_instruments()
+	
+	# Trava os botões das pistas e UI
+	get_tree().call_group("player_tracks", "disable_inputs")
+	get_viewport().gui_disable_input = true
+	
+	# Timer de freeze ao começar 
+	await get_tree().create_timer(3.0).timeout
+	
+	# Libera os botões das pistas e UI
+	get_tree().call_group("player_tracks", "enable_inputs")
+	get_viewport().gui_disable_input = false
 
 func _process(delta: float) -> void:
 	if is_game_over:

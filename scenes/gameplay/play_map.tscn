@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bix62g760hry8" path="res://assets/ui/palheta_vazia.png" id="3_2smms"]
 [ext_resource type="Texture2D" uid="uid://du65hg6rixpte" path="res://assets/ui/palheta_cheia_2.png" id="4_hebx7"]
 [ext_resource type="PackedScene" uid="uid://dywe5y84fa23q" path="res://scenes/gameplay/world.tscn" id="5_4q8vc"]
+[ext_resource type="AudioStream" uid="uid://bu5ynvly654ix" path="res://assets/soundtrack/props/start.wav" id="6_6r5jp"]
 
 [node name="playMap" type="Node3D" unique_id=1877076580]
 script = ExtResource("1_1ohhc")
@@ -130,5 +131,8 @@ wait_time = 0.1
 one_shot = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=880146984]
+
+[node name="start" type="AudioStreamPlayer2D" parent="." unique_id=804607911]
+stream = ExtResource("6_6r5jp")
 
 [connection signal="timeout" from="resetColor" to="." method="_on_reset_color_timeout"]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ywdbh40ge7bk" path="res://assets/backgrounds/Menu_01.PNG" id="2_yeddl"]
 [ext_resource type="Texture2D" uid="uid://cv8dr73m7sgs1" path="res://assets/ui/mouse.png" id="3_cskr7"]
 [ext_resource type="AudioStream" uid="uid://dojlcn640cgt6" path="res://assets/soundtrack/props/Switch.wav" id="4_ty2sl"]
+[ext_resource type="AudioStream" uid="uid://hay24emom4y8" path="res://assets/soundtrack/props/exit.wav" id="5_hwycl"]
 
 [node name="starterMenu" type="Control" unique_id=788738504]
 layout_mode = 3
@@ -114,6 +115,9 @@ stretch_mode = 5
 
 [node name="Transition" type="AudioStreamPlayer2D" parent="." unique_id=1818184199]
 stream = ExtResource("4_ty2sl")
+
+[node name="exit" type="AudioStreamPlayer2D" parent="." unique_id=1751574098]
+stream = ExtResource("5_hwycl")
 
 [connection signal="pressed" from="menuContainer/startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="menuContainer/settingsButton" to="." method="_on_settings_button_pressed"]
