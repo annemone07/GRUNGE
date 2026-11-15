@@ -4,16 +4,15 @@ extends Node3D
 @onready var tail: Node3D = $Tail
 @onready var tail_mesh: MeshInstance3D = $Tail/note_test
 
-# Cores padrão de cada trilha (1 a 8) caso o mesh não tenha StandardMaterial3D
 const TRACK_COLORS: Dictionary = {
-	1: Color("#22c55e"), # Verde
-	2: Color("#ef4444"), # Vermelho
-	3: Color("#eab308"), # Amarelo
-	4: Color("#3b82f6"), # Azul
-	5: Color("#f97316"), # Laranja
-	6: Color("#a855f7"), # Roxo
-	7: Color("#ec4899"), # Rosa
-	8: Color("#06b6d4"), # Ciano
+	1: Color("#22c55e"),
+	2: Color("#ef4444"),
+	3: Color("#eab308"),
+	4: Color("#3b82f6"),
+	5: Color("#f97316"),
+	6: Color("#a855f7"),
+	7: Color("#ec4899"),
+	8: Color("#06b6d4"),
 }
 
 var speed: float = 10.0
@@ -21,21 +20,30 @@ var hold_duration: float = 0.0
 var remaining_hold: float = 0.0
 var is_holding: bool = false
 var hold_dropped: bool = false
+var is_missed: bool = false
 var hitzone_z: float = 0.0
+var despawn_z: float = 15.0
 var is_square_note: bool = false
+var active_head_mesh: MeshInstance3D = null
 
 func _physics_process(delta: float) -> void:
-	# Se estiver segurando o sustain na hitzone, não avança no Z
+	# Enquanto estiver segurando na hitzone, o update_sustain trava a posição Z
 	if is_holding:
 		return
 	
 	var current_speed: float = Globals.note_speed if "note_speed" in Globals else speed
 	global_position.z += current_speed * delta
+	
+	# Só destrói a nota depois que a ponta final da cauda (tail) passar do limite da esteira
+	var tail_length: float = maxf(0.0, remaining_hold * current_speed)
+	if global_position.z - tail_length > despawn_z:
+		queue_free()
 
 func definir_cor_da_trilha(track_num: int, is_square: bool = false, duration: float = 0.0, note_speed: float = 10.0) -> void:
 	is_square_note = is_square
+	is_missed = false
+	active_head_mesh = null
 	
-	# 1. Esconde todas as malhas dentro de Head e ativa só a certa
 	for child in head.get_children():
 		if child is Node3D:
 			child.visible = false
@@ -44,17 +52,17 @@ func definir_cor_da_trilha(track_num: int, is_square: bool = false, duration: fl
 	var target_mesh: Node = head.get_node_or_null(target_name)
 	if target_mesh:
 		target_mesh.visible = true
+		if target_mesh is MeshInstance3D:
+			active_head_mesh = target_mesh
 	else:
 		push_warning("Malha de nota não encontrada: " + target_name)
 
-	# 2. Pega a cor da trilha a partir do material do mesh ativo (ou fallback do dicionário)
 	var note_color: Color = TRACK_COLORS.get(track_num, Color.WHITE)
-	if target_mesh is MeshInstance3D:
-		var mat: Material = target_mesh.get_active_material(0)
+	if active_head_mesh:
+		var mat: Material = active_head_mesh.get_active_material(0)
 		if mat is StandardMaterial3D:
 			note_color = mat.albedo_color
 
-	# 3. Configura o Tail (sustain)
 	setup_tail(duration, note_speed, note_color)
 
 func setup_tail(duration: float, note_speed: float, note_color: Color) -> void:
@@ -107,12 +115,38 @@ func release_hold() -> void:
 
 	is_holding = false
 	hold_dropped = true
+	_apply_dimmed_visual()
 
-	var mat: StandardMaterial3D = tail_mesh.get_surface_override_material(0) as StandardMaterial3D
-	if mat:
-		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		mat.albedo_color = mat.albedo_color.darkened(0.5)
-		mat.albedo_color.a = 0.35
+# Chamado quando a nota passa direto da hitzone sem ser acertada
+func mark_as_missed() -> void:
+	if is_missed:
+		return
+	is_missed = true
+	is_holding = false
+	_apply_dimmed_visual()
+
+func _apply_dimmed_visual() -> void:
+	# Escurece e aplica transparência na cabeça (se ainda estiver visível)
+	if active_head_mesh and active_head_mesh.visible:
+		var base_head_mat: Material = active_head_mesh.get_active_material(0)
+		var dim_head_mat: StandardMaterial3D
+		if base_head_mat is StandardMaterial3D:
+			dim_head_mat = base_head_mat.duplicate() as StandardMaterial3D
+		else:
+			dim_head_mat = StandardMaterial3D.new()
+		
+		dim_head_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		dim_head_mat.albedo_color = dim_head_mat.albedo_color.darkened(0.5)
+		dim_head_mat.albedo_color.a = 0.35
+		active_head_mesh.set_surface_override_material(0, dim_head_mat)
+
+	# Escurece e aplica transparência na cauda (se tiver sustain)
+	if tail.visible:
+		var mat: StandardMaterial3D = tail_mesh.get_surface_override_material(0) as StandardMaterial3D
+		if mat:
+			mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			mat.albedo_color = mat.albedo_color.darkened(0.5)
+			mat.albedo_color.a = 0.35
 
 func update_sustain(delta: float) -> bool:
 	if not is_holding:

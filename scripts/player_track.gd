@@ -23,11 +23,6 @@ var track_notes: Array = []
 var next_note_index: int = 0
 var dynamic_travel_time: float = 0.0
 
-var paths = {
-	"detect_base_1": "{instrumento}/noteTrack{i}/detect",
-	"detect_base_2": "{instrumento}/noteTrack{i}/detect",
-}
-
 func _ready() -> void:
 	add_to_group("player_tracks")
 
@@ -54,11 +49,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_process_sustains(delta)
-	
-	if name == "PlayerTrack":
-		math_check_inputs("detect_base_1")
-	elif name == "PlayerTrack2":
-		math_check_inputs("detect_base_2")
+	math_check_inputs()
 
 func _physics_process(delta: float) -> void:
 	_clean_missed_notes()
@@ -95,10 +86,14 @@ func _physics_process(delta: float) -> void:
 			
 			var spawn_pos_node = player_track.get_node_or_null("{instrumento}/noteTrack{num}/spawn".format({"instrumento": instrument, "num": noteNum}))
 			var track_node = player_track.get_node_or_null("{instrumento}/noteTrack{num}".format({"instrumento": instrument, "num": noteNum}))
+			var detect_node = player_track.get_node_or_null("{instrumento}/noteTrack{num}/detect".format({"instrumento": instrument, "num": noteNum}))
 			
 			if spawn_pos_node and track_node:
 				testNote.global_position = spawn_pos_node.global_position
 				testNote.rotation.z = track_node.rotation.z
+				if detect_node:
+					# Define o limite de despawn bem depois do detector para a cauda inteira passar
+					testNote.despawn_z = detect_node.global_position.z + 6.0
 				active_notes_queue[noteNum].append(testNote)
 		else:
 			break
@@ -109,22 +104,19 @@ func _clean_missed_notes() -> void:
 		
 	var max_buttons: int = 8 if instrument == "drums" else 4
 	for track_i in range(1, max_buttons + 1):
-		if active_notes_queue[track_i].is_empty():
-			continue
-			
-		var front_note = active_notes_queue[track_i][0]
-		if not is_instance_valid(front_note):
-			active_notes_queue[track_i].pop_front()
-			continue
-			
-		var detector_path := "{instrumento}/noteTrack{i}/detect".format({"instrumento": instrument, "i": track_i})
-		var detector := get_node_or_null(detector_path)
-		if detector:
-			# Se a nota já passou da posição Z do detector + hit_window, é Miss!
-			if front_note.global_position.z > detector.global_position.z + hit_window:
-				register_miss()
+		while not active_notes_queue[track_i].is_empty():
+			var front_note = active_notes_queue[track_i][0]
+			if not is_instance_valid(front_note):
 				active_notes_queue[track_i].pop_front()
-				front_note.queue_free()
+				continue
+				
+			var detector = _get_detector(track_i)
+			if detector and front_note.global_position.z > detector.global_position.z + hit_window:
+				register_miss()
+				front_note.mark_as_missed()
+				active_notes_queue[track_i].pop_front()
+			else:
+				break
 
 func _process_sustains(delta: float) -> void:
 	var any_holding: bool = false
@@ -135,15 +127,27 @@ func _process_sustains(delta: float) -> void:
 				any_holding = true
 			else:
 				holding_notes[track_i] = null
-		else:
+				_set_detector_holding(track_i, false)
+		elif holding_notes[track_i] != null:
 			holding_notes[track_i] = null
+			_set_detector_holding(track_i, false)
 
 	if any_holding:
-		sustain_score_accum += Globals.sustain_pts_per_sec * delta
+		var pts_rate: float = Globals.sustain_pts_per_sec if "sustain_pts_per_sec" in Globals else 250.0
+		sustain_score_accum += pts_rate * delta
 		if sustain_score_accum >= 1.0:
 			var pts: int = int(sustain_score_accum)
 			sustain_score_accum -= pts
 			Globals.score += pts
+
+func _get_detector(track_i: int) -> Node3D:
+	var detector_path := "{instrumento}/noteTrack{i}/detect".format({"instrumento": instrument, "i": track_i})
+	return get_node_or_null(detector_path)
+
+func _set_detector_holding(track_i: int, holding: bool) -> void:
+	var detector := _get_detector(track_i)
+	if detector and detector.has_method("set_holding"):
+		detector.set_holding(holding)
 
 func add_score(amount: int) -> void:
 	Globals.combo += 1
@@ -151,7 +155,6 @@ func add_score(amount: int) -> void:
 	
 	if "current_life" in Globals:
 		Globals.current_life += 2.5
-		Globals.current_life = clamp(Globals.current_life, 0.0, 100.0)
 		
 	if Globals.combo > Globals.max_combo:
 		Globals.max_combo = Globals.combo
@@ -171,7 +174,6 @@ func register_miss() -> void:
 	
 	if "current_life" in Globals:
 		Globals.current_life -= 5.0
-		Globals.current_life = clamp(Globals.current_life, 0.0, 100.0)
 	
 func _on_music_make_note(pos_beats: Variant, song_position: Variant) -> void:
 	song_pos = song_position
@@ -179,7 +181,6 @@ func _on_music_make_note(pos_beats: Variant, song_position: Variant) -> void:
 func _adjust_camera_for_instrument() -> void:
 	if not camera:
 		return
-	
 	camera.fov = 40.0
 	camera.position = Vector3(0, 8.0, 12.0)
 
@@ -189,7 +190,7 @@ func disable_inputs() -> void:
 func enable_inputs() -> void:
 	inputs_enabled = true
 
-func math_check_inputs(detect_key: String) -> void:
+func math_check_inputs() -> void:
 	if not inputs_enabled: return
 	
 	var max_buttons = 8 if instrument == "drums" else 4
@@ -202,6 +203,7 @@ func math_check_inputs(detect_key: String) -> void:
 			if is_instance_valid(held_note):
 				held_note.release_hold()
 			holding_notes[track_i] = null
+			_set_detector_holding(track_i, false)
 		
 		if Input.is_action_just_pressed(action_name):
 			active_notes_queue[track_i] = active_notes_queue[track_i].filter(func(n): return is_instance_valid(n))
@@ -209,8 +211,7 @@ func math_check_inputs(detect_key: String) -> void:
 			var acertou = false
 			if active_notes_queue[track_i].size() > 0:
 				var target_note = active_notes_queue[track_i][0]
-				var detector_path = "{instrumento}/noteTrack{i}/detect".format({"instrumento": instrument, "i": track_i})
-				var detector = get_node_or_null(detector_path)
+				var detector = _get_detector(track_i)
 				
 				if detector:
 					var dist = abs(target_note.global_position.z - detector.global_position.z)
@@ -227,16 +228,20 @@ func math_check_inputs(detect_key: String) -> void:
 							add_score(100)
 							active_notes_queue[track_i].pop_front()
 							
-							if target_note.hold_duration > 0.0:
+							var is_sustain: bool = target_note.hold_duration > 0.0
+							if is_sustain:
 								holding_notes[track_i] = target_note
-							target_note.start_hold(detector.global_position.z)
+								_set_detector_holding(track_i, true)
 							
+							target_note.start_hold(detector.global_position.z)
 							acertou = true
 							
 							if detector.has_method("animar_hit"):
 								detector.animar_hit()
 						else:
 							register_miss()
+							target_note.mark_as_missed()
+							active_notes_queue[track_i].pop_front()
 							acertou = true
 			
 			if not acertou:
