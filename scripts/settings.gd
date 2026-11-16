@@ -57,3 +57,16 @@ func _on_controles_pressed() -> void:
 		get_tree().root.get_node("Main").get_child(old_stage_id).queue_free()
 	else:
 		print("Erro: Não conseguimos encontrar a cena.")
+
+
+func _on_dev_mode_pressed() -> void:
+	var stage_scene = load("res://scenes/chart_tool/song_gallery.tscn")
+	var main_node = get_tree().root.get_node_or_null("Main")
+	if stage_scene and main_node:
+		var old_stage_id = main_node.get_child_count() - 1
+		var stage = stage_scene.instantiate()
+		main_node.add_child(stage)
+		main_node.get_child(old_stage_id).queue_free()
+	else:
+		# Fallback caso tenha rodado a cena isolada com F6
+		get_tree().change_scene_to_file("res://scenes/chart_tool/song_gallery.tscn")

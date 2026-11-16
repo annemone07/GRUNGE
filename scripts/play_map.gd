@@ -46,8 +46,13 @@ func _ready() -> void:
 	if life_bar:
 		life_bar.value = Globals.current_life
 
-	var music_key = Globals.selected_music
-	var current_song = local_beatmaps[music_key] if music_key in local_beatmaps else local_beatmaps.music_1
+	var current_song: Dictionary = {}
+	if Globals.has_meta("quickplay_chart_path") and Globals.get_meta("quickplay_chart_path") != "":
+		current_song = SoundtrackFS.load_json_dict(Globals.get_meta("quickplay_chart_path"))
+		current_song["music"] = SoundtrackFS.load_audio_stream(Globals.get_meta("quickplay_audio_path"))
+	else:
+		var music_key = Globals.selected_music
+		current_song = local_beatmaps[music_key] if music_key in local_beatmaps else local_beatmaps.music_1
 
 	music_name_label.text = current_song["title"]
 	music_author_label.text = current_song["artist"]
@@ -98,6 +103,12 @@ func _process(delta: float) -> void:
 			current_song_pos = music_player.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
 			
 	get_tree().call_group("player_tracks", "_on_music_make_note", 0, current_song_pos)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and Globals.has_meta("quickplay_chart_path") and Globals.get_meta("quickplay_chart_path") != "":
+		Globals.remove_meta("quickplay_chart_path")
+		Globals.remove_meta("quickplay_audio_path")
+		get_tree().change_scene_to_file("res://scenes/chart_tool/song_gallery.tscn")
 
 func _setup_screen_mode() -> void:
 	var is_single = Globals.is_single_player if "is_single_player" in Globals else true

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d4gk1fisqsd17"]
+
+[ext_resource type="Script" uid="uid://csa4ttxc86reb" path="res://scripts/chart_tool/song_gallery.gd" id="1_swlaq"]
+
+[node name="SongGallery" type="Control" unique_id=2018474818]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_swlaq")
+
+[node name="AudioPreviewPlayer" type="AudioStreamPlayer" parent="." unique_id=1030976247]

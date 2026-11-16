@@ -74,6 +74,14 @@ offset_right = -541.0
 offset_bottom = 320.0
 text = "voltar"
 
+[node name="dev_mode" type="Button" parent="Control3/controlBotoes" unique_id=1872480198]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 289.0
+offset_right = 578.0
+offset_bottom = 320.0
+text = "dev mode"
+
 [node name="controlMoldura" type="Control" parent="Control3" unique_id=2091216568]
 anchors_preset = 0
 
@@ -92,3 +100,4 @@ expand_mode = 1
 [connection signal="value_changed" from="Control3/controlBotoes/master_slider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Control3/controlBotoes/music_slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="Control3/controlBotoes/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control3/controlBotoes/dev_mode" to="." method="_on_dev_mode_pressed"]

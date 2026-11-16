@@ -32,7 +32,9 @@ func _ready() -> void:
 	add_to_group("player_tracks")
 
 	var loaded_song: Dictionary = {}
-	if Globals.selected_music in localBeatmaps:
+	if Globals.has_meta("quickplay_chart_path") and Globals.get_meta("quickplay_chart_path") != "":
+		loaded_song = SoundtrackFS.load_json_dict(Globals.get_meta("quickplay_chart_path"))
+	elif Globals.selected_music in localBeatmaps:
 		loaded_song = localBeatmaps[Globals.selected_music]
 	else:
 		loaded_song = localBeatmaps.music_1
@@ -107,7 +109,7 @@ func _clean_missed_notes() -> void:
 	if instrument == "":
 		return
 		
-	var max_buttons: int = 8 if instrument == "drums" else 4
+	var max_buttons = 4
 	for track_i in range(1, max_buttons + 1):
 		if active_notes_queue[track_i].is_empty():
 			continue

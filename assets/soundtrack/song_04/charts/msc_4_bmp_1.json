@@ -1,0 +1,14 @@
+{
+	"artist": "Autor",
+	"audio_path": "C:/Users/aa/Documents/GitHub/GRUNGE/assets/soundtrack/song_04/music_04.mp3",
+	"beat_divisor": 1,
+	"bpm": 120.0,
+	"free_snap_min": 0.05,
+	"title": "music_01",
+	"tracks": {
+		"bass": [],
+		"drums": [],
+		"guitar": [],
+		"vocal": []
+	}
+}
