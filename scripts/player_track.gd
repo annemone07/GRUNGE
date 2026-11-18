@@ -34,9 +34,12 @@ func _ready() -> void:
 	var loaded_song: Dictionary = {}
 	if Globals.has_meta("quickplay_chart_path") and Globals.get_meta("quickplay_chart_path") != "":
 		loaded_song = SoundtrackFS.load_json_dict(Globals.get_meta("quickplay_chart_path"))
+	elif Globals.has_meta("official_chart_path") and Globals.get_meta("official_chart_path") != "":
+		loaded_song = SoundtrackFS.load_json_dict(Globals.get_meta("official_chart_path"))
 	elif Globals.selected_music in localBeatmaps:
 		loaded_song = localBeatmaps[Globals.selected_music]
 	else:
+		loaded_song = localBeatmaps.music_1
 		loaded_song = localBeatmaps.music_1
 
 	if name == "PlayerTrack":

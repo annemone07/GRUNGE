@@ -75,7 +75,6 @@ func _ready() -> void:
 	#--------------
 	_atualizar_visual()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not pode_interagir:
@@ -132,7 +131,6 @@ func _process(delta: float) -> void:
 			menuCards[boxId].pressed.emit()
 
 
-
 func _atualizar_visual() -> void:
 		
 	# 2. Mover a moldura COM TWEEN
@@ -170,7 +168,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 		_go_back_to_mainMenu()
 
 func _go_back_to_mainMenu() -> void:
-	var stage_scene = load("res://scenes/StarterMenu.tscn")
+	var stage_scene = load("res://scenes/telas/starter_menu.tscn")
 	var main_node = get_tree().root.get_node_or_null("Main")
 	if main_node and stage_scene:
 		var old_stage_id = main_node.get_child_count() - 1
@@ -215,22 +213,19 @@ func _aplicar_estilo_focado(botao: Button):
 
 func _on_solo_pressed() -> void:
 	Globals.is_single_player = true
-	var stage_scene = load("res://scenes/telas/select_character_menu.tscn")
-	var old_stage_id = get_tree().root.get_node("Main").get_child_count() - 1
-	if stage_scene:
-		var stage = stage_scene.instantiate()
-		get_tree().root.get_node("Main").add_child(stage)
-		get_tree().root.get_node("Main").get_child(old_stage_id).queue_free()
-	else:
-		print("Erro: Não conseguimos encontrar a cena.")
+	_go_to_music_select()
 
 func _on_multiplayer_pressed() -> void:
 	Globals.is_single_player = false
-	var stage_scene = load("res://scenes/telas/select_character_menu.tscn")
-	var old_stage_id = get_tree().root.get_node("Main").get_child_count() - 1
-	if stage_scene:
-		var stage = stage_scene.instantiate()
-		get_tree().root.get_node("Main").add_child(stage)
-		get_tree().root.get_node("Main").get_child(old_stage_id).queue_free()
+	_go_to_music_select()
+
+func _go_to_music_select() -> void:
+	var stage_scene := load("res://scenes/telas/select_music_menu.tscn") as PackedScene
+	var main_node := get_tree().root.get_node_or_null("Main")
+	if stage_scene and main_node:
+		var old_stage_id := main_node.get_child_count() - 1
+		var stage: Node = stage_scene.instantiate()
+		main_node.add_child(stage)
+		main_node.get_child(old_stage_id).queue_free()
 	else:
-		print("Erro: Não conseguimos encontrar a cena.")
+		print("Erro: Não conseguimos encontrar res://scenes/telas/select_music_menu.tscn")

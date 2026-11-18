@@ -24,6 +24,20 @@ func _input(event: InputEvent) -> void:
 	):
 		_on_start_game_pressed()
 
+	if (
+		event.is_action_pressed("customAction_player1_back")
+		or event.is_action_pressed("customAction_player2_back")
+		or event.is_action_pressed("ui_cancel")
+	):
+		get_viewport().set_input_as_handled()
+		var stage_scene := load("res://scenes/telas/select_music_menu.tscn") as PackedScene
+		var main_node := get_tree().root.get_node_or_null("Main")
+		if main_node and stage_scene:
+			var old_stage_id: int = main_node.get_child_count() - 1
+			var stage: Node = stage_scene.instantiate()
+			main_node.add_child(stage)
+			main_node.get_child(old_stage_id).queue_free()
+
 func _ready() -> void:
 	#Transição
 	$Transition.play() #Toca o audio da Transição

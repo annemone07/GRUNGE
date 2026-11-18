@@ -387,16 +387,18 @@ func _open_quickplay_instrument_picker(beatmap_path: String) -> void:
 	modal_content.add_child(btn_cancel)
 
 func _open_editor_placeholder(beatmap_path: String) -> void:
-	_clear_modal()
-	var lbl := Label.new()
-	lbl.text = "[PLACEHOLDER DO CHART EDITOR]\nBeatmap pronto para edição:\n%s" % beatmap_path
-	lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	modal_content.add_child(lbl)
+	audio_player.stop()
+	Globals.set_meta("editing_beatmap_path", beatmap_path)
+	var main_node := get_tree().root.get_node_or_null("Main")
+	var editor_scene := load("res://scenes/chart_tool/chart_editor.tscn")
+	if main_node and editor_scene:
+		var old_stage_id := main_node.get_child_count() - 1
+		var stage: Node = editor_scene.instantiate()
+		main_node.add_child(stage)
+		main_node.get_child(old_stage_id).queue_free()
+	elif editor_scene:
+		get_tree().change_scene_to_file("res://scenes/chart_tool/chart_editor.tscn")
 
-	var btn_back := Button.new()
-	btn_back.text = "VOLTAR PARA BEATMAPS"
-	btn_back.pressed.connect(_open_beatmaps_view)
-	modal_content.add_child(btn_back)
 
 # ==============================================================================
 # TELA 4: EDITAR DETALHES

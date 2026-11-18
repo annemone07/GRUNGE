@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://drkasvs3oumsq"]
+
+[ext_resource type="AudioStream" uid="uid://bu5ynvly654ix" path="res://assets/soundtrack/props/start.wav" id="1_u6qfr"]
+[ext_resource type="Script" uid="uid://b6fjf75vmys8u" path="res://scripts/chart_tool/chart_editor.gd" id="1_winur"]
+
+[node name="ChartEditor" type="Control" unique_id=683141295]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_winur")
+
+[node name="SongPlayer" type="AudioStreamPlayer" parent="." unique_id=823397487]
+
+[node name="HitSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1864798473]
+stream = ExtResource("1_u6qfr")

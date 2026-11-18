@@ -50,6 +50,9 @@ func _ready() -> void:
 	if Globals.has_meta("quickplay_chart_path") and Globals.get_meta("quickplay_chart_path") != "":
 		current_song = SoundtrackFS.load_json_dict(Globals.get_meta("quickplay_chart_path"))
 		current_song["music"] = SoundtrackFS.load_audio_stream(Globals.get_meta("quickplay_audio_path"))
+	elif Globals.has_meta("official_chart_path") and Globals.get_meta("official_chart_path") != "":
+		current_song = SoundtrackFS.load_json_dict(Globals.get_meta("official_chart_path"))
+		current_song["music"] = SoundtrackFS.load_audio_stream(Globals.get_meta("official_audio_path"))
 	else:
 		var music_key = Globals.selected_music
 		current_song = local_beatmaps[music_key] if music_key in local_beatmaps else local_beatmaps.music_1
@@ -106,9 +109,24 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and Globals.has_meta("quickplay_chart_path") and Globals.get_meta("quickplay_chart_path") != "":
+		var go_to_editor: bool = Globals.get_meta("return_to_editor", false)
+		
 		Globals.remove_meta("quickplay_chart_path")
 		Globals.remove_meta("quickplay_audio_path")
-		get_tree().change_scene_to_file("res://scenes/chart_tool/song_gallery.tscn")
+		if Globals.has_meta("return_to_editor"):
+			Globals.remove_meta("return_to_editor")
+
+		var target_path: String = "res://scenes/chart_tool/chart_editor.tscn" if go_to_editor else "res://scenes/chart_tool/song_gallery.tscn"
+		var main_node: Node = get_tree().root.get_node_or_null("Main")
+		var target_scene := load(target_path) as PackedScene
+
+		if main_node and target_scene:
+			var old_stage_id: int = main_node.get_child_count() - 1
+			var stage: Node = target_scene.instantiate()
+			main_node.add_child(stage)
+			main_node.get_child(old_stage_id).queue_free()
+		elif target_scene:
+			get_tree().change_scene_to_file(target_path)
 
 func _setup_screen_mode() -> void:
 	var is_single = Globals.is_single_player if "is_single_player" in Globals else true
@@ -188,8 +206,6 @@ func _end_game(is_victory: bool) -> void:
 	if music_player:
 		music_player.stop()
 		
-	var status_text = "VITÓRIA!" if is_victory else "GAME OVER!"
-	
 	var end_scene = load("res://scenes/telas/victory_menu.tscn")
 	if end_scene:
 		var end_instance = end_scene.instantiate()
@@ -198,7 +214,56 @@ func _end_game(is_victory: bool) -> void:
 		if end_instance.has_method("setup_screen"):
 			end_instance.setup_screen(is_victory)
 	else:
-		print("LOG: Erro ao carregar res://scenes/victory_screen.tscn")
+		print("LOG: Erro ao carregar res://scenes/telas/victory_menu.tscn")
+
+	# Se estiver no modo Quick Play (vindo da Galeria ou do Editor), exibe os 2 botões de retorno
+	if Globals.has_meta("quickplay_chart_path") and Globals.get_meta("quickplay_chart_path") != "":
+		get_viewport().gui_disable_input = false
+		_spawn_quickplay_end_buttons()
+
+func _spawn_quickplay_end_buttons() -> void:
+	var bar := HBoxContainer.new()
+	bar.alignment = BoxContainer.ALIGNMENT_CENTER
+	bar.add_theme_constant_override("separation", 24)
+	bar.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	bar.offset_top = -110.0
+	bar.offset_bottom = -40.0
+	$UI.add_child(bar)
+
+	var btn_editor := Button.new()
+	btn_editor.text = "VOLTAR AO EDITOR"
+	btn_editor.custom_minimum_size = Vector2(240, 52)
+	btn_editor.add_theme_font_size_override("font_size", 20)
+	btn_editor.pressed.connect(func(): _exit_quickplay_to("res://scenes/chart_tool/chart_editor.tscn"))
+	bar.add_child(btn_editor)
+
+	var btn_gallery := Button.new()
+	btn_gallery.text = "VOLTAR À GALERIA"
+	btn_gallery.custom_minimum_size = Vector2(240, 52)
+	btn_gallery.add_theme_font_size_override("font_size", 20)
+	btn_gallery.pressed.connect(func(): _exit_quickplay_to("res://scenes/chart_tool/song_gallery.tscn"))
+	bar.add_child(btn_gallery)
+
+func _exit_quickplay_to(target_path: String) -> void:
+	# Garante que o editor saiba qual beatmap estava aberto mesmo se o Quick Play veio direto da Galeria
+	if target_path.ends_with("chart_editor.tscn") and Globals.has_meta("quickplay_chart_path"):
+		Globals.set_meta("editing_beatmap_path", Globals.get_meta("quickplay_chart_path"))
+
+	Globals.remove_meta("quickplay_chart_path")
+	Globals.remove_meta("quickplay_audio_path")
+	if Globals.has_meta("return_to_editor"):
+		Globals.remove_meta("return_to_editor")
+
+	var main_node: Node = get_tree().root.get_node_or_null("Main")
+	var target_scene := load(target_path) as PackedScene
+
+	if main_node and target_scene:
+		var old_stage_id: int = main_node.get_child_count() - 1
+		var stage: Node = target_scene.instantiate()
+		main_node.add_child(stage)
+		main_node.get_child(old_stage_id).queue_free()
+	elif target_scene:
+		get_tree().change_scene_to_file(target_path)
 
 func animate_countdown(text_value: String) -> void:
 	if not countdown_label: return

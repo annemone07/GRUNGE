@@ -7,7 +7,9 @@ var menu_scenes = [
 	"res://scenes/telas/credits_menu.tscn",
 	"res://scenes/telas/settings_menu.tscn",
 	"res://scenes/telas/gamemode_menu.tscn",
+	"res://scenes/telas/select_music_menu.tscn",
 	"res://scenes/telas/select_character_menu.tscn"
+	
 ]
 
 func _ready() -> void:
